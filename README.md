@@ -23,6 +23,8 @@ Place one RN in every row, column, and colored care zone. RNs cannot touch, even
 - [x] General, Pediatrics, and Emergency color themes
 - [x] Optional original NCLEX-style infection-prevention bonus questions with CDC rationales
 - [x] Siahverse nursing hub integration
+- [x] Synthesized tap, RN, hint, undo, and win sounds with a saved mute setting
+- [x] X pop, RN bounce and sparkle, care-zone feedback, win confetti; reduced-motion support
 - [x] Saved progress and themes; timer pauses when the page is hidden
 
 Progress and statistics are saved on this browser/device. Difficulty reflects board size rather than a calibrated solving rating. The bonus bank currently contains three original hand-hygiene questions. Generation uses bounded attempts and a verified starter fallback if a unique board cannot be produced.
