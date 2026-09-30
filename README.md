@@ -23,13 +23,13 @@ Start from the main menu; loading the app leaves the timer paused. The changelog
 - [x] Daily streak, total wins, and best completion time
 - [x] Hints, undo, reset, automatic completion, next shift
 - [x] General, Pediatrics, and Emergency color themes
-- [x] Required original infection-prevention nursing question with answer selection, confirmation, and CDC rationale
+- [x] Required original NCLEX question with answer selection, confirmation, rationale, and linked clinical sources
 - [x] Siahverse nursing hub integration
 - [x] Synthesized tap, RN, hint, undo, and win sounds with a saved mute setting
 - [x] X pop, RN bounce and sparkle, care-zone feedback, win confetti; reduced-motion support
 - [x] Saved progress and themes; timer pauses when the page is hidden
 
-Progress and statistics are saved on this browser/device. Difficulty uses an automated deduction heuristic; human calibration remains future work. The NCLEX question bank currently contains 12 original questions. Generation uses bounded attempts and a verified starter fallback if a unique board cannot be produced.
+Progress and statistics are saved on this browser/device. Difficulty uses an automated deduction heuristic; human calibration remains future work. The NCLEX question bank currently contains 34 original questions. Generation uses bounded attempts and a verified starter fallback if a unique board cannot be produced.
 
 ## Run locally
 
@@ -51,7 +51,7 @@ Current rules: three incorrect RN placements end a shift. Invalid placements are
 
 Hints now explain direct deductions or confined-zone elimination from placed RNs, independently of player X marks. If those techniques cannot explain a move, the hint explicitly says it is a solution reveal. The daily archive includes a month calendar with completed-day markers and blocks future dates and dates before launch.
 
-The required post-shift question bank contains 12 original NCLEX-style single-answer items covering prioritization, adult health, pediatrics, medication safety, mental health, oncology, and dosage calculations. Clinical items link to primary health sources; calculations explain the order supplied in the question. They are independently authored practice items. Saved answers from the previous question bank reset when that bank changes.
+The required post-shift question bank contains 34 original NCLEX single-answer items covering prioritization, adult health, pediatrics, medication safety, mental health, oncology, and dosage calculations. Clinical items link to primary health sources; calculations explain the order supplied in the question. They are independently authored practice items. The old infection-prevention bank used a different version. Append-only NCLEX bank expansions preserve saved answers and history.
 
 ### Question history
 
@@ -72,3 +72,10 @@ Single taps place/erase X immediately; a second tap on the same square within 36
 The menu separates Learn/Daily from custom practice controls. One nursing hub link and one What's new control remain. The bottom footer shows the release date and version. Results sharing includes Facebook and an Instagram image option; file sharing uses the native share sheet when supported, otherwise downloads an image to upload manually. It never posts automatically.
 
 After changing any source file or question/board bank, run `node scripts/build-assets.cjs` from this repository and publish index.html, sw.js, and the generated assets/ files together with the source. Keep old content-hashed assets for existing offline clients. Never overwrite the bytes at an existing hashed asset path.
+
+
+## Question expansion — September 30, 2026
+
+Added 22 original questions (18 clinical, four calculation), bringing the bank to 34. Topics include maternal/newborn care, renal and endocrine health, nutrition, medication safety, mental health, oncology, seizure safety, and pulmonary embolism. Existing IDs, order, answer choices, correct indices, and QUIZ_VERSION remain unchanged. Source checks and the review scope are recorded in [the batch review](content/question-reviews/2026-09-30.json). Clinical items were checked against current accessible NIH, FDA, and CDC pages; this is source verification, not independent clinician review or official NCLEX content. Four calculation answers were independently checked using exact rational arithmetic.
+
+Validation: `node tests/check-questions.cjs`, `node tests/check-state.cjs`, `node tests/check-accounts.cjs`, and `node tests/check-offline.cjs`. The question checks preserve the original 12-item fixture, validate stable IDs/answer structure, and enforce the 5,000 cap. State checks exercise confirmation for every item and verify that append-only growth preserves existing submitted answers and cloud history while offering unseen items ahead of missed ones.
