@@ -85,3 +85,5 @@ Validation: `node tests/check-questions.cjs`, `node tests/check-state.cjs`, `nod
 Use the moon/sun icon in the header to switch appearance. NurseDoku follows the device setting until you choose a mode, then remembers your preference on this browser. Care-zone colors and progress stay unchanged.
 
 The How to play tutorial has five numbered steps, a solved 4×4 example, and separate RN/X practice squares. It explains rows, columns, care zones, diagonal spacing, and the required NCLEX question without assuming prior puzzle experience. Tutorial practice does not change saved progress or strikes.
+
+Select Next tip on the nursing tip card to browse the existing sourced tips. Browsing wraps at the end and resets to the daily tip on a new day or page reload.
