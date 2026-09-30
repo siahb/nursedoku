@@ -79,3 +79,7 @@ After changing any source file or question/board bank, run `node scripts/build-a
 Added 22 original questions (18 clinical, four calculation), bringing the bank to 34. Topics include maternal/newborn care, renal and endocrine health, nutrition, medication safety, mental health, oncology, seizure safety, and pulmonary embolism. Existing IDs, order, answer choices, correct indices, and QUIZ_VERSION remain unchanged. Source checks and the review scope are recorded in [the batch review](content/question-reviews/2026-09-30.json). Clinical items were checked against current accessible NIH, FDA, and CDC pages; this is source verification, not independent clinician review or official NCLEX content. Four calculation answers were independently checked using exact rational arithmetic.
 
 Validation: `node tests/check-questions.cjs`, `node tests/check-state.cjs`, `node tests/check-accounts.cjs`, and `node tests/check-offline.cjs`. The question checks preserve the original 12-item fixture, validate stable IDs/answer structure, and enforce the 5,000 cap. State checks exercise confirmation for every item and verify that append-only growth preserves existing submitted answers and cloud history while offering unseen items ahead of missed ones.
+
+## Dark mode
+
+Use the moon/sun icon in the header to switch appearance. NurseDoku follows the device setting until you choose a mode, then remembers your preference on this browser. Care-zone colors and progress stay unchanged.
