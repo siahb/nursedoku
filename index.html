@@ -10,8 +10,8 @@
   <meta property="og:url" content="https://siahverse.cc/nursedoku/">
   <meta property="og:type" content="website">
   <title>NurseDoku</title>
-  <script src="assets/appearance.1f6145a180.js"></script>
-  <link rel="stylesheet" href="assets/styles.0a3217cb77.css">
+  <script src="assets/appearance.88e2f13df2.js"></script>
+  <link rel="stylesheet" href="assets/styles.3e4e4ac9b1.css">
   <link rel="icon" href="icon.svg">
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -101,14 +101,14 @@
   <footer class="app-version"><time datetime="2026-09-29">September 29, 2026</time><span>Version 1.1.0</span></footer>
   </main>
 
-  <dialog id="changelogDialog"><div class="dialog-body changelog-body">
+  <dialog id="changelogDialog" aria-labelledby="changelogHeading"><div class="dialog-body changelog-body">
     <p class="eyebrow">September 29, 2026 · New update</p><h2>A little more guidance.</h2><p>Here’s what’s new in NurseDoku:</p>
     <ul class="changelog-list"><li><strong>Better 10×10 shifts.</strong> Ten distinct colors, connected care zones, and one free starter square per board.</li><li><strong>Quicker taps.</strong> Xs appear immediately; double-tap still places an RN.</li><li><strong>Care zone cleared!</strong> A little celebration when you place the RN and mark the remaining squares X.</li><li><strong>A cleaner menu.</strong> Practice settings sit above the practice button. Facebook and Instagram join results sharing.</li><li><strong>A little learning, every day.</strong> A short nursing tip on the main menu, with a source link. Dismiss it for today and get straight to your shift.</li><li><strong>Fresh questions first.</strong> Correct answers stay retired. Missed questions can return for review; keep playing when you’re caught up.</li><li><strong>Practice for NCLEX.</strong> Clinical scenarios, prioritization, medication safety, pediatrics, and dosage calculations replace the hand-hygiene question set.</li><li><strong>Hints with a reason.</strong> Learn why a square needs an RN or an X. Deeper hints are clearly labeled as solution reveals.</li><li><strong>Your daily calendar.</strong> Browse dates and see which daily puzzles you’ve completed.</li><li><strong>Cleaner sharing.</strong> Copy icons and social logos replace text labels.</li><li><strong>A proper welcome.</strong> Choose your shift from a new main menu; your timer starts when you play.</li><li><strong>Swipe both ways.</strong> Start on an empty cell to add Xs, or on an X to erase several at once.</li><li><strong>Savor your win.</strong> Enjoy your finished board and a brief celebration before the result screen.</li><li><strong>Practice after your shift.</strong> Select an answer, then confirm it to see the explanation.</li><li><strong>Share your little victory.</strong> Sharing buttons on the main menu and results screen.</li><li><strong>Bigger challenges.</strong> 10×10 puzzles, 56 training shifts, and three strikes per attempt.</li><li><strong>Account beta.</strong> Private cloud saves are built; public registration is awaiting email setup.</li></ul>
     <button id="closeChangelogBtn" class="primary-btn full" type="button">Let’s play</button>
   </div></dialog>
 
-  <dialog id="accountDialog"><div class="dialog-body">
-    <div class="dialog-header"><div><p class="eyebrow">Your shifts, anywhere</p><h2>Account &amp; cloud saves</h2></div><button id="closeAccountBtn" class="icon-btn" type="button" aria-label="Close account">×</button></div>
+  <dialog id="accountDialog" aria-labelledby="accountHeading"><div class="dialog-body">
+    <div class="dialog-header"><div><p class="eyebrow">Your shifts, anywhere</p><h2 id="accountHeading">Account &amp; cloud saves</h2></div><button id="closeAccountBtn" class="icon-btn" type="button" aria-label="Close account">×</button></div>
     <p class="account-note">An account saves your puzzle, completed shifts, and daily progress with Supabase. Guest play stays available. Each account has its own save on this device.</p>
     <p id="registrationNote" class="account-note" hidden>Account creation is expected in 3 days (October 3), pending email verification. Guest play and device saves are available now.</p>
     <form id="authForm">
@@ -128,13 +128,13 @@
     <p class="account-note">Your browser keeps you signed in until you sign out.</p>
   </div></dialog>
 
-  <dialog id="lossDialog"><div class="dialog-body win-body">
-    <p class="eyebrow">Shift ended</p><h2>No hearts left.</h2><p>An incorrect RN placement costs one heart. Take a breath and try the shift again.</p>
+  <dialog id="lossDialog" aria-labelledby="lossHeading"><div class="dialog-body win-body">
+    <p class="eyebrow">Shift ended</p><h2 id="lossHeading">No hearts left.</h2><p>An incorrect RN placement costs one heart. Take a breath and try the shift again.</p>
     <button id="retryBtn" class="primary-btn full" type="button">Retry this shift</button>
     <button id="newAfterLossBtn" class="secondary-btn full" type="button">Try another shift</button>
   </div></dialog>
-  <dialog id="archiveDialog"><div class="dialog-body">
-    <div class="dialog-header"><h2>Daily archive</h2><button id="closeArchiveBtn" class="icon-btn" aria-label="Close daily archive" type="button">×</button></div>
+  <dialog id="archiveDialog" aria-labelledby="archiveHeading"><div class="dialog-body">
+    <div class="dialog-header"><h2 id="archiveHeading">Daily archive</h2><button id="closeArchiveBtn" class="icon-btn" aria-label="Close daily archive" type="button">×</button></div>
     <div class="calendar-nav"><button id="archivePrevBtn" class="icon-btn" type="button" aria-label="Previous month">‹</button><h3 id="archiveMonthLabel"></h3><button id="archiveNextBtn" class="icon-btn" type="button" aria-label="Next month">›</button></div><div class="calendar-weekdays" aria-hidden="true"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div><div id="archiveCalendar" class="daily-calendar" role="group" aria-label="Daily puzzle dates"></div><p class="calendar-key">✓ Completed · Outlined date is selected</p><label>Choose a date <input id="archiveDate" type="date" min="2026-09-29"></label><p id="archiveStatus" aria-live="polite"></p>
     <button id="loadArchiveBtn" class="primary-btn full" type="button">Open daily shift</button>
   </div></dialog>
@@ -160,7 +160,7 @@
     </div>
   </dialog>
 
-  <dialog id="winDialog">
+  <dialog id="winDialog" aria-labelledby="winHeading">
     <div id="celebration" class="celebration" aria-hidden="true"></div>
     <div class="dialog-body win-body">
       <div class="question-close-row"><button id="closeQuestionBtn" class="icon-btn" type="button" aria-label="Return to main menu">×</button></div>
@@ -174,13 +174,13 @@
     </div>
   </dialog>
 
-  <script src="assets/account-config.60877276eb.js"></script>
-  <script src="assets/large-puzzles.f94920ef9e.js"></script>
-  <script src="assets/puzzles.7928824603.js"></script>
+  <script src="assets/account-config.acc6cc855d.js"></script>
+  <script src="assets/large-puzzles.b5dbb536ca.js"></script>
+  <script src="assets/puzzles.ad028b6d5f.js"></script>
   <script src="assets/app.788aabc454.js"></script>
-  <script src="assets/accounts.806b219d88.js"></script>
-  <script src="assets/tutorial.6d3aa84de1.js"></script>
-  <script src="assets/shift000.42631442dc.js"></script>
+  <script src="assets/accounts.fdc27a8cdf.js"></script>
+  <script src="assets/tutorial.d3a29e2f49.js"></script>
+  <script src="assets/shift000.58ff5b0f2f.js"></script>
 </body>
 </html>
 
