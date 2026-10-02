@@ -29,7 +29,7 @@ Start from the main menu; loading the app leaves the timer paused. The changelog
 - [x] X pop, RN bounce and sparkle, care-zone feedback, win confetti; reduced-motion support
 - [x] Saved progress and themes; timer pauses when the page is hidden
 
-Progress and statistics are saved on this browser/device. Difficulty uses an automated deduction heuristic; human calibration remains future work. The NCLEX question bank currently contains 54 original questions. Generation uses bounded attempts and a verified starter fallback if a unique board cannot be produced.
+Progress and statistics are saved on this browser/device. Difficulty uses an automated deduction heuristic; human calibration remains future work. The NCLEX question bank currently contains 74 original questions. Generation uses bounded attempts and a verified starter fallback if a unique board cannot be produced.
 
 ## Run locally
 
@@ -51,7 +51,7 @@ Current rules: three incorrect RN placements end a shift. Invalid placements are
 
 Hints now explain direct deductions or confined-zone elimination from placed RNs, independently of player X marks. If those techniques cannot explain a move, the hint explicitly says it is a solution reveal. The daily archive includes a month calendar with completed-day markers and blocks future dates and dates before launch.
 
-The required post-shift question bank contains 54 original NCLEX single-answer items covering prioritization, adult health, pediatrics, medication safety, mental health, oncology, infection prevention, and dosage calculations. Clinical items link to authoritative government health sources; calculations explain the order supplied in the question. They are independently authored practice items. The old infection-prevention bank used a different version. Append-only NCLEX bank expansions preserve saved answers and history.
+The required post-shift question bank contains 74 original NCLEX single-answer items covering prioritization, adult health, pediatrics, medication safety, mental health, oncology, infection prevention, and dosage calculations. Clinical items link to authoritative government health sources; calculations explain the order supplied in the question. They are independently authored practice items. The old infection-prevention bank used a different version. Append-only NCLEX bank expansions preserve saved answers and history.
 
 ### Question history
 
@@ -85,6 +85,12 @@ Validation: `node tests/check-questions.cjs`, `node tests/check-state.cjs`, `nod
 Added 20 original questions (15 clinical, five calculation), bringing the bank to 54. Topics include infection precautions, CAUTI prevention, diabetes foot care, asthma medications, GERD, cirrhosis, postpartum warning signs, pediatric milestones, antibiotic stewardship, warfarin safety, stroke response, anemia, CKD nutrition, sickle cell disease, and dosage calculations. Existing questions, IDs, answer order, correct indices, and `QUIZ_VERSION` remain unchanged. Source checks and review scope are recorded in [the October 1 batch review](content/question-reviews/2026-10-01.json).
 
 The validation fixture now preserves all 34 questions published through September 30. Review tests cover both dated batches, verify source domains and audit entries, confirm calculation keys, and retain the 5,000-question cap. Five new calculation answers were independently checked before publication.
+
++## Question expansion — October 2, 2026
+
+Added 20 original questions (15 clinical, five calculation), bringing the bank to 74. Topics include sepsis, pregnancy immunization, safe infant sleep, pediatric dehydration, anaphylaxis, heart attack symptoms, hypertension treatment, folic acid, lithium toxicity, disseminated shingles, sickle cell emergencies, perinatal mental health, insulin storage, peripheral IV phlebitis, acute urinary retention, and dosage calculations. Existing questions, permanent IDs, answer order, correct indices, and `QUIZ_VERSION` remain unchanged. Source checks and review scope are recorded in [the October 2 batch review](content/question-reviews/2026-10-02.json).
+
+The validation suite now locks the complete 54-question bank published through October 1 with a SHA-256 fixture, audits all three dated batches, validates approved source domains, and independently checks the five new calculation keys.
 
 ## Dark mode
 

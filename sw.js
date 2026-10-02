@@ -1,5 +1,5 @@
-const CACHE='nursedoku-a3e4cdc5f9';
-const ASSETS=["./","index.html","manifest.webmanifest","icon.svg","assets/app.088cf6ea8c.js","assets/styles.2f5244526d.css","assets/puzzles.ad028b6d5f.js","assets/large-puzzles.b5dbb536ca.js","assets/account-config.acc6cc855d.js","assets/accounts.bad5136a6b.js","assets/appearance.88e2f13df2.js","assets/tutorial.febc11ad7b.js","assets/shift000.a34003cabf.js"];
+const CACHE='nursedoku-a341952ac3';
+const ASSETS=["./","index.html","manifest.webmanifest","icon.svg","assets/app.8c74a9ca2b.js","assets/styles.5a5e6372c6.css","assets/puzzles.7928824603.js","assets/large-puzzles.f94920ef9e.js","assets/account-config.60877276eb.js","assets/accounts.10ecd39341.js","assets/appearance.1f6145a180.js","assets/tutorial.eb4797bace.js","assets/shift000.98c6180a8e.js"];
 
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS))));
 // Activate on the next visit, keeping an in-progress board on a consistent version.
@@ -10,5 +10,6 @@ self.addEventListener('fetch',event=>{
  if(event.request.mode==='navigate')event.respondWith(fetch(event.request).catch(()=>caches.open(CACHE).then(cache=>cache.match('index.html'))));
  else event.respondWith(caches.open(CACHE).then(async cache=>(await cache.match(event.request))||fetch(event.request)));
 });
+
 
 
