@@ -1,0 +1,218 @@
+{
+  "date": "2026-10-04",
+  "before": 98,
+  "added": 20,
+  "total": 118,
+  "review": "Source and arithmetic verification by the authoring assistant; not an independent clinician review or official NCLEX content.",
+  "duplicateReview": "All existing 98 stems and learning objectives were compared with this batch. The 16 clinical items target new decisions or concepts, and the four calculations use objectives absent from the prior bank rather than changing numbers in prior dosage items.",
+  "questions": [
+    {
+      "id": "nclex-00099",
+      "topic": "Respiratory care · CPAP teaching",
+      "source": "https://www.nhlbi.nih.gov/health/sleep-apnea/treatment",
+      "objective": "CPAP mechanism for obstructive sleep apnea",
+      "support": "NHLBI explains that CPAP supplies constant air pressure to keep the airway open during sleep.",
+      "retrievalRef": "turn66view0",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00100",
+      "topic": "Cardiovascular care · Deep vein thrombosis cues",
+      "source": "https://www.nhlbi.nih.gov/health/venous-thromboembolism/symptoms",
+      "objective": "Unilateral DVT symptom pattern",
+      "support": "NHLBI lists leg swelling, tenderness, and pain among common DVT symptoms.",
+      "retrievalRef": "turn66view1",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00101",
+      "topic": "Vascular emergency · Acute limb ischemia",
+      "source": "https://www.nhlbi.nih.gov/health/peripheral-artery-disease/living-with",
+      "objective": "Recognize sudden limb ischemia as an emergency",
+      "support": "NHLBI identifies sudden sensory or movement loss and a pale, blue, or colder foot as emergency findings.",
+      "retrievalRef": "turn66view2",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00102",
+      "topic": "Renal care · Kidney infection recognition",
+      "source": "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-infection-pyelonephritis/symptoms-causes",
+      "objective": "Kidney infection symptom cluster and urgency",
+      "support": "NIDDK lists fever or chills, urinary symptoms, and back, side, or groin pain and advises prompt care.",
+      "retrievalRef": "turn69view11",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00103",
+      "topic": "Gastrointestinal emergency · Acute pancreatitis",
+      "source": "https://www.niddk.nih.gov/health-information/digestive-diseases/pancreatitis/symptoms-causes",
+      "objective": "Acute pancreatitis warning pattern",
+      "support": "NIDDK describes upper-abdominal pain radiating to the back and urgent features including vomiting, fever, and rapid heart rate.",
+      "retrievalRef": "turn69view9",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00104",
+      "topic": "Gastrointestinal care · Constipation warning signs",
+      "source": "https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/symptoms-causes",
+      "objective": "Constipation red flags requiring medical care",
+      "support": "NIDDK advises prompt care for constipation with constant abdominal pain, inability to pass gas, or vomiting.",
+      "retrievalRef": "turn69view10",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00105",
+      "topic": "Maternal health · MMR vaccination",
+      "source": "https://www.cdc.gov/vaccines-pregnancy/hcp/vaccination-guidelines/index.html",
+      "objective": "MMR contraindication during pregnancy",
+      "support": "CDC states that MMR is contraindicated during pregnancy and susceptible clients should be vaccinated after pregnancy.",
+      "retrievalRef": "turn69view4",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00106",
+      "topic": "Pediatrics · RSV urgent symptoms",
+      "source": "https://www.cdc.gov/rsv/about/index.html",
+      "objective": "Infant RSV breathing and hydration warning signs",
+      "support": "CDC advises seeking care for breathing difficulty, inadequate fluid intake, or worsening symptoms and notes fever may be absent.",
+      "retrievalRef": "turn69view5",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00107",
+      "topic": "Infectious disease · Meningococcal emergency",
+      "source": "https://www.cdc.gov/meningococcal/symptoms/index.html",
+      "objective": "Rapidly progressive meningococcal symptom recognition",
+      "support": "CDC lists fever, headache, stiff neck, confusion, and later dark-purple rash and emphasizes immediate care.",
+      "retrievalRef": "turn71search1",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00108",
+      "topic": "Pediatrics · 18-month development",
+      "source": "https://www.cdc.gov/act-early/milestones-in-action/18-months.html",
+      "objective": "18-month social and emotional milestone",
+      "support": "CDC identifies pointing to show something interesting as an 18-month milestone.",
+      "retrievalRef": "turn71search0",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00109",
+      "topic": "Oncology care · Early lymphedema cues",
+      "source": "https://www.cancer.gov/about-cancer/treatment/side-effects/lymphedema",
+      "objective": "Early lymphedema symptom recognition",
+      "support": "NCI lists heaviness, fullness, tightness, and swelling as lymphedema symptoms and encourages early contact with the care team.",
+      "retrievalRef": "turn68view4",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00110",
+      "topic": "Oncology care · Peripheral neuropathy safety",
+      "source": "https://www.cancer.gov/about-cancer/treatment/side-effects/nerve-problems",
+      "objective": "Neuropathy reporting and injury prevention",
+      "support": "NCI notes reduced ability to feel heat, cold, or cuts and advises early reporting of neuropathy symptoms.",
+      "retrievalRef": "turn69view8",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00111",
+      "topic": "Mental health · PTSD psychotherapy",
+      "source": "https://www.nimh.nih.gov/health/publications/post-traumatic-stress-disorder-ptsd",
+      "objective": "Purpose of exposure therapy for PTSD",
+      "support": "NIMH describes exposure therapy as gradual, safe exposure that helps clients manage trauma-related fear.",
+      "retrievalRef": "turn70view0",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00112",
+      "topic": "Medication safety · Unused medicine disposal",
+      "source": "https://www.fda.gov/consumers/consumer-updates/where-and-how-dispose-unused-medicines",
+      "objective": "Preferred disposal of most unused medicines",
+      "support": "FDA identifies drug take-back locations and mail-back programs as the best disposal options for most unused medicines.",
+      "retrievalRef": "turn70view1",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00113",
+      "topic": "Infection prevention · C. difficile recognition",
+      "source": "https://www.cdc.gov/c-diff/about/index.html",
+      "objective": "Post-antibiotic diarrhea requiring evaluation",
+      "support": "CDC says most C. difficile cases occur during or soon after antibiotics and advises evaluation for diarrhea in that setting.",
+      "retrievalRef": "turn70view2",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00114",
+      "topic": "Oncology care · Nausea nutrition",
+      "source": "https://www.cancer.gov/about-cancer/treatment/side-effects/nausea-vomiting",
+      "objective": "Meal and fluid pattern for treatment-related nausea",
+      "support": "NCI recommends five or six smaller meals, bland foods, and fluids sipped through the day.",
+      "retrievalRef": "turn70view3",
+      "checkedOn": "2026-10-04",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00115",
+      "topic": "Nursing calculation · Body surface area dose",
+      "source": null,
+      "objective": "Two-step Mosteller BSA dose using a supplied formula",
+      "calculation": {
+        "expression": "sqrt((144 * 25) / 3600) * 50",
+        "expected": "50 mg"
+      },
+      "checkedOn": "2026-10-04",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    },
+    {
+      "id": "nclex-00116",
+      "topic": "Nursing calculation · Percentage weight change",
+      "source": null,
+      "objective": "Percentage loss from an original weight",
+      "calculation": {
+        "expression": "((80 - 76) / 80) * 100",
+        "expected": "5%"
+      },
+      "checkedOn": "2026-10-04",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    },
+    {
+      "id": "nclex-00117",
+      "topic": "Diabetes calculation · Carbohydrate coverage",
+      "source": null,
+      "objective": "Meal carbohydrate divided by a supplied insulin ratio",
+      "calculation": {
+        "expression": "60 / 12",
+        "expected": "5 units"
+      },
+      "checkedOn": "2026-10-04",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    },
+    {
+      "id": "nclex-00118",
+      "topic": "Nursing calculation · Percent concentration",
+      "source": null,
+      "objective": "Mass in a volume from supplied weight/volume percent",
+      "calculation": {
+        "expression": "(0.9 / 100) * 500",
+        "expected": "4.5 g"
+      },
+      "checkedOn": "2026-10-04",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    }
+  ]
+}
