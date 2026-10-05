@@ -29,7 +29,7 @@ Start from the main menu; loading the app leaves the timer paused. The changelog
 - [x] X pop, RN bounce and sparkle, care-zone feedback, win confetti; reduced-motion support
 - [x] Saved progress and themes; timer pauses when the page is hidden
 
-Progress and statistics are saved on this browser/device. Difficulty uses an automated deduction heuristic; human calibration remains future work. The NCLEX question bank currently contains 118 original questions. Generation uses bounded attempts and a verified starter fallback if a unique board cannot be produced.
+Progress and statistics are saved on this browser/device. Difficulty uses an automated deduction heuristic; human calibration remains future work. The NCLEX question bank currently contains 138 original questions. Generation uses bounded attempts and a verified starter fallback if a unique board cannot be produced.
 
 ## Run locally
 
@@ -51,7 +51,7 @@ Current rules: three incorrect RN placements end a shift. Invalid placements are
 
 Hints now explain direct deductions or confined-zone elimination from placed RNs, independently of player X marks. If those techniques cannot explain a move, the hint explicitly says it is a solution reveal. The daily archive includes a month calendar with completed-day markers and blocks future dates and dates before launch.
 
-The required post-shift question bank contains 118 original NCLEX single-answer items covering prioritization, adult health, pediatrics, medication safety, mental health, oncology, infection prevention, and dosage calculations. Clinical items link to authoritative government health sources; calculations explain the order supplied in the question. They are independently authored practice items. The old infection-prevention bank used a different version. Append-only NCLEX bank expansions preserve saved answers and history.
+The required post-shift question bank contains 138 original NCLEX single-answer items covering prioritization, adult health, pediatrics, medication safety, mental health, oncology, infection prevention, and dosage calculations. Clinical items link to authoritative government health sources; calculations explain the order supplied in the question. They are independently authored practice items. The old infection-prevention bank used a different version. Append-only NCLEX bank expansions preserve saved answers and history.
 
 ### Question history
 
@@ -127,3 +127,9 @@ Question validation locks all 74 previously published items and audits every dat
 Added 20 original questions (16 clinical, four calculation), bringing the bank to 118. New objectives cover CPAP teaching, deep vein thrombosis cues, acute limb ischemia, kidney infection, pancreatitis and constipation warning signs, MMR in pregnancy, infant RSV, meningococcal disease, 18-month development, lymphedema, treatment-related neuropathy, PTSD psychotherapy, medicine disposal, C. difficile, cancer-treatment nausea, and four new calculations. Existing question IDs, order, answer choices, correct indices, and `QUIZ_VERSION` remain unchanged.
 
 Clinical answers and rationales were checked against current NHLBI, NIDDK, CDC, NCI, NIMH, and FDA pages on October 4, 2026. The [October 4 batch review](content/question-reviews/2026-10-04.json) records each objective and supporting source fact. BSA dose, percentage weight change, carbohydrate coverage, and percent-concentration calculations were separately verified using JavaScript and AWK arithmetic.
+
+## Question expansion — October 5, 2026
+
+Added 20 original questions (16 clinical, four calculation), bringing the bank to 138. New objectives cover Parkinson-related orthostatic hypotension, prolonged seizure response, atrial-fibrillation stroke prevention, diverticulitis, pediatric UTI presentation, endometriosis, lead prevention, postpartum depression, eye and hearing emergencies, diabetic eye screening, CKD anemia, 2-year development, carbon monoxide, pregnancy food safety, palliative care, and four distinct calculations. Existing IDs, answer order, correct indices, and `QUIZ_VERSION` remain unchanged.
+
+The [October 5 batch review](content/question-reviews/2026-10-05.json) records each source-supported objective. Clinical items were checked against current NIH and CDC pages; oxygen-cylinder duration, dilution, macronutrient calories, and temperature conversion were separately verified with JavaScript and AWK arithmetic.

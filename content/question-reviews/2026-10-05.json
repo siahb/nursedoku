@@ -1,0 +1,218 @@
+{
+  "date": "2026-10-05",
+  "before": 118,
+  "added": 20,
+  "total": 138,
+  "review": "Source and arithmetic verification by the authoring assistant; not an independent clinician review or official NCLEX content.",
+  "duplicateReview": "All existing 118 stems and objectives were compared with this batch. The 16 clinical items introduce new decisions or concepts, and the four calculations use objectives absent from the prior bank.",
+  "questions": [
+    {
+      "id": "nclex-00119",
+      "topic": "Neurologic care · Parkinson orthostatic hypotension",
+      "source": "https://www.ninds.nih.gov/current-research/focus-disorders/parkinsons-disease-research/parkinsons-disease-challenges-progress-and-promise",
+      "objective": "Parkinson-related orthostatic hypotension and fall prevention",
+      "support": "NINDS describes orthostatic hypotension in Parkinson disease as a rapid blood-pressure drop on standing that may cause dizziness, imbalance, or fainting.",
+      "retrievalRef": "turn73search0",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00120",
+      "topic": "Neurologic emergency · Prolonged seizure",
+      "source": "https://www.cdc.gov/epilepsy/first-aid-for-seizures/index.html",
+      "objective": "Emergency response to a seizure lasting over five minutes",
+      "support": "CDC advises calling 911 when a seizure lasts longer than five minutes and recommends timing and injury-prevention first aid.",
+      "retrievalRef": "turn73search1",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00121",
+      "topic": "Cardiovascular care · Atrial fibrillation stroke prevention",
+      "source": "https://www.nhlbi.nih.gov/health/atrial-fibrillation/living-with",
+      "objective": "Why atrial fibrillation increases embolic stroke risk",
+      "support": "NHLBI explains that blood can pool and clot during atrial fibrillation and a clot may travel to the brain.",
+      "retrievalRef": "turn73search3",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00122",
+      "topic": "Gastrointestinal care · Diverticulitis recognition",
+      "source": "https://www.niddk.nih.gov/health-information/digestive-diseases/diverticulosis-diverticulitis/symptoms-causes",
+      "objective": "Diverticulitis symptom pattern requiring evaluation",
+      "support": "NIDDK describes diverticulitis pain as often lower-left, severe, and sometimes sudden, with fever possible.",
+      "retrievalRef": "turn74search5",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00123",
+      "topic": "Pediatrics · Possible urinary tract infection",
+      "source": "https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-tract-infections-in-children",
+      "objective": "Nonspecific UTI presentation in children under two",
+      "support": "NIDDK notes that UTI symptoms may differ in infants and young children and can be nonspecific.",
+      "retrievalRef": "turn74search24",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00124",
+      "topic": "Reproductive health · Endometriosis cues",
+      "source": "https://www.nichd.nih.gov/health/topics/endometri/conditioninfo/symptoms",
+      "objective": "Endometriosis pain and infertility symptom pattern",
+      "support": "NICHD identifies pain and infertility as the most common endometriosis symptoms.",
+      "retrievalRef": "turn74search0",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00125",
+      "topic": "Pediatrics · Lead exposure prevention",
+      "source": "https://www.cdc.gov/lead-prevention/prevention/paint.html",
+      "objective": "Wet cleaning to reduce lead-contaminated dust exposure",
+      "support": "CDC recommends wet-mopping and wet-wiping because lead-contaminated household dust can expose children.",
+      "retrievalRef": "turn74search1",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00126",
+      "topic": "Maternal mental health · Postpartum depression",
+      "source": "https://www.nimh.nih.gov/health/publications/perinatal-depression",
+      "objective": "Persistent postpartum mood symptoms beyond baby blues",
+      "support": "NIMH says severe mood or anxiety symptoms lasting longer than two weeks after childbirth may indicate postpartum depression.",
+      "retrievalRef": "turn75search0",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00127",
+      "topic": "Eye emergency · Angle-closure glaucoma",
+      "source": "https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/glaucoma",
+      "objective": "Acute angle-closure glaucoma emergency recognition",
+      "support": "NEI identifies intense eye pain, red eye, blurry vision, and nausea as symptoms requiring immediate care.",
+      "retrievalRef": "turn76search1",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00128",
+      "topic": "Diabetes care · Dilated eye examination",
+      "source": "https://www.nei.nih.gov/eye-health-information/healthy-vision/finding-eye-doctor/get-dilated-eye-exam",
+      "objective": "Dilated eye screening despite normal vision",
+      "support": "NEI recommends regular dilated examinations for most people with diabetes because retinal disease may be detected before symptoms.",
+      "retrievalRef": "turn76search2",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00129",
+      "topic": "Renal health · Anemia in chronic kidney disease",
+      "source": "https://www.niddk.nih.gov/health-information/kidney-disease/anemia",
+      "objective": "Reduced erythropoietin in CKD-related anemia",
+      "support": "NIDDK explains that damaged kidneys produce less erythropoietin, reducing the bone-marrow signal for red-cell production.",
+      "retrievalRef": "turn76search0",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00130",
+      "topic": "Sensory emergency · Sudden hearing loss",
+      "source": "https://www.nidcd.nih.gov/health/sudden-deafness",
+      "objective": "Sudden sensorineural hearing loss as an emergency",
+      "support": "NIDCD advises treating sudden unexplained hearing loss as a medical emergency and seeking immediate evaluation.",
+      "retrievalRef": "turn76search18",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00131",
+      "topic": "Pediatrics · 2-year development",
+      "source": "https://www.cdc.gov/act-early/milestones/2-years.html",
+      "objective": "Two-word combination as a 2-year milestone",
+      "support": "CDC identifies combining at least two words as a language milestone by age two.",
+      "retrievalRef": "turn77search0",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00132",
+      "topic": "Environmental emergency · Carbon monoxide",
+      "source": "https://www.cdc.gov/carbon-monoxide/about/index.html",
+      "objective": "Shared carbon-monoxide symptom recognition and evacuation",
+      "support": "CDC lists headache, dizziness, weakness, nausea, chest pain, and confusion as common carbon-monoxide poisoning symptoms.",
+      "retrievalRef": "turn77search19",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00133",
+      "topic": "Maternal health · Listeria food safety",
+      "source": "https://www.cdc.gov/food-safety/foods/pregnant-women.html",
+      "objective": "Safe deli-meat preparation during pregnancy",
+      "support": "CDC recommends heating deli meat to 165°F or until steaming hot for pregnant people.",
+      "retrievalRef": "turn77search8",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00134",
+      "topic": "Palliative care · Treatment alongside comfort",
+      "source": "https://www.nia.nih.gov/health/hospice-and-palliative-care/what-are-palliative-care-and-hospice-care",
+      "objective": "Palliative care can accompany disease-directed treatment",
+      "support": "NIA describes palliative care as specialized care for serious illness that may be provided alongside treatment, distinct from hospice.",
+      "retrievalRef": "turn77search2",
+      "checkedOn": "2026-10-05",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00135",
+      "topic": "Respiratory calculation · Oxygen cylinder duration",
+      "source": null,
+      "objective": "Cylinder duration using supplied residual, factor, and flow formula",
+      "calculation": {
+        "expression": "((1500 - 200) * 0.28) / 2",
+        "expected": "182 minutes"
+      },
+      "checkedOn": "2026-10-05",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    },
+    {
+      "id": "nclex-00136",
+      "topic": "Nursing calculation · Solution dilution",
+      "source": null,
+      "objective": "Stock volume using the supplied C1V1 equals C2V2 formula",
+      "calculation": {
+        "expression": "(2 * 500) / 10",
+        "expected": "100 mL"
+      },
+      "checkedOn": "2026-10-05",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    },
+    {
+      "id": "nclex-00137",
+      "topic": "Nutrition calculation · Macronutrient calories",
+      "source": null,
+      "objective": "Total calories from supplied carbohydrate, protein, and fat factors",
+      "calculation": {
+        "expression": "60 * 4 + 20 * 4 + 10 * 9",
+        "expected": "410 kcal"
+      },
+      "checkedOn": "2026-10-05",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    },
+    {
+      "id": "nclex-00138",
+      "topic": "Nursing calculation · Temperature conversion",
+      "source": null,
+      "objective": "Fahrenheit to Celsius conversion with final rounding",
+      "calculation": {
+        "expression": "(101.3 - 32) * 5 / 9",
+        "expected": "38.5°C"
+      },
+      "checkedOn": "2026-10-05",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    }
+  ]
+}
