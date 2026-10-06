@@ -1,0 +1,218 @@
+{
+  "date": "2026-10-06",
+  "before": 138,
+  "added": 20,
+  "total": 158,
+  "review": "Source and arithmetic verification by the authoring assistant; not an independent clinician review or official NCLEX content.",
+  "duplicateReview": "All existing 138 stems and objectives were compared with this batch. The 16 clinical items introduce new decisions or concepts, and the four calculations use objectives absent from the prior bank.",
+  "questions": [
+    {
+      "id": "nclex-00139",
+      "topic": "Gastrointestinal emergency · Appendicitis",
+      "source": "https://www.niddk.nih.gov/health-information/digestive-diseases/appendicitis/symptoms-causes",
+      "objective": "Appendicitis pain migration and need for immediate evaluation",
+      "support": "NIDDK states appendicitis pain may begin near the belly button, move lower-right, and requires immediate care.",
+      "retrievalRef": "turn86view0",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00140",
+      "topic": "Eye emergency · Retinal detachment",
+      "source": "https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/retinal-detachment",
+      "objective": "Retinal detachment warning signs and emergency response",
+      "support": "NEI lists sudden floaters, flashes, and a curtain or shadow as emergency retinal-detachment symptoms.",
+      "retrievalRef": "turn86view1",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00141",
+      "topic": "Eye health · Cataract recognition",
+      "source": "https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/cataracts",
+      "objective": "Gradual cataract symptom recognition",
+      "support": "NEI lists gradual cloudy or blurry vision, faded colors, glare, halos, and night-vision difficulty as cataract symptoms.",
+      "retrievalRef": "turn86view2",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00142",
+      "topic": "Environmental health · Heat illness prevention",
+      "source": "https://www.cdc.gov/heat-health/about/index.html",
+      "objective": "First actions for an alert adult with heat-related symptoms",
+      "support": "CDC advises staying cool and hydrated and lists dizziness, weakness, nausea, headache, cramping, and heavy sweating as overheating symptoms.",
+      "retrievalRef": "turn87view0",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00143",
+      "topic": "Renal care · Hemodialysis access",
+      "source": "https://www.niddk.nih.gov/health-information/kidney-disease/kidney-failure/hemodialysis",
+      "objective": "Loss of the normal vibration over a hemodialysis access",
+      "support": "NIDDK says a working access has a palpable vibration and inability to feel it should be reported to the dialysis center.",
+      "retrievalRef": "turn88view0",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00144",
+      "topic": "Renal care · Peritoneal dialysis infection",
+      "source": "https://www.niddk.nih.gov/health-information/kidney-disease/kidney-failure/peritoneal-dialysis",
+      "objective": "Cloudy peritoneal dialysis effluent with abdominal pain and fever",
+      "support": "NIDDK identifies abdominal pain, fever, nausea or vomiting, and cloudy used solution as infection warning signs.",
+      "retrievalRef": "turn81search1",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00145",
+      "topic": "Renal health · Nephrotic syndrome",
+      "source": "https://www.niddk.nih.gov/health-information/kidney-disease/nephrotic-syndrome-adults",
+      "objective": "Defining nephrotic-syndrome findings",
+      "support": "NIDDK defines nephrotic syndrome by proteinuria, hypoalbuminemia, edema, and hyperlipidemia.",
+      "retrievalRef": "turn89view4",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00146",
+      "topic": "Gastrointestinal emergency · GI bleeding",
+      "source": "https://www.niddk.nih.gov/health-information/digestive-diseases/gastrointestinal-bleeding/symptoms-causes/",
+      "objective": "Black tarry stool and lightheadedness as acute GI bleeding cues",
+      "support": "NIDDK lists black or tarry stool and lightheadedness among acute GI-bleeding symptoms requiring prompt medical help.",
+      "retrievalRef": "turn81search0",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00147",
+      "topic": "Pediatrics · Autism screening cues",
+      "source": "https://www.cdc.gov/autism/signs-symptoms/index.html",
+      "objective": "Absent pointing to share interest at 18 months as a developmental concern",
+      "support": "CDC lists not pointing to show something interesting by 18 months among autism-related social-communication characteristics.",
+      "retrievalRef": "turn89view1",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00148",
+      "topic": "Pediatric emergency · Concussion danger signs",
+      "source": "https://www.cdc.gov/heads-up/signs-symptoms/index.html",
+      "objective": "Repeated vomiting with increasing confusion after head injury",
+      "support": "CDC identifies repeated vomiting and increased confusion after a head injury as danger signs requiring emergency care.",
+      "retrievalRef": "turn89view0",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00149",
+      "topic": "Gastrointestinal health · Ulcerative colitis",
+      "source": "https://www.niddk.nih.gov/health-information/digestive-diseases/ulcerative-colitis/symptoms-causes",
+      "objective": "Ulcerative-colitis symptom pattern",
+      "support": "NIDDK lists diarrhea, blood in stool, abdominal cramping, mucus, tenesmus, and urgency as common ulcerative-colitis symptoms.",
+      "retrievalRef": "turn87view4",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00150",
+      "topic": "Nutrition · Lactose intolerance",
+      "source": "https://www.niddk.nih.gov/health-information/digestive-diseases/lactose-intolerance/symptoms-causes",
+      "objective": "Lactase deficiency and post-dairy symptom pattern",
+      "support": "NIDDK explains that low small-intestinal lactase causes lactose malabsorption with bloating, diarrhea, gas, nausea, and abdominal pain.",
+      "retrievalRef": "turn87view5",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00151",
+      "topic": "Infectious disease · Rabies exposure",
+      "source": "https://www.cdc.gov/rabies/prevention/index.html",
+      "objective": "Urgent response and post-exposure prophylaxis after possible rabies exposure",
+      "support": "CDC says possible exposure requires urgent contact and that prophylaxis includes wound washing, immune globulin, and vaccine.",
+      "retrievalRef": "turn87view6",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00152",
+      "topic": "Pediatrics · Drowning prevention",
+      "source": "https://www.cdc.gov/drowning/prevention/index.html",
+      "objective": "Close constant distraction-free supervision around water",
+      "support": "CDC says drowning can happen quickly and quietly and recommends a designated adult provide close, constant supervision.",
+      "retrievalRef": "turn89view2",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00153",
+      "topic": "Pediatrics · 3-year development",
+      "source": "https://www.cdc.gov/act-early/milestones/3-years.html",
+      "objective": "Two back-and-forth conversational exchanges as a 3-year milestone",
+      "support": "CDC identifies conversation with at least two back-and-forth exchanges as a language milestone by age three.",
+      "retrievalRef": "turn80search0",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00154",
+      "topic": "First aid · Minor thermal burn",
+      "source": "https://medlineplus.gov/ency/patientinstructions/000662.htm",
+      "objective": "Cool running water rather than ice for a minor burn",
+      "support": "MedlinePlus advises cooling a minor burn with cool running water and warns that ice can further injure tissue.",
+      "retrievalRef": "turn80search1",
+      "checkedOn": "2026-10-06",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00155",
+      "topic": "Nursing calculation · Body mass index",
+      "source": null,
+      "objective": "Body mass index using the supplied metric BMI formula",
+      "calculation": {
+        "expression": "72 / (1.8 * 1.8)",
+        "expected": "22.2 kg/m²"
+      },
+      "checkedOn": "2026-10-06",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    },
+    {
+      "id": "nclex-00156",
+      "topic": "Nursing calculation · Mean arterial pressure",
+      "source": null,
+      "objective": "Mean arterial pressure using the supplied weighted blood-pressure formula",
+      "calculation": {
+        "expression": "(120 + 2 * 75) / 3",
+        "expected": "90 mmHg"
+      },
+      "checkedOn": "2026-10-06",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    },
+    {
+      "id": "nclex-00157",
+      "topic": "Nursing calculation · Anion gap",
+      "source": null,
+      "objective": "Anion gap using the supplied sodium, chloride, and bicarbonate formula",
+      "calculation": {
+        "expression": "140 - (104 + 24)",
+        "expected": "12 mEq/L"
+      },
+      "checkedOn": "2026-10-06",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    },
+    {
+      "id": "nclex-00158",
+      "topic": "Health assessment calculation · Smoking pack-years",
+      "source": null,
+      "objective": "Smoking pack-years from packs per day and years smoked",
+      "calculation": {
+        "expression": "1.5 * 20",
+        "expected": "30 pack-years"
+      },
+      "checkedOn": "2026-10-06",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    }
+  ]
+}
