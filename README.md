@@ -29,7 +29,7 @@ Start from the main menu; loading the app leaves the timer paused. The changelog
 - [x] X pop, RN bounce and sparkle, care-zone feedback, win confetti; reduced-motion support
 - [x] Saved progress and themes; timer pauses when the page is hidden
 
-Progress and statistics are saved on this browser/device. Difficulty uses an automated deduction heuristic; human calibration remains future work. The NCLEX question bank currently contains 158 original questions. Generation uses bounded attempts and a verified starter fallback if a unique board cannot be produced.
+Progress and statistics are saved on this browser/device. Difficulty uses an automated deduction heuristic; human calibration remains future work. The NCLEX question bank currently contains 178 original questions. Generation uses bounded attempts and a verified starter fallback if a unique board cannot be produced.
 
 ## Run locally
 
@@ -51,7 +51,7 @@ Current rules: three incorrect RN placements end a shift. Invalid placements are
 
 Hints now explain direct deductions or confined-zone elimination from placed RNs, independently of player X marks. If those techniques cannot explain a move, the hint explicitly says it is a solution reveal. The daily archive includes a month calendar with completed-day markers and blocks future dates and dates before launch.
 
-The required post-shift question bank contains 158 original NCLEX single-answer items covering prioritization, adult health, pediatrics, medication safety, mental health, oncology, infection prevention, and dosage calculations. Clinical items link to authoritative government health sources; calculations explain the order supplied in the question. They are independently authored practice items. The old infection-prevention bank used a different version. Append-only NCLEX bank expansions preserve saved answers and history.
+The required post-shift question bank contains 178 original NCLEX single-answer items covering prioritization, adult health, pediatrics, medication safety, mental health, oncology, infection prevention, and dosage calculations. Clinical items link to authoritative government health sources; calculations explain the order supplied in the question. They are independently authored practice items. The old infection-prevention bank used a different version. Append-only NCLEX bank expansions preserve saved answers and history.
 
 ### Question history
 
@@ -139,3 +139,9 @@ The [October 5 batch review](content/question-reviews/2026-10-05.json) records e
 Added 20 original questions (16 clinical, four calculation), bringing the bank to 158. New objectives cover appendicitis, retinal detachment, cataracts, heat illness, hemodialysis and peritoneal-dialysis access safety, nephrotic syndrome, GI bleeding, autism screening cues, concussion danger signs, ulcerative colitis, lactose intolerance, rabies exposure, drowning prevention, 3-year development, minor-burn first aid, and four distinct calculations. Existing IDs, answer order, correct indices, and `QUIZ_VERSION` remain unchanged.
 
 The [October 6 batch review](content/question-reviews/2026-10-06.json) records each source-supported objective. Clinical items were checked against current NIH, CDC, and MedlinePlus pages; BMI, mean arterial pressure, anion gap, and pack-year calculations were separately verified with JavaScript and AWK arithmetic.
+
+## Question expansion — October 7, 2026
+
+Added 20 original questions (16 clinical, four calculation), bringing the bank to 178. New objectives cover HIV post-exposure prophylaxis, hepatitis C confirmation, peripheral artery disease, aortic aneurysm rupture, endocarditis, kidney-transplant infection, prednisone, digoxin, preterm labor, placenta previa, febrile seizures, newborn jaundice, clozapine, phenytoin, alendronate, lactational mastitis, and four distinct calculations. Existing IDs, answer order, correct indices, and `QUIZ_VERSION` remain unchanged.
+
+The [October 7 batch review](content/question-reviews/2026-10-07.json) records each source-supported objective. Clinical items were checked against current CDC, NIH, and MedlinePlus pages; P/F ratio, estimated serum osmolality, heparin-infusion rate, and half-life calculations were separately verified with JavaScript and AWK arithmetic.

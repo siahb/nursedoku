@@ -11,6 +11,7 @@ assert.equal(crypto.createHash('sha256').update(JSON.stringify(questions.slice(0
 assert.equal(crypto.createHash('sha256').update(JSON.stringify(questions.slice(0,98))).digest('hex'),'c2f17f16dcec5f4d66cc8aa5b462a6ab82311605655e78e86966f1a560e316c6','All 98 questions published through October 3 must stay unchanged');
 assert.equal(crypto.createHash('sha256').update(JSON.stringify(questions.slice(0,118))).digest('hex'),'fe82564df213e8bce9bcc134bd810361b58e3c2cc4dd0f904a8ac6e4842b0b52','All 118 questions published through October 4 must stay unchanged');
 assert.equal(crypto.createHash('sha256').update(JSON.stringify(questions.slice(0,138))).digest('hex'),'eb57b909e260e3543be8a055173bbed4d186cbdb74e6e56d8eb7debdd44c677f','All 138 questions published through October 5 must stay unchanged');
+assert.equal(crypto.createHash('sha256').update(JSON.stringify(questions.slice(0,158))).digest('hex'),'442ec63b13984d28f4b1f0fa059c5b8bdd1bd714b6bf5239d2a7101b2c7fefd1','All 158 questions published through October 6 must stay unchanged');
 assert(app.includes("const QUIZ_VERSION='nclex-2026-09-29';"),'Append-only additions must preserve saved answers');
 assert(questions.length>original.length&&questions.length<=5000);
 const seen=new Set(),stems=new Set();
@@ -55,6 +56,10 @@ const october6=reviews.find(r=>r.date==='2026-10-06');
 assert.deepStrictEqual([october6.before,october6.added,october6.total],[138,20,158]);
 assert.equal(october6.questions.filter(r=>r.source).length,16);
 for(const r of october6.questions){assert(r.objective&&r.method);if(r.source)assert(r.support&&r.retrievalRef);else assert(r.calculation);}
+const october7=reviews.find(r=>r.date==='2026-10-07');
+assert.deepStrictEqual([october7.before,october7.added,october7.total],[158,20,178]);
+assert.equal(october7.questions.filter(r=>r.source).length,16);
+for(const r of october7.questions){assert(r.objective&&r.method);if(r.source)assert(r.support&&r.retrievalRef);else assert(r.calculation);}
 
 for(const review of reviews)for(const r of review.questions){const q=questions.find(q=>q.id===r.id);assert(q);assert.equal(q.source,r.source);assert.equal(r.checkedOn,review.date);}
 // Independent numeric expectations also checked with Python Fraction during authoring.
@@ -116,6 +121,17 @@ for(const [index,computed,expected,label] of october6CalcChecks){
  assert(Math.abs(computed-expected)<1e-9,'Independent calculation failed');
  assert.equal(questions[index].a[questions[index].correct],label,'Calculation answer key changed');
  assert.equal(october6.questions.find(r=>r.id===questions[index].id).calculation.expected,label);
+}
+const october7CalcChecks=[
+ [174,80/0.40,200,'200'],
+ [175,2*140+90/18+14/2.8,290,'290 mOsm/kg'],
+ [176,(18*82)/(25000/500),29.52,'29.5 mL/hr'],
+ [177,400*(0.5**(18/6)),50,'50 mg']
+];
+for(const [index,computed,expected,label] of october7CalcChecks){
+ assert(Math.abs(computed-expected)<1e-9,'Independent calculation failed');
+ assert.equal(questions[index].a[questions[index].correct],label,'Calculation answer key changed');
+ assert.equal(october7.questions.find(r=>r.id===questions[index].id).calculation.expected,label);
 }
 assert(fs.readFileSync(path.join(root,'index.html'),'utf8').includes('NCLEX question'));
 console.log(`PASS: ${questions.length} questions; original bank unchanged, valid IDs/answers/sources, review coverage, calculation keys, cap and heading.`);

@@ -1,0 +1,218 @@
+{
+  "date": "2026-10-07",
+  "before": 158,
+  "added": 20,
+  "total": 178,
+  "review": "Source and arithmetic verification by the authoring assistant; not an independent clinician review or official NCLEX content.",
+  "duplicateReview": "All existing 158 stems and objectives were compared with this batch. The 16 clinical items introduce new decisions or concepts, and the four calculations use objectives absent from the prior bank.",
+  "questions": [
+    {
+      "id": "nclex-00159",
+      "topic": "Infectious disease · HIV post-exposure prophylaxis",
+      "source": "https://www.cdc.gov/hivnexus/hcp/pep/index.html",
+      "objective": "Urgent HIV PEP evaluation after a qualifying recent exposure",
+      "support": "CDC says PEP should begin as soon as possible when indicated, without waiting for all test results, and is not recommended after more than 72 hours.",
+      "retrievalRef": "turn97view1",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00160",
+      "topic": "Infectious disease · Hepatitis C testing",
+      "source": "https://www.cdc.gov/hepatitis-c/hcp/diagnosis-testing/index.html",
+      "objective": "HCV RNA confirmation after reactive antibody testing",
+      "support": "CDC states that reactive HCV antibody may reflect past or current infection and detectable HCV RNA identifies current infection.",
+      "retrievalRef": "turn97view2",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00161",
+      "topic": "Cardiovascular health · Peripheral artery disease",
+      "source": "https://www.nhlbi.nih.gov/health/peripheral-artery-disease/symptoms",
+      "objective": "Intermittent claudication pattern in peripheral artery disease",
+      "support": "NHLBI describes leg cramping with walking that resolves with rest as the most common PAD symptom.",
+      "retrievalRef": "turn97view3",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00162",
+      "topic": "Cardiovascular emergency · Aortic aneurysm rupture",
+      "source": "https://www.nhlbi.nih.gov/health/aortic-aneurysm/symptoms",
+      "objective": "Emergency recognition of possible aortic aneurysm rupture",
+      "support": "NHLBI lists sudden severe chest, abdominal, or back pain, lightheadedness, and rapid heart rate as rupture symptoms.",
+      "retrievalRef": "turn97view4",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00163",
+      "topic": "Cardiovascular infection · Endocarditis",
+      "source": "https://www.nhlbi.nih.gov/health/heart-inflammation/endocarditis",
+      "objective": "Endocarditis risk and symptom cluster",
+      "support": "NHLBI identifies prosthetic valves as a risk factor and fever, murmur, fatigue, night sweats, and other systemic findings as possible symptoms.",
+      "retrievalRef": "turn97view5",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00164",
+      "topic": "Transplant care · Kidney transplant infection",
+      "source": "https://www.niddk.nih.gov/health-information/kidney-disease/kidney-failure/kidney-transplant",
+      "objective": "Infection warning signs after kidney transplant",
+      "support": "NIDDK advises prompt transplant-center contact for fever over 100°F, urinary burning, wound drainage, or a persistent cough while taking anti-rejection medicine.",
+      "retrievalRef": "turn97view6",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00165",
+      "topic": "Medication safety · Prednisone taper",
+      "source": "https://medlineplus.gov/druginfo/meds/a601102.html",
+      "objective": "Avoiding abrupt discontinuation of long-term prednisone",
+      "support": "MedlinePlus warns that suddenly stopping prednisone can leave the body without enough natural steroids and recommends clinician-directed dose changes.",
+      "retrievalRef": "turn99view0",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00166",
+      "topic": "Medication safety · Digoxin adverse effects",
+      "source": "https://medlineplus.gov/druginfo/meds/a682301.html",
+      "objective": "Prompt evaluation of concerning digoxin adverse effects",
+      "support": "MedlinePlus lists visual changes, irregular heartbeat, gastrointestinal symptoms, and loss of appetite among concerning digoxin effects.",
+      "retrievalRef": "turn98view1",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00167",
+      "topic": "Maternal health · Preterm labor",
+      "source": "https://www.nichd.nih.gov/health/topics/preterm/conditioninfo/symptoms",
+      "objective": "Preterm-labor warning signs requiring evaluation",
+      "support": "NICHD lists frequent contractions, discharge changes or fluid leakage, pelvic pressure, backache, and cramps as preterm-labor symptoms.",
+      "retrievalRef": "turn98view2",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00168",
+      "topic": "Maternal health · Placenta previa precautions",
+      "source": "https://medlineplus.gov/ency/article/000900.htm",
+      "objective": "Avoiding digital vaginal examination with placenta previa",
+      "support": "MedlinePlus states that nothing should be placed in the vagina with placenta previa because severe bleeding can threaten the pregnant client and fetus.",
+      "retrievalRef": "turn98view3",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00169",
+      "topic": "Pediatric emergency · Febrile seizure",
+      "source": "https://medlineplus.gov/ency/article/000980.htm",
+      "objective": "Safe first aid during a febrile seizure",
+      "support": "MedlinePlus advises emergency evaluation for prolonged febrile seizures and supports standard injury-prevention seizure first aid without restraint or objects in the mouth.",
+      "retrievalRef": "turn98view4",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00170",
+      "topic": "Newborn care · Jaundice warning signs",
+      "source": "https://medlineplus.gov/ency/article/001559.htm",
+      "objective": "Emergency jaundice warning signs in a newborn",
+      "support": "MedlinePlus states that jaundice with fever, listlessness, or poor feeding is an emergency because very high bilirubin can damage the brain.",
+      "retrievalRef": "turn98view5",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00171",
+      "topic": "Mental health medication · Clozapine infection warning",
+      "source": "https://medlineplus.gov/druginfo/meds/a691001.html",
+      "objective": "Clozapine-associated severe leukopenia and infection warning signs",
+      "support": "MedlinePlus warns that clozapine can severely reduce white blood cells and that fever, sore throat, chills, or other infection signs require immediate contact.",
+      "retrievalRef": "turn99view1",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00172",
+      "topic": "Neurologic medication · Phenytoin teaching",
+      "source": "https://medlineplus.gov/druginfo/meds/a682022.html",
+      "objective": "Avoiding abrupt phenytoin discontinuation and unsupervised substitutions",
+      "support": "MedlinePlus says sudden phenytoin discontinuation can worsen seizures and that products differ in absorption.",
+      "retrievalRef": "turn99view2",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00173",
+      "topic": "Bone health medication · Alendronate administration",
+      "source": "https://medlineplus.gov/druginfo/meds/a601011.html",
+      "objective": "Correct alendronate administration to protect the esophagus",
+      "support": "MedlinePlus instructs taking alendronate after rising with plain water and remaining upright without food, drink, or other medicines for at least 30 minutes.",
+      "retrievalRef": "turn98view8",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00174",
+      "topic": "Postpartum care · Lactational mastitis",
+      "source": "https://medlineplus.gov/ency/article/001490.htm",
+      "objective": "Continuing milk removal during treatment of lactational mastitis",
+      "support": "MedlinePlus advises continued breastfeeding or pumping during antibiotic treatment to relieve swelling from milk production unless specifically directed otherwise.",
+      "retrievalRef": "turn99view3",
+      "checkedOn": "2026-10-07",
+      "method": "Opened authoritative source and checked the keyed answer and rationale; authored original scenario and distractors."
+    },
+    {
+      "id": "nclex-00175",
+      "topic": "Respiratory calculation · P/F ratio",
+      "source": null,
+      "objective": "P/F ratio using supplied PaO2 and decimal FiO2",
+      "calculation": {
+        "expression": "80 / 0.40",
+        "expected": "200"
+      },
+      "checkedOn": "2026-10-07",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    },
+    {
+      "id": "nclex-00176",
+      "topic": "Laboratory calculation · Estimated serum osmolality",
+      "source": null,
+      "objective": "Estimated serum osmolality using the supplied sodium, glucose, and BUN formula",
+      "calculation": {
+        "expression": "2 * 140 + 90 / 18 + 14 / 2.8",
+        "expected": "290 mOsm/kg"
+      },
+      "checkedOn": "2026-10-07",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    },
+    {
+      "id": "nclex-00177",
+      "topic": "Medication calculation · Heparin infusion",
+      "source": null,
+      "objective": "Two-stage weight-based heparin infusion rate",
+      "calculation": {
+        "expression": "(18 * 82) / (25000 / 500)",
+        "expected": "29.5 mL/hr"
+      },
+      "checkedOn": "2026-10-07",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    },
+    {
+      "id": "nclex-00178",
+      "topic": "Pharmacology calculation · Drug half-life",
+      "source": null,
+      "objective": "Remaining medication after three supplied half-lives",
+      "calculation": {
+        "expression": "400 * (0.5 ** (18 / 6))",
+        "expected": "50 mg"
+      },
+      "checkedOn": "2026-10-07",
+      "method": "Supplied scenario parameters; separately checked with JavaScript and AWK arithmetic."
+    }
+  ]
+}
