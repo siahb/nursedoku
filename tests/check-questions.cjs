@@ -135,3 +135,12 @@ for(const [index,computed,expected,label] of october7CalcChecks){
 }
 assert(fs.readFileSync(path.join(root,'index.html'),'utf8').includes('NCLEX question'));
 console.log(`PASS: ${questions.length} questions; original bank unchanged, valid IDs/answers/sources, review coverage, calculation keys, cap and heading.`);
+
+assert.equal(crypto.createHash('sha256').update(JSON.stringify(questions.slice(0,178))).digest('hex'),'c337fece3378d6c4c270e1675e6744ac65465750cf020822bb2593f4b26e69c1','All prior 178 questions must stay unchanged');
+const october8=reviews.find(r=>r.date==='2026-10-08');
+assert.deepStrictEqual([october8.before,october8.added,october8.total],[178,10,188]);
+assert.equal(october8.questions.filter(r=>r.source).length,8);
+for(const r of october8.questions){assert(r.objective&&r.method);if(r.source)assert(r.support&&r.retrievalRef);else assert(r.calculation);}
+assert.equal(96-78,18);assert.equal(1200*0.8+6*30,1140);
+assert.equal(questions[186].a[questions[186].correct],'18 beats/min');
+assert.equal(questions[187].a[questions[187].correct],'1,140 mL');

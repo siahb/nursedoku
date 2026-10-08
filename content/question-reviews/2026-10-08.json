@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-08",
+  "before": 178,
+  "added": 10,
+  "total": 188,
+  "review": "Source and arithmetic verification by the authoring assistant; not an independent clinician review or official NCLEX content.",
+  "duplicateReview": "Compared all 178 prior stems and objectives. New objectives include eight clinical decisions or concepts and two previously absent calculations. Infant biliary obstruction differs from prior acute newborn jaundice triage.",
+  "questions": [
+    {
+      "id": "nclex-00179",
+      "topic": "Gastrointestinal care · Early dumping syndrome",
+      "source": "https://www.niddk.nih.gov/health-information/digestive-diseases/dumping-syndrome/symptoms-causes",
+      "objective": "Recognize early dumping by meal timing and symptom cluster",
+      "support": "Early dumping syndrome follows rapid movement of food into the small intestine and can cause gastrointestinal and circulatory symptoms within 30 minutes of eating. The timing after gastric surgery supports this possibility; assessment is still needed to exclude other causes.",
+      "retrievalRef": "turn101view0",
+      "checkedOn": "2026-10-08",
+      "method": "Opened authoritative source and verified answer and rationale; original scenario and distractors."
+    },
+    {
+      "id": "nclex-00180",
+      "topic": "Gastrointestinal care · Gastroparesis mechanism",
+      "source": "https://www.niddk.nih.gov/health-information/digestive-diseases/gastroparesis/definition-facts",
+      "objective": "Explain impaired gastric motility",
+      "support": "Gastroparesis slows stomach emptying because gastric muscle function is impaired. Diabetes is a risk factor. This differs from rapid gastric emptying and is not defined by a bile duct obstruction or an acid-production defect.",
+      "retrievalRef": "turn101view1",
+      "checkedOn": "2026-10-08",
+      "method": "Opened authoritative source and verified answer and rationale; original scenario and distractors."
+    },
+    {
+      "id": "nclex-00181",
+      "topic": "Cardiovascular care · Pericarditis pain pattern",
+      "source": "https://www.nhlbi.nih.gov/health/heart-inflammation/pericarditis",
+      "objective": "Recognize positional pleuritic pericardial pain",
+      "support": "Pericardial inflammation can cause sharp, breathing-related chest pain relieved by leaning forward. New chest pain requires prompt evaluation because other serious causes can produce similar symptoms; the positional pattern alone does not confirm a diagnosis.",
+      "retrievalRef": "turn101view2",
+      "checkedOn": "2026-10-08",
+      "method": "Opened authoritative source and verified answer and rationale; original scenario and distractors."
+    },
+    {
+      "id": "nclex-00182",
+      "topic": "Oncology care · Radiation enteritis",
+      "source": "https://www.cancer.gov/about-cancer/treatment/side-effects/radiation-enteritis",
+      "objective": "Identify intestinal injury as a possible radiation adverse effect",
+      "support": "Abdominal radiation can damage intestinal lining and cause radiation enteritis, with diarrhea, abdominal pain, and frequent bowel urges. The care team should evaluate the symptoms because infection and other conditions can also cause digestive problems.",
+      "retrievalRef": "turn101view3",
+      "checkedOn": "2026-10-08",
+      "method": "Opened authoritative source and verified answer and rationale; original scenario and distractors."
+    },
+    {
+      "id": "nclex-00183",
+      "topic": "Mental health · Early psychosis services",
+      "source": "https://www.nimh.nih.gov/health/topics/schizophrenia",
+      "objective": "Explain coordinated specialty care and recovery participation",
+      "support": "Coordinated specialty care is a recovery-focused team approach for early psychosis that includes shared decision-making. Treatment can support participation in education, work, and relationships rather than requiring permanent withdrawal from these activities.",
+      "retrievalRef": "turn102view0",
+      "checkedOn": "2026-10-08",
+      "method": "Opened authoritative source and verified answer and rationale; original scenario and distractors."
+    },
+    {
+      "id": "nclex-00184",
+      "topic": "Infectious disease · Hepatitis B household teaching",
+      "source": "https://www.cdc.gov/hepatitis-b/prevention/index.html",
+      "objective": "Distinguish blood exposure from casual contact transmission",
+      "support": "Hepatitis B can spread through infected blood, including blood on personal items such as razors or toothbrushes. Routine hugging, coughing, and sharing eating utensils are not transmission routes. Household members should discuss testing and vaccination with their clinicians.",
+      "retrievalRef": "turn102view1",
+      "checkedOn": "2026-10-08",
+      "method": "Opened authoritative source and verified answer and rationale; original scenario and distractors."
+    },
+    {
+      "id": "nclex-00185",
+      "topic": "Pediatrics · Biliary atresia cues",
+      "source": "https://www.niddk.nih.gov/health-information/liver-disease/biliary-atresia/symptoms-causes",
+      "objective": "Connect prolonged jaundice and acholic stools with obstructed bile flow",
+      "support": "Persistent jaundice beyond the early newborn period together with pale stools raises concern for impaired bile drainage, including biliary atresia. Stool loses its usual color when bilirubin does not reach the intestine. The findings require evaluation rather than reassurance alone.",
+      "retrievalRef": "turn102view2",
+      "checkedOn": "2026-10-08",
+      "method": "Opened authoritative source and verified answer and rationale; original scenario and distractors."
+    },
+    {
+      "id": "nclex-00186",
+      "topic": "Gastrointestinal care · Gallstone complications",
+      "source": "https://www.niddk.nih.gov/health-information/digestive-diseases/gallstones/symptoms-causes",
+      "objective": "Escalate biliary obstruction or infection warning signs",
+      "support": "Persistent abdominal pain with chills and jaundice can indicate a gallstone complication such as obstruction, infection, or inflammation. Prompt medical evaluation is needed. Delaying care or trying to force a stone out with food does not safely address these warning signs.",
+      "retrievalRef": "turn102view3",
+      "checkedOn": "2026-10-08",
+      "method": "Opened authoritative source and verified answer and rationale; original scenario and distractors."
+    },
+    {
+      "id": "nclex-00187",
+      "topic": "Nursing calculation · Pulse deficit",
+      "objective": "Compute a pulse deficit",
+      "calculation": {
+        "formula": "96 - 78",
+        "expected": "18 beats/min"
+      },
+      "checkedOn": "2026-10-08",
+      "method": "Computed separately with Node and exact Python Fraction arithmetic."
+    },
+    {
+      "id": "nclex-00188",
+      "topic": "Nursing calculation · Enteral free-water volume",
+      "objective": "Combine formula free water and flush volume",
+      "calculation": {
+        "formula": "1200 * 0.8 + 6 * 30",
+        "expected": "1,140 mL"
+      },
+      "checkedOn": "2026-10-08",
+      "method": "Computed separately with Node and exact Python Fraction arithmetic."
+    }
+  ]
+}
