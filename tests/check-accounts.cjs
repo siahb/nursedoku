@@ -5,7 +5,9 @@ const els={},get=id=>els[id]??=new El();get('authMode').value='signin';
 const storage={},timers=[];
 let owner=null,save={version:2,completed:[],stats:{wins:0,dailyDates:[]},game:{level:0}},cloud=null,nextUser=null,authCallback,conflictOnce=false,writes=0,failRead=false,confirmChoice=true,confirmCalls=0;
 const bridge={owner:()=>owner,snapshot:()=>JSON.parse(JSON.stringify(save)),readOwner:id=>id?{version:2,stats:{wins:0},completed:[]}:{version:2,stats:{wins:3,dailyDates:['2026-09-29'],questionHistory:{'nclex-00001':'correct','nclex-00002':'missed'}},completed:[1],game:{level:2}},pause(){},resume(){},apply(v,id){save=JSON.parse(JSON.stringify(v));owner=id;}};
+let rankCalls=[];
 const client={
+ rpc:async(name,args)=>{rankCalls.push({name,args});return {error:null};},
  auth:{onAuthStateChange(f){authCallback=f;},getSession:async()=>({data:{session:nextUser?{user:nextUser}:null}}),signInWithPassword:async()=>({data:{user:nextUser}}),signOut:async()=>({}),signUp:async()=>({data:{session:null}})},
  from(){let op='read',values,revision;
  const q={select(){return q;},eq(k,v){if(k==='revision')revision=v;return q;},maybeSingle:async()=>failRead?{error:{message:"Temporary cloud connection failure"}}:{data:cloud},insert(v){op='insert';values=v;return q;},update(v){op='update';values=v;return q;},
@@ -51,4 +53,10 @@ assert.equal(get('syncNowBtn').textContent,'Sync now');
 failRead=false;await get('syncNowBtn').events.click();assert(get('accountStatus').textContent.includes('Latest cloud progress'));
 console.log('PASS: failed initial cloud connection keeps manual retry available.');
 console.log('PASS: explicit first save, clean-cloud fetch/restore, up-to-date feedback, conflict and offline messages; login never imports guest automatically; explicit import; revisions; conflict resolution; offline queue; sign-out restores guest.');
+save.game={gameKind:'daily',dailyDate:'2026-10-09',finished:true,lost:false,rankEligible:true,bonusSubmitted:false,bonusQueue:[1],bonusCursor:0,elapsed:42000};
+context.window.NurseDokuCloud.changed();await get('syncNowBtn').events.click();assert.equal(rankCalls.length,0,'Question completion is required');
+save.game.bonusSubmitted=true;context.window.NurseDokuCloud.changed();await get('syncNowBtn').events.click();assert.equal(rankCalls.length,1,'Eligible synced daily result publishes automatically');assert.equal(rankCalls[0].name,'nursedoku_publish_daily');assert(/^Nurse [A-Z0-9]+$/.test(rankCalls[0].args.p_nickname));assert(!rankCalls[0].args.p_nickname.includes('@'));
+await get('syncNowBtn').events.click();assert.equal(rankCalls.length,1,'Successful upload is deduplicated');
+save.game.dailyDate='2026-10-10';save.game.rankEligible=false;context.window.NurseDokuCloud.changed();await get('syncNowBtn').events.click();assert.equal(rankCalls.length,1,'Hints/retries are excluded');
+console.log('PASS: automatic publication after synced NCLEX completion, stable private player label, deduplication and ineligible-run exclusion.');
 })().catch(e=>{console.error(e);process.exit(1);});
