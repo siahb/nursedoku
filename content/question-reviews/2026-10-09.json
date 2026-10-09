@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-09",
+  "before": 188,
+  "added": 10,
+  "total": 198,
+  "review": "Source and arithmetic verification by the authoring assistant; not an independent clinician review or official NCLEX content.",
+  "duplicateReview": "Compared all 188 existing stems and objectives. The eight clinical questions introduce distinct assessment or teaching decisions; the two calculations use supplied formulas not previously tested.",
+  "questions": [
+    {
+      "id": "nclex-00189",
+      "topic": "Neurologic emergency · Guillain-Barré syndrome",
+      "source": "https://medlineplus.gov/ency/article/000684.htm",
+      "objective": "Prioritize respiratory compromise during ascending paralysis",
+      "support": "Ascending weakness can involve the diaphragm and other breathing muscles. An inability to take a deep breath signals possible respiratory failure and requires immediate evaluation and support. Tingling, pain, and reduced reflexes are expected findings but do not outrank threatened ventilation.",
+      "retrievalRef": "turn103view0",
+      "checkedOn": "2026-10-09",
+      "method": "Opened the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00190",
+      "topic": "Pediatrics · Hirschsprung disease cues",
+      "source": "https://www.niddk.nih.gov/health-information/digestive-diseases/hirschsprung-disease/symptoms-causes",
+      "objective": "Recognize neonatal obstruction cues associated with Hirschsprung disease",
+      "support": "Failure to pass the first stool within 48 hours, abdominal distention, feeding difficulty, and bilious vomit are warning signs of neonatal intestinal obstruction associated with Hirschsprung disease. This cluster requires prompt evaluation rather than routine reflux care or reassurance.",
+      "retrievalRef": "turn103view2",
+      "checkedOn": "2026-10-09",
+      "method": "Opened the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00191",
+      "topic": "Pediatrics · Infant vomiting warning signs",
+      "source": "https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-infants/symptoms-causes",
+      "objective": "Escalate forceful vomiting with dehydration signs in an infant",
+      "support": "Regularly forceful vomiting and signs of dehydration such as fewer wet diapers are warning signs that need prompt medical evaluation and may have causes other than uncomplicated reflux. Prone sleep is unsafe, and delaying assessment could allow dehydration or another disorder to worsen.",
+      "retrievalRef": "turn104view0",
+      "checkedOn": "2026-10-09",
+      "method": "Opened the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00192",
+      "topic": "Postpartum care · Preeclampsia after delivery",
+      "source": "https://medlineplus.gov/ency/article/000898.htm",
+      "objective": "Recognize severe postpartum preeclampsia warning symptoms",
+      "support": "Preeclampsia can begin after delivery and risk persists for weeks. A worsening headache, visual changes, and right upper abdominal pain are severe warning symptoms requiring immediate evaluation because complications can include seizure, stroke, liver injury, and other organ damage.",
+      "retrievalRef": "turn104view1",
+      "checkedOn": "2026-10-09",
+      "method": "Opened the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00193",
+      "topic": "Reproductive health · Uterine fibroids",
+      "source": "https://medlineplus.gov/ency/article/000914.htm",
+      "objective": "Recognize a common symptom pattern of uterine fibroids",
+      "support": "Uterine fibroids are usually benign uterine growths that may cause heavy or prolonged menstrual bleeding, pelvic pressure, and urinary frequency. Evaluation is needed because other reproductive conditions can also cause abnormal bleeding and because ongoing blood loss may contribute to anemia.",
+      "retrievalRef": "turn104view2",
+      "checkedOn": "2026-10-09",
+      "method": "Opened the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00194",
+      "topic": "Medication safety · Methotrexate infection warning",
+      "source": "https://medlineplus.gov/druginfo/meds/a682019.html",
+      "objective": "Escalate infection symptoms during methotrexate therapy",
+      "support": "Methotrexate can suppress bone marrow and increase the risk of serious infection. Fever, chills, and sore throat require immediate contact with the prescriber. Taking extra medication could increase toxicity, and delaying evaluation may allow infection or cytopenia to worsen.",
+      "retrievalRef": "turn104view3",
+      "checkedOn": "2026-10-09",
+      "method": "Opened the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00195",
+      "topic": "Neurologic emergency · Myasthenic crisis",
+      "source": "https://medlineplus.gov/ency/article/000712.htm",
+      "objective": "Prioritize airway and ventilation in myasthenic crisis",
+      "support": "Myasthenic crisis can weaken breathing and swallowing muscles and may require ventilatory support. Rapidly worsening dyspnea and dysphagia threaten ventilation and airway protection, so respiratory assessment and emergency support take priority over food, exercise, or delayed reassessment.",
+      "retrievalRef": "turn105view0",
+      "checkedOn": "2026-10-09",
+      "method": "Opened the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00196",
+      "topic": "Pediatrics · Bulging fontanelle",
+      "source": "https://medlineplus.gov/ency/article/003310.htm",
+      "objective": "Distinguish a persistent bulging fontanelle requiring emergency care",
+      "support": "A true bulging fontanelle remains abnormal when an infant is calm and upright. With fever and excessive drowsiness, it may signal increased intracranial pressure or serious infection and requires emergency care. Pressing on it, feeding, or delaying evaluation is unsafe.",
+      "retrievalRef": "turn105view1",
+      "checkedOn": "2026-10-09",
+      "method": "Opened the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00197",
+      "topic": "Laboratory calculation · Corrected sodium",
+      "objective": "Apply a supplied corrected-sodium formula",
+      "calculation": {
+        "formula": "128 + 1.6 * ((400 - 100) / 100)",
+        "expected": "132.8 mEq/L"
+      },
+      "checkedOn": "2026-10-09",
+      "method": "Computed independently with JavaScript and Python Decimal before publication."
+    },
+    {
+      "id": "nclex-00198",
+      "topic": "Renal calculation · Supplied creatinine clearance formula",
+      "objective": "Apply a supplied creatinine-clearance formula",
+      "calculation": {
+        "formula": "((140 - 60) * 70) / (72 * 1.4)",
+        "expected": "56 mL/min"
+      },
+      "checkedOn": "2026-10-09",
+      "method": "Computed independently with JavaScript and Python Decimal before publication."
+    }
+  ]
+}
