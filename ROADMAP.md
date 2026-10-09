@@ -101,3 +101,10 @@ Guest question history belongs to the browser/device. Account history travels wi
 - [x] Confirm account puzzle replacement, guest import and shared sign-out; disable unavailable import and serialize conflict resolution
 
 - [x] Animated pointing-hand tutorial, tap/double-tap cues, RN reason highlights, progress meters and required practice steps; reduced-motion fallback
+
+## Leaderboards — daily beta
+
+- [x] Public daily rankings, opt-in nicknames and removal of public results
+- [x] Require a synced daily completion and NCLEX questions; exclude hints and retries in the app
+- [ ] Server-issued attempts, canonical board validation and independent timing for competitive integrity
+- [ ] Additional boards for progression or weekly totals

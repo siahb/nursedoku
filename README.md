@@ -153,3 +153,9 @@ Added 10 original questions (eight clinical, two calculation), bringing the bank
 ## October 9, 2026 question expansion
 
 Added 10 original questions (eight clinical, two calculation), bringing the bank to 198. New objectives cover Guillain-Barré respiratory compromise, Hirschsprung disease, infant vomiting warning signs, postpartum preeclampsia, uterine fibroids, methotrexate infection risk, myasthenic crisis, a bulging fontanelle, corrected sodium, and a supplied creatinine-clearance formula. Existing IDs, answer order, correct indices, and `QUIZ_VERSION` remain unchanged. Source checks and calculation verification are recorded in [the batch review](content/question-reviews/2026-10-09.json).
+
+## Daily leaderboard beta
+
+The menu opens public daily rankings (top 50): completion time, then strikes; ties share a rank. Publishing is optional and requires a signed-in account, a public nickname and explicit sharing consent, a synced solved daily board, and completed NCLEX questions. Guests can view rankings. Only new daily attempts started after this feature are eligible; hints, resets, losses, and replays are excluded by the app. A player's first published result per date is retained. Remove my public results deletes rankings without deleting private saves.
+
+Times and eligibility are recorded on devices, so this is a casual beta, not a tamper-proof competition. The database validates the caller's own synced board, question completion and bounded time; it does not independently time or generate the puzzle. Public output contains nicknames and results only, never email addresses or account IDs. Tables are in a private schema with no direct client access; tightly scoped RPCs handle public reading and authenticated publishing/removal. Old saved games are ineligible.

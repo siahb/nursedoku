@@ -1,6 +1,6 @@
 const fs=require('fs'),path=require('path'),assert=require('assert'),crypto=require('crypto');
 const root=path.resolve(__dirname,'..');
-const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
+const app=fs.readFileSync(path.join(root,'app.js'),'utf8').replace(/\r\n/g,'\n');
 const questions=JSON.parse(app.split('const BONUS=')[1].split(';\nfunction normalizeQuestionHistory')[0]);
 const original=JSON.parse(fs.readFileSync(path.join(__dirname,'fixtures/original-questions.json'),'utf8'));
 assert.deepStrictEqual(questions.slice(0,original.length),original,'Existing IDs, indices and answers must stay unchanged');

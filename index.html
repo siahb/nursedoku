@@ -11,7 +11,7 @@
   <meta property="og:type" content="website">
   <title>NurseDoku</title>
   <script src="assets/appearance.98dbe37b56.js"></script>
-  <link rel="stylesheet" href="assets/styles.91c1e78454.css">
+  <link rel="stylesheet" href="assets/styles.2bf4edfc6d.css">
   <link rel="icon" href="icon.svg">
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -45,7 +45,7 @@
         <button id="menuLearnBtn" class="mode-card" type="button"><span class="mode-symbol">01</span><span><strong>Learn &amp; progress</strong><small>56 shifts · easy to hard</small></span><span aria-hidden="true">→</span></button>
         <button id="menuDailyBtn" class="mode-card" type="button"><span class="mode-symbol">D</span><span><strong>Daily shift</strong><small>A fresh challenge every day</small></span><span aria-hidden="true">→</span></button>
       </div>
-      <button id="menuArchiveBtn" class="secondary-btn full" type="button">Daily calendar · Your completed shifts</button><section class="menu-practice" aria-label="Custom practice"><p class="eyebrow">Choose your setup</p><div id="menuPreferences"></div><button id="menuPracticeBtn" class="mode-card" type="button"><span class="mode-symbol">×</span><span><strong>Practice your way</strong><small>Play with your chosen settings</small></span><span aria-hidden="true">→</span></button></section>
+      <button id="menuArchiveBtn" class="secondary-btn full" type="button">Daily calendar · Your completed shifts</button><button id="leaderboardBtn" class="secondary-btn full" type="button">Daily leaderboard</button><section class="menu-practice" aria-label="Custom practice"><p class="eyebrow">Choose your setup</p><div id="menuPreferences"></div><button id="menuPracticeBtn" class="mode-card" type="button"><span class="mode-symbol">×</span><span><strong>Practice your way</strong><small>Play with your chosen settings</small></span><span aria-hidden="true">→</span></button></section>
       <section class="menu-share"><h3>Pass the puzzle along</h3><p>A little break for your study group.</p><div class="social-actions"><button id="menuShareBtn" class="secondary-btn" type="button">Share…</button><button id="menuCopyBtn" class="ghost-btn icon-action" type="button" aria-label="Copy link" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button><a id="menuShareFacebook" class="social-link icon-action" aria-label="Share on Facebook" title="Share on Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14 22v-9h3l.5-3H14V8c0-.9.3-1.5 1.6-1.5H18V3.8c-.4-.1-1.8-.3-3.3-.3-3.3 0-5.2 1.8-5.2 5V10H7v3h2.5v9H14Z"/></svg></a><button id="menuShareInstagram" class="ghost-btn icon-action" type="button" aria-label="Share image to Instagram" title="Share image to Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></button><a id="menuShareX" class="social-link icon-action" aria-label="Share on X" title="Share on X" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l7.2-8.3L1.8 2h6.5l4.5 6.8L18.9 2ZM17.8 20h1.7L7.3 3.9H5.5L17.8 20Z"/></svg></a><a id="menuShareWhatsapp" class="social-link icon-action" aria-label="Share on WhatsApp" title="Share on WhatsApp" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20.5 11.6a8.6 8.6 0 0 1-12.8 7.5L3 20.5l1.4-4.6A8.6 8.6 0 1 1 20.5 11.6Z"/><path fill="currentColor" d="M8.2 6.6c-.3 0-.6.2-.8.5-.5.6-.6 1.2-.4 2 .4 2.2 3.4 5.2 5.8 6 .8.3 1.8.3 2.4-.3.4-.4.7-1 .6-1.3-.1-.2-1.8-1.1-2.1-1.1-.2 0-.6.6-.9.9-.2.2-.4.2-.7.1-1.2-.5-2.3-1.5-2.9-2.6-.2-.3-.2-.4 0-.6l.5-.7c.2-.2.1-.4 0-.6L9 7c-.2-.4-.4-.4-.8-.4Z"/></svg></a></div><p id="menuShareStatus" class="share-status" role="status"></p></section>
       <button id="shift000Btn" class="ghost-btn" type="button">Shift 000 · Guided tutorial</button>
       <button id="changelogBtn" class="ghost-btn" type="button">What’s new</button>
@@ -183,13 +183,33 @@
     </div>
   </dialog>
 
+  <dialog id="leaderboardDialog" aria-labelledby="leaderboardTitle">
+    <div class="dialog-body leaderboard-content">
+      <button id="closeLeaderboardBtn" class="icon-btn leaderboard-close" type="button" aria-label="Close leaderboard">×</button>
+      <p class="eyebrow">Daily shift · Beta</p><h2 id="leaderboardTitle">Leaderboard</h2>
+      <p>One daily puzzle. Your first attempt, without hints or resets. Fastest time wins; fewer strikes break ties.</p>
+      <div class="leaderboard-date"><label for="leaderboardDate">Daily date</label><input id="leaderboardDate" type="date" min="2026-09-29" required><button id="refreshLeaderboardBtn" class="ghost-btn" type="button">Refresh</button></div>
+      <p id="leaderboardStatus" role="status" aria-live="polite"></p>
+      <div id="leaderboardTable" class="leaderboard-table" hidden><table><caption class="sr-only">Daily puzzle completion times</caption><thead><tr><th scope="col">Rank</th><th scope="col">Player</th><th scope="col">Time</th><th scope="col">Strikes</th></tr></thead><tbody id="leaderboardRows"></tbody></table></div>
+      <p class="leaderboard-note">Times are recorded on players’ devices. This beta is a friendly challenge, without prizes.</p>
+      <form id="leaderboardForm">
+        <label for="leaderboardNickname">Public nickname</label><input id="leaderboardNickname" type="text" minlength="2" maxlength="24" pattern="[A-Za-z0-9 _\-]{2,24}" autocomplete="off" placeholder="Choose a nickname" required>
+        <label class="leaderboard-consent"><input id="leaderboardConsent" type="checkbox" required><span>Share this nickname, daily date, time, and strikes publicly.</span></label>
+        <p>Sign in and finish the daily shift’s NCLEX questions, then publish. Guest play stays available.</p>
+        <button id="publishLeaderboardBtn" class="primary-btn full" type="submit">Publish my daily result</button>
+      </form>
+      <button id="withdrawLeaderboardBtn" class="ghost-btn" type="button">Remove my public results</button>
+    </div>
+  </dialog>
+
   <script src="assets/account-config.acc6cc855d.js"></script>
   <script src="assets/large-puzzles.b5dbb536ca.js"></script>
   <script src="assets/puzzles.ad028b6d5f.js"></script>
-  <script src="assets/app.4992f14da0.js"></script>
-  <script src="assets/accounts.10ecd39341.js"></script>
+  <script src="assets/app.2127f8accf.js"></script>
+  <script src="assets/accounts.6e43497164.js"></script>
   <script src="assets/tutorial.eb4797bace.js"></script>
   <script src="assets/shift000.98c6180a8e.js"></script>
+  <script src="assets/leaderboard.612406020a.js"></script>
 </body>
 </html>
 

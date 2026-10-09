@@ -213,3 +213,12 @@ for(let q=0;q<10;q++){opts=get('bonusAnswers').children;opts.find(b=>+b.dataset.
 assert.equal(run('questionsComplete()'),true);assert.equal(run('bonusCursor'),9);assert.equal(run('Object.values(stats.questionHistory).filter(x=>x==="correct").length'),10);assert.equal(get('strikeHearts').attributes['aria-label'],'3 of 3 hearts remaining');run('strikes=2;paint()');assert.equal(get('strikeHearts').attributes['aria-label'],'1 of 3 hearts remaining');
 run('stats.questionHistory=Object.fromEntries(BONUS.map((q,i)=>[q.id,i===0?"missed":"correct"]));startQuestions();showBonus()');assert.equal(run('bonusQueue.length'),1);assert.equal(get('questionProgress').textContent,'Question 1 of 1');
 console.log('PASS: ten unique questions, native choice changes before confirmation, menu exit/restore without bypass, locked submitted answers, per-question rationales, final unlock, limited-bank fallback and remaining EKG hearts.');
+
+// Ranking eligibility must survive resumption but never hints or a retry.
+run('finished=false;bonusSubmitted=true;bonusQueue=[];returnToMenu();stats.rankAttempts=[];stats.dailyDates=[];switchGame("daily")');
+assert.equal(run('rankEligible'),true);const rankedSave=run('window.NurseDokuProgress.snapshot()');assert.equal(rankedSave.game.rankEligible,true);
+run('window.NurseDokuProgress.apply('+JSON.stringify(rankedSave)+',null)');assert.equal(run('rankEligible'),true);
+get('hintBtn').events.click[0]();assert.equal(run('rankEligible'),false);
+run('reset()');assert.equal(run('rankEligible'),false);run('switchGame("daily")');assert.equal(run('rankEligible'),false);
+run('window.NurseDokuProgress.apply({game:{level:0,gameKind:"journey"},stats:{}},null)');assert.equal(run('rankEligible'),false);
+console.log('PASS: new daily eligibility, cloud resume, hint/retry exclusion and old-save exclusion.');
