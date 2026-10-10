@@ -154,3 +154,13 @@ assert(Math.abs((128+1.6*((400-100)/100))-132.8)<1e-9);
 assert(Math.abs((((140-60)*70)/(72*1.4))-55.55555555555556)<1e-9);
 assert.equal(questions[196].a[questions[196].correct],'132.8 mEq/L');
 assert.equal(questions[197].a[questions[197].correct],'56 mL/min');
+
+
+assert.equal(crypto.createHash('sha256').update(JSON.stringify(questions.slice(0,198))).digest('hex'),'47bf0629da0d7160647aa60451c3a042bbbc25e12b60fc796ad2b9f4688826e8','All prior 198 questions must stay unchanged');
+const october10=reviews.find(r=>r.date==='2026-10-10');
+assert.deepStrictEqual([october10.before,october10.added,october10.total],[198,10,208]);
+assert.equal(october10.questions.filter(r=>r.source).length,8);
+for(const r of october10.questions){assert(r.objective&&r.method);if(r.source)assert(r.support&&r.retrievalRef);else assert(r.calculation);}
+assert.equal(500*14/1000,7);assert.equal(72*70/1000,5.04);
+assert.equal(questions[206].a[questions[206].correct],'7.0 L/min');
+assert.equal(questions[207].a[questions[207].correct],'5.04 L/min');

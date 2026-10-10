@@ -29,7 +29,7 @@ Start from the main menu; loading the app leaves the timer paused. The changelog
 - [x] X pop, RN bounce and sparkle, care-zone feedback, win confetti; reduced-motion support
 - [x] Saved progress and themes; timer pauses when the page is hidden
 
-Progress and statistics are saved on this browser/device. Difficulty uses an automated deduction heuristic; human calibration remains future work. The NCLEX question bank currently contains 198 original questions. Generation uses bounded attempts and a verified starter fallback if a unique board cannot be produced.
+Progress and statistics are saved on this browser/device. Difficulty uses an automated deduction heuristic; human calibration remains future work. The NCLEX question bank currently contains 208 original questions. Generation uses bounded attempts and a verified starter fallback if a unique board cannot be produced.
 
 ## Run locally
 
@@ -51,7 +51,7 @@ Current rules: three incorrect RN placements end a shift. Invalid placements are
 
 Hints now explain direct deductions or confined-zone elimination from placed RNs, independently of player X marks. If those techniques cannot explain a move, the hint explicitly says it is a solution reveal. The daily archive includes a month calendar with completed-day markers and blocks future dates and dates before launch.
 
-The required post-shift question bank contains 198 original NCLEX single-answer items covering prioritization, adult health, pediatrics, medication safety, mental health, oncology, infection prevention, and dosage calculations. Clinical items link to authoritative government health sources; calculations explain the order supplied in the question. They are independently authored practice items. The old infection-prevention bank used a different version. Append-only NCLEX bank expansions preserve saved answers and history.
+The required post-shift question bank contains 208 original NCLEX single-answer items covering prioritization, adult health, pediatrics, medication safety, mental health, oncology, infection prevention, and dosage calculations. Clinical items link to authoritative government health sources; calculations explain the order supplied in the question. They are independently authored practice items. The old infection-prevention bank used a different version. Append-only NCLEX bank expansions preserve saved answers and history.
 
 ### Question history
 
@@ -161,3 +161,8 @@ The menu opens public daily rankings (top 50): completion time, then strikes; ti
 Times and eligibility are recorded on devices, so this is a casual beta, not a tamper-proof competition. The database validates the caller's own synced board, question completion and bounded time; it does not independently time or generate the puzzle. Public output contains nicknames and results only, never email addresses or account IDs. Tables are in a private schema with no direct client access; tightly scoped RPCs handle public reading and authenticated publishing/removal. Old saved games are ineligible.
 
 Desktop browsers at 960px and above use a wider two-column menu and a board with adjacent shift information. Phone layouts remain compact. Eligible signed-in daily results upload automatically after question completion and cloud sync; offline uploads retry after reconnection.
+
+
+## October 10, 2026 question expansion
+
+Added 10 original questions (eight clinical, two calculation), bringing the bank to 208. New objectives cover Cushing syndrome, Kawasaki disease, pyloric stenosis, amiodarone pulmonary toxicity, primary hyperparathyroidism, Marfan-associated aortic emergencies, hemophilic joint bleeding, placental abruption, minute ventilation, and cardiac output. Existing IDs, answer order, correct indices, and `QUIZ_VERSION` remain unchanged. Source checks and calculation verification are recorded in [the batch review](content/question-reviews/2026-10-10.json).

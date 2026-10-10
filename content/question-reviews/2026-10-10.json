@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-10",
+  "before": 198,
+  "added": 10,
+  "total": 208,
+  "review": "Source and arithmetic verification by the authoring assistant; not an independent clinician review or official NCLEX content.",
+  "duplicateReview": "Compared all 198 existing stems and objectives. The eight clinical questions introduce distinct decisions or concepts; the two physiology calculations use objectives not previously tested.",
+  "questions": [
+    {
+      "id": "nclex-00199",
+      "topic": "Endocrine health · Cushing syndrome",
+      "source": "https://medlineplus.gov/cushingssyndrome.html",
+      "objective": "Recognize the characteristic cluster caused by prolonged cortisol excess",
+      "support": "Long-term exposure to excess cortisol can produce upper-body obesity, thin extremities, easy bruising, muscle weakness, high blood pressure, and elevated glucose. This pattern supports evaluation for Cushing syndrome; it is not the typical pattern of cortisol deficiency or diabetes insipidus.",
+      "retrievalRef": "turn107search2",
+      "checkedOn": "2026-10-10",
+      "method": "Opened or searched the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00200",
+      "topic": "Pediatrics · Kawasaki disease",
+      "source": "https://medlineplus.gov/kawasakidisease.html",
+      "objective": "Recognize the mucocutaneous fever pattern of Kawasaki disease",
+      "support": "Kawasaki disease commonly affects children under five and can cause prolonged fever, nonpurulent conjunctival redness, oral changes, rash, and swollen hands or feet. Prompt evaluation and treatment matter because coronary artery inflammation and aneurysm can occur.",
+      "retrievalRef": "turn107search1",
+      "checkedOn": "2026-10-10",
+      "method": "Opened or searched the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00201",
+      "topic": "Pediatrics · Pyloric stenosis",
+      "source": "https://www.medlineplus.gov/ency/article/000970.htm",
+      "objective": "Differentiate the feeding and vomiting pattern of pyloric stenosis",
+      "support": "Pyloric stenosis usually appears in young infants with forceful vomiting after feeds, persistent hunger, dehydration, and poor weight gain. Thickened pyloric muscle obstructs gastric emptying. Unlike lower intestinal obstruction, the vomit is typically non-bilious.",
+      "retrievalRef": "turn107search0",
+      "checkedOn": "2026-10-10",
+      "method": "Opened or searched the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00202",
+      "topic": "Medication safety · Amiodarone pulmonary toxicity",
+      "source": "https://medlineplus.gov/druginfo/meds/a687009.html",
+      "objective": "Escalate pulmonary warning symptoms during amiodarone therapy",
+      "support": "Amiodarone can cause serious or life-threatening lung injury. New cough, fever, or breathing difficulty requires immediate contact with the prescriber. Extra dosing, grapefruit juice, and delayed assessment could worsen risk or postpone evaluation of a serious adverse effect.",
+      "retrievalRef": "turn107search3",
+      "checkedOn": "2026-10-10",
+      "method": "Opened or searched the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00203",
+      "topic": "Endocrine health · Primary hyperparathyroidism",
+      "source": "https://www.niddk.nih.gov/health-information/endocrine-diseases/primary-hyperparathyroidism",
+      "objective": "Connect hypercalcemia, stones, and skeletal symptoms with excess PTH",
+      "support": "Overactive parathyroid glands produce excess parathyroid hormone and may cause hypercalcemia. High calcium can contribute to kidney stones, bone loss or pain, weakness, and cognitive symptoms. The findings warrant evaluation rather than being attributed to insulin or water-balance disorders.",
+      "retrievalRef": "turn108search0",
+      "checkedOn": "2026-10-10",
+      "method": "Opened or searched the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00204",
+      "topic": "Cardiovascular emergency · Marfan syndrome",
+      "source": "https://www.nhlbi.nih.gov/health/marfan-syndrome/living-with",
+      "objective": "Prioritize suspected aortic dissection in Marfan syndrome",
+      "support": "Marfan syndrome can weaken and enlarge the aorta, increasing the risk of aortic dissection or rupture. Sudden severe chest or back pain with faintness is an emergency requiring immediate evaluation; observation at home or exercise could delay lifesaving treatment.",
+      "retrievalRef": "turn108search1",
+      "checkedOn": "2026-10-10",
+      "method": "Opened or searched the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00205",
+      "topic": "Hematology · Hemophilia joint bleeding",
+      "source": "https://www.cdc.gov/hemophilia/about/index.html",
+      "objective": "Recognize hemarthrosis as internal bleeding in hemophilia",
+      "support": "Hemophilia can cause internal bleeding, including bleeding into joints, even when no external wound is present. Acute warmth, swelling, and pain require prompt evaluation and the child’s prescribed bleeding-management plan; vigorous activity can worsen joint injury.",
+      "retrievalRef": "turn108search4",
+      "checkedOn": "2026-10-10",
+      "method": "Opened or searched the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00206",
+      "topic": "Maternal emergency · Placental abruption",
+      "source": "https://www.medlineplus.gov/ency/article/000901.htm",
+      "objective": "Escalate the painful-bleeding pattern of placental abruption",
+      "support": "Placental abruption occurs when the placenta separates from the uterine wall before birth. Painful contractions and vaginal bleeding are common warning signs, and fetal oxygen delivery may be affected. Immediate obstetric evaluation is required.",
+      "retrievalRef": "turn108search6",
+      "checkedOn": "2026-10-10",
+      "method": "Opened or searched the authoritative source and verified the keyed answer and rationale; authored an original scenario and distractors."
+    },
+    {
+      "id": "nclex-00207",
+      "topic": "Respiratory calculation · Minute ventilation",
+      "objective": "Calculate minute ventilation and convert mL to L",
+      "calculation": {
+        "formula": "500 * 14 / 1000",
+        "expected": "7.0 L/min"
+      },
+      "checkedOn": "2026-10-10",
+      "method": "Computed independently with JavaScript and exact Python Decimal arithmetic."
+    },
+    {
+      "id": "nclex-00208",
+      "topic": "Cardiovascular calculation · Cardiac output",
+      "objective": "Calculate cardiac output and convert mL to L",
+      "calculation": {
+        "formula": "72 * 70 / 1000",
+        "expected": "5.04 L/min"
+      },
+      "checkedOn": "2026-10-10",
+      "method": "Computed independently with JavaScript and exact Python Decimal arithmetic."
+    }
+  ]
+}
