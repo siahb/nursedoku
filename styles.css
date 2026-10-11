@@ -716,3 +716,13 @@ body { background:linear-gradient(160deg,#f1f8f7,#e9f2f0); }
  #gameView>.install-tip{grid-column:1 / -1}
  .board{max-width:640px;margin-inline:auto}.gesture-guide{font-size:.9rem}.app-version{margin-top:32px}
 }
+
+/* Confirmed NCLEX answers retain outcome colors across appearance themes. */
+#bonusAnswers .bonus-answer.answer-correct{background:#dcfce7;border:2px solid #15803d;color:#14532d;opacity:1}
+#bonusAnswers .bonus-answer.answer-wrong{background:#fee2e2;border:2px solid #b91c1c;color:#7f1d1d;opacity:1}
+#bonusAnswers .answer-correct input{accent-color:#15803d}#bonusAnswers .answer-wrong input{accent-color:#b91c1c}
+#bonusFeedback:is(.feedback-correct,.feedback-review){padding:12px;border-radius:12px;border:1px solid;line-height:1.5}
+#bonusFeedback.feedback-correct{background:#dcfce7;color:#14532d;border-color:#15803d}
+#bonusFeedback.feedback-review{background:#fee2e2;color:#7f1d1d;border-color:#b91c1c}
+:root[data-appearance="dark"] #bonusAnswers .bonus-answer.answer-correct,:root[data-appearance="dark"] #bonusFeedback.feedback-correct{background:#14532d;color:#dcfce7;border-color:#4ade80}
+:root[data-appearance="dark"] #bonusAnswers .bonus-answer.answer-wrong,:root[data-appearance="dark"] #bonusFeedback.feedback-review{background:#7f1d1d;color:#fee2e2;border-color:#f87171}

@@ -3573,7 +3573,7 @@ function showBonus() {
   [...$('bonusAnswers').children].forEach(b=>{b.disabled=true;b.children[0].disabled=true;if(+b.dataset.choice===item.correct)b.classList.add('answer-correct');else if(+b.dataset.choice===bonusChoice)b.classList.add('answer-wrong');});
   const correct=bonusChoice===item.correct;
   $('bonusFeedback').className=correct?'feedback-correct':'feedback-review';
-  $('bonusFeedback').textContent=(correct?'Correct. ':'Review: '+item.a[item.correct]+'. ')+item.why;
+  $('bonusFeedback').textContent=(correct?'Correct. ':'Incorrect. Correct answer: '+item.a[item.correct]+'. ')+item.why;
   $('bonusSource').hidden=!item.source;
  }
  choices.forEach(({answer,i})=>{
