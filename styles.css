@@ -726,3 +726,9 @@ body { background:linear-gradient(160deg,#f1f8f7,#e9f2f0); }
 #bonusFeedback.feedback-review{background:#fee2e2;color:#7f1d1d;border-color:#b91c1c}
 :root[data-appearance="dark"] #bonusAnswers .bonus-answer.answer-correct,:root[data-appearance="dark"] #bonusFeedback.feedback-correct{background:#14532d;color:#dcfce7;border-color:#4ade80}
 :root[data-appearance="dark"] #bonusAnswers .bonus-answer.answer-wrong,:root[data-appearance="dark"] #bonusFeedback.feedback-review{background:#7f1d1d;color:#fee2e2;border-color:#f87171}
+
+/* Hints identify the action without obscuring the care-zone color. */
+.cell.hint[data-hint-action]:not([data-hint-action=""])::after{content:attr(data-hint-action);position:absolute;right:2px;top:2px;z-index:3;padding:2px 4px;border-radius:4px;background:#123b40;color:#fff;font-size:clamp(.5rem,1vw,.7rem);font-weight:800;line-height:1.1;pointer-events:none}
+.cell.hint[data-hint-action="X"]::after{background:#233e70}.cell.hint[data-hint-action="Review"]::after{background:#8b2435}
+
+.cell.hint{scroll-margin:16px}

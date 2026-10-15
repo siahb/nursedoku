@@ -127,7 +127,7 @@ let rankEligible=false;
 let level = 0, state, history = [], elapsed = 0, runningSince = null, finished = false, strikes=0, lost=false;
 let inGame=false,winTimeout=null,winSequence=0,bonusIndex=null,bonusChoice=null,bonusSubmitted=false;
 let bonusQueue=[],bonusCursor=0;
-let gesture = null, lastTap = null, pendingTap = null, hintCell = null;
+let gesture = null, lastTap = null, pendingTap = null, hintCell = null, hintAction = null;
 let clearedZones=new Set(),zoneClearTimeout=null;
 const puzzle = () => customPuzzle || LEVELS[level];
 const size = () => puzzle().regions.length;
@@ -190,7 +190,10 @@ function paint() {
       cell.innerHTML=v?`<span class="${v==='rn'?'rn':'x'}-marker">${v==='rn'?'RN':'×'}</span>${v==='rn'?'<span class="rn-sparkles" aria-hidden="true"></span>':''}`:'';
     }
     cell.classList.toggle('conflict',bad.has(`${r},${c}`));
-    cell.classList.toggle('hint',hintCell===`${r},${c}`);
+    const hinted=hintCell===`${r},${c}`;
+    cell.classList.toggle('hint',hinted);
+    cell.dataset.hintAction=hinted?(hintAction==='x'?'X':hintAction==='review'?'Review':'RN'):'';
+    cell.setAttribute('aria-describedby',hinted?'message':'');
     cell.setAttribute('aria-label',`Row ${r+1}, column ${c+1}, care zone ${zone+1}, ${v==='rn'?'RN placed':v==='x'?'marked X':'empty'}${bad.has(`${r},${c}`)?', conflict':''}`);
   });
   const ps=positions(); $('rnCount').textContent=ps.length;
@@ -203,6 +206,7 @@ function paint() {
     dot.setAttribute('aria-label',`Care zone ${+dot.dataset.zone+1}: ${count} RNs`);
   });
   $('undoBtn').disabled=!history.length||finished;
+  $('hintBtn').disabled=finished;
   updateZoneClears();
   if(!finished&&strikes===0&&gameKind==='journey'&&level===0&&!ps.length) {
     const col=puzzle().solution[0];
@@ -344,7 +348,9 @@ function explainHint(p,marks) {
 }
 $('hintBtn').addEventListener('click',()=>{
  flushTap();if(finished)return;rankEligible=false;persist();const hint=explainHint(puzzle(),state);if(!hint)return;
- sound('hint');hintCell=`${hint.r},${hint.c}`;paint();tell(hint.text,hint.kind==='review'?'error':'');
+ sound('hint');hintCell=`${hint.r},${hint.c}`;hintAction=hint.kind;paint();tell(hint.text,hint.kind==='review'?'error':'');
+ const target=board.children[hint.r*size()+hint.c];
+ target.focus({preventScroll:true});target.scrollIntoView?.({block:'nearest',inline:'nearest',behavior:'instant'});
 });
 
 function reset(next=false) {

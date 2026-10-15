@@ -222,3 +222,10 @@ get('hintBtn').events.click[0]();assert.equal(run('rankEligible'),false);
 run('reset()');assert.equal(run('rankEligible'),false);run('switchGame("daily")');assert.equal(run('rankEligible'),false);
 run('window.NurseDokuProgress.apply({game:{level:0,gameKind:"journey"},stats:{}},null)');assert.equal(run('rankEligible'),false);
 console.log('PASS: new daily eligibility, cloud resume, hint/retry exclusion and old-save exclusion.');
+
+// Follow every hint to completion, including incorrect Xs on valid RN squares.
+let hintedBoards=0,hintedMoves=0;
+for(const bank of ['LEVELS','PUZZLE_BANK.easy','PUZZLE_BANK.medium','PUZZLE_BANK.hard','LARGE_PUZZLE_BANK.easy','LARGE_PUZZLE_BANK.medium','LARGE_PUZZLE_BANK.hard','Array.from({length:30},(_,i)=>generatePuzzle(6,20261014+i))']){
+ const report=run(`(()=>{let boards=0,moves=0;for(const p of ${bank}){const n=p.regions.length,marks=Array.from({length:n},(_,r)=>Array.from({length:n},(_,c)=>(r+c)%3===0?'x':''));let count=0;while(true){const h=explainHint(p,marks);if(!h)break;if(++count>n*n+n)throw Error('Hint sequence failed to finish');if(h.kind==='x'){if(p.solution[h.r]===h.c||marks[h.r][h.c]!=='')throw Error('Invalid X hint');marks[h.r][h.c]='x';}else{if(p.solution[h.r]!==h.c||marks[h.r][h.c]==='rn')throw Error('Invalid RN hint');marks[h.r][h.c]='rn';}}if(marks.flat().filter(x=>x==='rn').length!==n)throw Error('Unsolved board');boards++;moves+=count;}return {boards,moves};})()`);hintedBoards+=report.boards;hintedMoves+=report.moves;
+}
+console.log(`PASS: ${hintedBoards} complete hint-guided boards, ${hintedMoves} recommendations, including misleading Xs.`);
