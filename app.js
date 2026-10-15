@@ -194,6 +194,12 @@ function paint() {
     cell.classList.toggle('hint',hinted);
     cell.dataset.hintAction=hinted?(hintAction==='x'?'X':hintAction==='review'?'Review':'RN'):'';
     cell.setAttribute('aria-describedby',hinted?'message':'');
+    let preview=[...cell.children].find(x=>x.className==='hint-preview');
+    if(hinted&&hintAction!=='review'){
+      if(!preview){preview=document.createElement('span');preview.className='hint-preview';preview.setAttribute('aria-hidden','true');cell.append(preview);}
+      preview.innerHTML=hintAction==='x'?'<svg viewBox="0 0 100 100" focusable="false" aria-hidden="true"><path d="m27 27 46 46m0-46L27 73" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-dasharray="8 7"/></svg>':'<svg viewBox="0 0 100 100" focusable="false" aria-hidden="true"><circle cx="50" cy="50" r="38" fill="white" fill-opacity=".85" stroke="currentColor" stroke-width="3" stroke-dasharray="6 5"/><text x="50" y="62" text-anchor="middle" font-family="system-ui,sans-serif" font-size="34" font-weight="900" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="4 2">RN</text></svg>';
+    }else preview?.remove?.();
+
     cell.setAttribute('aria-label',`Row ${r+1}, column ${c+1}, care zone ${zone+1}, ${v==='rn'?'RN placed':v==='x'?'marked X':'empty'}${bad.has(`${r},${c}`)?', conflict':''}`);
   });
   const ps=positions(); $('rnCount').textContent=ps.length;

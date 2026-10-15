@@ -732,3 +732,12 @@ body { background:linear-gradient(160deg,#f1f8f7,#e9f2f0); }
 .cell.hint[data-hint-action="X"]::after{background:#233e70}.cell.hint[data-hint-action="Review"]::after{background:#8b2435}
 
 .cell.hint{scroll-margin:16px}
+
+/* Dashed previews are guidance only; actual marks remain unchanged. */
+.hint-preview{position:absolute;inset:8%;display:grid;place-items:center;pointer-events:none;z-index:2;color:#123b40;animation:hint-preview-pulse 1.8s ease-in-out infinite}
+.hint-preview svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 1px 1px #ffffffb3)}
+.cell.hint[data-hint-action="X"] .hint-preview{color:#17325e;background:#ffffffc9;border-radius:14%}
+.cell.hint:has(.hint-preview)>.x-marker{opacity:.15}
+.cell.hint[data-hint-action="Review"]{box-shadow:inset 0 0 0 3px #fff,0 0 0 4px #b32d40}
+@keyframes hint-preview-pulse{0%,100%{opacity:.72;transform:scale(.94)}50%{opacity:1;transform:scale(1.04)}}
+@media(prefers-reduced-motion:reduce){.hint-preview{animation:none;opacity:1;transform:none}}

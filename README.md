@@ -168,3 +168,5 @@ Desktop browsers at 960px and above use a wider two-column menu and a board with
 Added 10 original questions (eight clinical, two calculation), bringing the bank to 208. New objectives cover Cushing syndrome, Kawasaki disease, pyloric stenosis, amiodarone pulmonary toxicity, primary hyperparathyroidism, Marfan-associated aortic emergencies, hemophilic joint bleeding, placental abruption, minute ventilation, and cardiac output. Existing IDs, answer order, correct indices, and `QUIZ_VERSION` remain unchanged. Source checks and calculation verification are recorded in [the batch review](content/question-reviews/2026-10-10.json).
 
 Hint QA: every training/practice board is checked through a complete hint-guided solve, including misleading X marks. Hint requests focus and reveal the target square, label the RN/X/review action, and link it to the explanation for screen readers. Hint is disabled after a solved or lost shift.
+
+Hint previews: an animated dashed RN or dashed X appears inside the recommended square without placing a mark. Review hints keep the existing RN visible with a red warning outline. Reduced motion shows static previews.
