@@ -741,3 +741,24 @@ body { background:linear-gradient(160deg,#f1f8f7,#e9f2f0); }
 .cell.hint[data-hint-action="Review"]{box-shadow:inset 0 0 0 3px #fff,0 0 0 4px #b32d40}
 @keyframes hint-preview-pulse{0%,100%{opacity:.72;transform:scale(.94)}50%{opacity:1;transform:scale(1.04)}}
 @media(prefers-reduced-motion:reduce){.hint-preview{animation:none;opacity:1;transform:none}}
+
+/* Keep marks legible on every care-zone palette. */
+.cell > .x-marker{color:#26333f;font-size:clamp(1.65rem,7vw,2.65rem);font-weight:800;text-shadow:none}
+.board[data-size="10"] .cell > .x-marker{font-size:clamp(1.25rem,4.8vw,2rem)}
+@media(min-width:960px){
+ .app-shell{padding-top:20px}
+ .topbar{margin-bottom:16px}
+ #mainMenu:not([hidden]){grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:12px 32px}
+ .menu-hero{grid-row:1 / span 9;padding:28px;background:var(--surface);border:1px solid var(--line);border-radius:22px;top:20px}
+ .menu-hero h2{font-size:2.5rem;margin-bottom:14px}
+ .menu-hero .menu-emblem{width:96px;height:96px}
+ #mainMenu .mode-card{min-height:70px;padding:14px 18px}
+ #mainMenu .daily-tip{padding:16px 18px}
+ #gameView:not([hidden]){grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:12px 24px}
+ #gameView>.game-card{padding:16px}
+ #gameView>.status-card{padding:18px;gap:12px}
+ #gameView>.rules-card{padding:18px}
+ #gameView>.rules-card ul{gap:6px}
+ .board{width:min(100%,580px,calc(100dvh - 320px));max-width:580px}
+ .gesture-guide{margin:12px 0 0}
+}
