@@ -4,7 +4,7 @@ try{for(const width of [375,1280])for(const n of [6,10]){
  const p=await b.newPage({viewport:{width,height:667}}),errors=[];
  p.on('pageerror',e=>errors.push(e.message));
  await p.route('**/api/account/**',r=>r.fulfill({json:{session:null}}));
- await p.addInitScript(()=>localStorage.setItem('nursedoku-changelog','2026-09-29-v1.1.0'));
+ await p.addInitScript(()=>localStorage.setItem('nursedoku-changelog','2026-10-20-v1.2.0'));
  await p.goto(process.env.NURSEDOKU_BASE_URL||'http://127.0.0.1:8192/nursedoku/');
  await p.evaluate(n=>{stats.shift000Complete=true;document.getElementById('boardSize').value=String(n);switchGame('practice');enterGame();},n);
  const before=await p.evaluate(()=>JSON.stringify({state,history,strikes}));

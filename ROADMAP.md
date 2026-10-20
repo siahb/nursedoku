@@ -108,3 +108,8 @@ Guest question history belongs to the browser/device. Account history travels wi
 - [x] Require a synced daily completion and NCLEX questions; exclude hints and retries in the app
 - [ ] Server-issued attempts, canonical board validation and independent timing for competitive integrity
 - [ ] Additional boards for progression or weekly totals
+
+## Version 1.2.0 — October 20, 2026
+
+- [x] Reconcile footer date/version and one-time changelog with delivered tutorial, hint, leaderboard and PWA features
+- [x] Browser installability and fresh offline launch checked on the live site; physical phone installation remains unverified

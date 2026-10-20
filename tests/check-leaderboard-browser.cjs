@@ -7,7 +7,7 @@ const assert=require('node:assert/strict');
   page.on('pageerror',e=>errors.push(e.message));
   await page.route('**/api/account/**',r=>r.fulfill({json:{session:null}}));
   await page.route('**/rest/v1/rpc/nursedoku_daily_board',r=>r.fulfill({json:[{rank:1,nickname:'<b>Test Nurse</b>',elapsed_ms:42000,strikes:0},{rank:1,nickname:'Test Nurse',elapsed_ms:42000,strikes:0}]}));
-  await page.addInitScript(()=>localStorage.setItem('nursedoku-changelog','2026-09-29-v1.1.0'));
+  await page.addInitScript(()=>localStorage.setItem('nursedoku-changelog','2026-10-20-v1.2.0'));
   await page.goto(process.env.NURSEDOKU_BASE_URL||'http://127.0.0.1:8182/',{waitUntil:'networkidle'});
   const shell=await page.locator('.app-shell').boundingBox();assert(width>=960?shell.width>850:shell.width<=570);checks++;
   await page.getByRole('button',{name:'Daily leaderboard',exact:true}).click();

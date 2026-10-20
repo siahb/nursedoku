@@ -174,3 +174,5 @@ Hint previews: an animated dashed RN or dashed X appears inside the recommended 
 PWA refresh (October 20, 2026): puzzle-board logo and launcher icons, dedicated maskable PNG, browser install button and Safari Home Screen guidance. The asset build precaches install code and manifest icons. Offline play requires one successful online visit; account sync and leaderboards still require a connection.
 
 PWA QA (October 20): Edge installability has zero errors in a fresh persistent test profile. Fresh offline reopen restores board marks, hints and logo. Explicit shared static dependencies can be served offline; private account/leaderboard APIs are not cached. iPad desktop user-agent receives Home Screen instructions. Physical-device installation and authenticated email flows remain separate checks.
+
+Release 1.2.0 — October 20, 2026: consolidates the existing guided tutorial, hint previews, daily leaderboard beta, desktop/dark layouts and installable offline app. This release refreshes displayed metadata and the one-time changelog only; save keys and question-history versions are unchanged.

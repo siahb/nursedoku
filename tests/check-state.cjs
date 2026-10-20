@@ -8,7 +8,7 @@ vm.createContext(context);vm.runInContext(fs.readFileSync(require('path').join(_
 function run(code){return vm.runInContext(code,context);}
 assert.equal(run('inGame'),false);assert.equal(run('runningSince'),null);assert.equal(get('gameView').hidden,undefined);
 get('closeChangelogBtn').events.click[0]();get('changelogDialog').events.close[0]();
-assert.equal(storage['nursedoku-changelog'],'2026-09-29-v1.1.0');
+assert.equal(storage['nursedoku-changelog'],'2026-10-20-v1.2.0');
 get('continueBtn').events.click[0]();assert.equal(run('inGame'),true);assert.notEqual(run('runningSince'),null);
 const evt={pointerId:1,isPrimary:true,button:0,clientX:10,clientY:10,preventDefault(){}};
 hit=get('board').children[1];hit.closest=()=>hit;

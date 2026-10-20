@@ -3854,7 +3854,7 @@ for(const [id,kind] of [['menuLearnBtn','journey'],['menuDailyBtn','daily'],['me
 $('winDialog').addEventListener('cancel',event=>{event.preventDefault();returnToMenu();});
 $('closeQuestionBtn').addEventListener('click',returnToMenu);
 $('menuPreferences').append(document.querySelector('.preferences'));
-const UPDATE_VERSION='2026-09-29-v1.1.0';
+const UPDATE_VERSION='2026-10-20-v1.2.0';
 let changelogShown=false;
 function markChangelogSeen(){try{localStorage.setItem('nursedoku-changelog',UPDATE_VERSION);}catch{}changelogShown=true;}
 function openChangelog(){pause();$('changelogDialog').showModal();}
