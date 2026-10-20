@@ -172,3 +172,5 @@ Hint QA: every training/practice board is checked through a complete hint-guided
 Hint previews: an animated dashed RN or dashed X appears inside the recommended square without placing a mark. Review hints keep the existing RN visible with a red warning outline. Reduced motion shows static previews.
 
 PWA refresh (October 20, 2026): puzzle-board logo and launcher icons, dedicated maskable PNG, browser install button and Safari Home Screen guidance. The asset build precaches install code and manifest icons. Offline play requires one successful online visit; account sync and leaderboards still require a connection.
+
+PWA QA (October 20): Edge installability has zero errors in a fresh persistent test profile. Fresh offline reopen restores board marks, hints and logo. Explicit shared static dependencies can be served offline; private account/leaderboard APIs are not cached. iPad desktop user-agent receives Home Screen instructions. Physical-device installation and authenticated email flows remain separate checks.
