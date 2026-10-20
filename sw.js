@@ -8,7 +8,7 @@ self.addEventListener('fetch',event=>{
  const url=new URL(event.request.url),scope=new URL(self.registration.scope);
  const sharedAsset=ASSETS.some(asset=>new URL(asset,scope).href===url.href);
  if(event.request.method!=='GET'||url.origin!==scope.origin||(!url.pathname.startsWith(scope.pathname)&&!sharedAsset))return;
- if(event.request.mode==='navigate')event.respondWith(fetch(event.request).catch(()=>caches.open(CACHE).then(cache=>cache.match('index.html'))));
+ if(event.request.mode==='navigate')event.respondWith(fetch(event.request).catch(()=>caches.open(CACHE).then(async cache=>{const page=await cache.match(scope.href)||await cache.match('index.html');return page?new Response(page.body,{status:page.status,statusText:page.statusText,headers:page.headers}):Response.error();})));
  else event.respondWith(caches.open(CACHE).then(async cache=>(await cache.match(event.request))||fetch(event.request)));
 });
 
