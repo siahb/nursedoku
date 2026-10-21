@@ -180,3 +180,5 @@ Release 1.2.0 — October 20, 2026: consolidates the existing guided tutorial, h
 Install feedback: dismissing the browser install prompt keeps its status message visible; the install section hides only when its button is hidden and its status is empty.
 
 Offline status: NurseDoku shows a connection notice while the browser reports offline; reconnecting hides it. This indicates browser connectivity, not successful server sync.
+
+NCLEX progress: the menu summarizes mastered questions and missed questions awaiting review using the current bank and existing per-owner history. Unknown retired IDs are excluded.

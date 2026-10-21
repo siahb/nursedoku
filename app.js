@@ -406,6 +406,11 @@ function validPuzzle(p) {
   return p&&[4,5,6,8,10].includes(p.regions?.length)&&p.regions.every(row=>Array.isArray(row)&&row.length===p.regions.length&&row.every(z=>Number.isInteger(z)&&z>=0&&z<p.regions.length))&&Array.isArray(p.solution)&&p.solution.length===p.regions.length&&p.solution.every(c=>Number.isInteger(c)&&c>=0&&c<p.regions.length);
 }
 function localDate(d=new Date()) {return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+function questionProgressSummary(history=stats.questionHistory) {
+ const active=BONUS.map(item=>history?.[item.id]);
+ const mastered=active.filter(value=>value==='correct').length,missed=active.filter(value=>value==='missed').length;
+ return 'NCLEX questions: '+mastered+' / '+BONUS.length+' mastered'+(missed?' · '+missed+' to review':'');
+}
 function updateStats() {
   let streak=0,d=new Date();
   if(!stats.dailyDates.includes(localDate(d)))d.setDate(d.getDate()-1);
@@ -3825,6 +3830,7 @@ $('dismissTipBtn').addEventListener('click',()=>{
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderDailyTip();});
 function updateMenu(){
  renderDailyTip();
+ if($('questionProgress'))$('questionProgress').textContent=questionProgressSummary();
  $('menuStats').textContent=$('statsLine').textContent;
  $('continueBtn').textContent=finished&&!lost&&!questionsComplete()?'Finish NCLEX questions':lost?'Review ended shift':finished?'Review completed shift':state.flat().some(Boolean)||elapsed>0?'Continue your shift':'Start your shift';
  if(window.NurseDokuShift000&&needsShift000())$('continueBtn').textContent='Start Shift 000';
