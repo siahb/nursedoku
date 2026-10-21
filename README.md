@@ -184,3 +184,5 @@ Offline status: NurseDoku shows a connection notice while the browser reports of
 NCLEX progress: the menu summarizes mastered questions and missed questions awaiting review using the current bank and existing per-owner history. Unknown retired IDs are excluded.
 
 Timer protection: returning to a tab cannot resume the shift clock while any modal dialog remains open, including leaderboard and shared Help.
+
+Leaderboard requests time out after 15 seconds with refresh guidance; changing dates or closing the dialog cancels outdated requests.
