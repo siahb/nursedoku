@@ -231,4 +231,4 @@ for(const bank of ['LEVELS','PUZZLE_BANK.easy','PUZZLE_BANK.medium','PUZZLE_BANK
 console.log(`PASS: ${hintedBoards} complete hint-guided boards, ${hintedMoves} recommendations, including misleading Xs.`);
 
 // Visibility changes must not resume a shift behind any modal, including shared Help.
-run("finished=false;inGame=true;runningSince=null");doc.querySelector=selector=>selector==='dialog[open]'?{open:true}:new El();run("resume()");assert.equal(run("runningSince"),null);doc.querySelector=selector=>selector==='dialog[open]'?null:new El();run("resume()");assert.notEqual(run("runningSince"),null);console.log("PASS: open dialogs block timer resume; closing them permits resume.");
+for(const el of Object.values(els))el.open=false;run("finished=false;inGame=true;runningSince=null");doc.querySelector=selector=>selector==='dialog[open]'?{open:true}:new El();run("resume()");assert.equal(run("runningSince"),null);doc.querySelector=selector=>selector==='dialog[open]'?null:new El();run("resume()");assert.notEqual(run("runningSince"),null);console.log("PASS: open dialogs block timer resume; closing them permits resume.");
