@@ -1,6 +1,9 @@
 (()=>{
  let pending=null;const button=document.getElementById('installAppBtn'),status=document.getElementById('installAppStatus');
  if(!button)return;
+ const connection=document.createElement('p');connection.id='pwaConnectionStatus';connection.className='install-tip';connection.setAttribute('role','status');connection.setAttribute('aria-live','polite');button.parentElement.after(connection);
+ const updateConnection=()=>{connection.hidden=navigator.onLine!==false;connection.textContent=connection.hidden?'':'Offline · Play continues on this device. Cloud sync and leaderboards need a connection.';};
+ addEventListener('online',updateConnection);addEventListener('offline',updateConnection);updateConnection();
  const standalone=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
  addEventListener('beforeinstallprompt',event=>{event.preventDefault();pending=event;button.hidden=standalone();});
  button.addEventListener('click',async()=>{if(!pending)return;button.disabled=true;try{await pending.prompt();const result=await pending.userChoice;status.textContent=result.outcome==='accepted'?'Installation requested.':'You can install NurseDoku later.';}catch{status.textContent='Use your browser menu to install NurseDoku.';}finally{pending=null;button.hidden=true;button.disabled=false;}});
