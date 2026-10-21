@@ -113,3 +113,5 @@ Guest question history belongs to the browser/device. Account history travels wi
 
 - [x] Reconcile footer date/version and one-time changelog with delivered tutorial, hint, leaderboard and PWA features
 - [x] Browser installability and fresh offline launch checked on the live site; physical phone installation remains unverified
+
+- [x] Menu NCLEX mastery/review counts from current-bank question history; regression checks exclude retired IDs and preserve separate owner histories
