@@ -182,3 +182,5 @@ Install feedback: dismissing the browser install prompt keeps its status message
 Offline status: NurseDoku shows a connection notice while the browser reports offline; reconnecting hides it. This indicates browser connectivity, not successful server sync.
 
 NCLEX progress: the menu summarizes mastered questions and missed questions awaiting review using the current bank and existing per-owner history. Unknown retired IDs are excluded.
+
+Timer protection: returning to a tab cannot resume the shift clock while any modal dialog remains open, including leaderboard and shared Help.

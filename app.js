@@ -140,7 +140,7 @@ function persist() {
   window.NurseDokuCloud?.changed();
 }
 function pause() { elapsed = time(); runningSince = null; persist(); }
-function resume() { if (!finished && !document.hidden && runningSince===null && inGame && !['howToDialog','shift000Dialog','accountDialog','archiveDialog','changelogDialog'].some(id=>$(id)?.open)) runningSince = Date.now(); }
+function resume() { if (!finished && !document.hidden && runningSince===null && inGame && !document.querySelector('dialog[open]') && !['howToDialog','shift000Dialog','accountDialog','archiveDialog','changelogDialog'].some(id=>$(id)?.open)) runningSince = Date.now(); }
 function positions() { return state.flatMap((row,r) => row.flatMap((v,c) => v === 'rn' ? [[r,c]] : [])); }
 function conflicts() {
   const ps = positions(), bad = new Set(), zones = puzzle().regions;
