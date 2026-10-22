@@ -192,3 +192,7 @@ Leaderboard rendering validates the complete result set before adding rows, so m
 An open leaderboard reloads when the browser reconnects. Going offline cancels its pending request and replaces stale rankings with an offline notice; a closed leaderboard does not fetch on reconnection.
 
 Training card progress: completed shifts and the next unfinished shift are computed from the current owner’s existing journey completion list; invalid/duplicate indices are excluded. Completing all shifts shows “All training complete”.
+
+## October 22, 2026 — Puzzle-only play
+
+NCLEX questions are disabled. Solving a shift opens results with the next-shift control ready. Question-count and mastery controls are hidden. Existing question history is preserved; daily leaderboard eligibility no longer requires a question response. Earlier question-related entries describe historical behavior.

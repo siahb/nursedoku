@@ -54,7 +54,7 @@ function changed(){
 window.NurseDokuCloud={changed};
 let ranking=false;
 const rankedResults=new Set();
-function rankable(g){return g?.gameKind==='daily'&&g.finished&&!g.lost&&g.rankEligible&&g.bonusSubmitted&&(!g.bonusQueue?.length||g.bonusCursor===g.bonusQueue.length-1);}
+function rankable(g){return g?.gameKind==='daily'&&g.finished&&!g.lost&&g.rankEligible;}
 function playerName(id){let hash=2166136261;for(const c of id)hash=Math.imul(hash^c.charCodeAt(0),16777619);return 'Nurse '+(hash>>>0).toString(36).toUpperCase();}
 async function autoRank(){
  if(ranking||!user||!ready||busy||resolving||conflict||!navigator.onLine||readMeta(user.id).dirty)return;

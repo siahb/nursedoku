@@ -3550,9 +3550,10 @@ function chooseQuestion(){
  return missed.length?missed[Math.floor(Math.random()*missed.length)].index:-1;
 }
 
-function questionsComplete(){return bonusSubmitted&&(!bonusQueue.length||bonusCursor===bonusQueue.length-1);}
+function questionsComplete(){return true;}
 function restoreQuestionQueue(g){bonusQueue=Array.isArray(g.bonusQueue)?[...new Set(g.bonusQueue.filter(i=>Number.isInteger(i)&&i>=0&&i<5000))].slice(0,10):[];bonusCursor=Number.isInteger(g.bonusCursor)&&g.bonusCursor>=0&&g.bonusCursor<bonusQueue.length?g.bonusCursor:0;}
-function startQuestions(){
+function startQuestions(){return;
+
  const requested=Math.max(1,Math.min(10,Number($('questionCount').value)||1));
  const unseen=BONUS.map((q,i)=>({q,i})).filter(({q})=>!stats.questionHistory[q.id]);
  const missed=BONUS.map((q,i)=>({q,i})).filter(({q})=>stats.questionHistory[q.id]==='missed');
@@ -3560,6 +3561,7 @@ function startQuestions(){
 }
 
 function showBonus() {
+ $('playAgainBtn').disabled=false;updateResultLinks();return;
  const index=Number.isInteger(bonusIndex)&&bonusIndex>=0&&bonusIndex<BONUS.length?bonusIndex:chooseQuestion();bonusIndex=index;
  if(bonusQueue[bonusCursor]!==index||bonusQueue.some(i=>i>=BONUS.length)){bonusQueue=index>=0?[index]:[];bonusCursor=0;}
  $('questionProgress').textContent=index<0?'':('Question '+(bonusCursor+1)+' of '+bonusQueue.length);
@@ -3836,7 +3838,7 @@ function trainingProgressSummary(completed=completedShifts,total=LEVELS.length){
 function updateMenu(){
  if($('trainingProgress'))$('trainingProgress').textContent=trainingProgressSummary();
  renderDailyTip();
- if($('questionProgress'))$('questionProgress').textContent=questionProgressSummary();
+ 
  $('menuStats').textContent=$('statsLine').textContent;
  $('continueBtn').textContent=finished&&!lost&&!questionsComplete()?'Finish NCLEX questions':lost?'Review ended shift':finished?'Review completed shift':state.flat().some(Boolean)||elapsed>0?'Continue your shift':'Start your shift';
  if(window.NurseDokuShift000&&needsShift000())$('continueBtn').textContent='Start Shift 000';

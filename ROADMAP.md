@@ -117,3 +117,7 @@ Guest question history belongs to the browser/device. Account history travels wi
 - [x] Menu NCLEX mastery/review counts from current-bank question history; regression checks exclude retired IDs and preserve separate owner histories
 
 - [x] Training card shows completed shifts and the next unfinished shift from existing saved progress
+
+## October 22, 2026 — Puzzle-only play
+
+NCLEX questions are disabled. Solving a shift opens results with the next-shift control ready. Question-count and mastery controls are hidden. Existing question history is preserved; daily leaderboard eligibility no longer requires a question response. Earlier question-related entries describe historical behavior.
