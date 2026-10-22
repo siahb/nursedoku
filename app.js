@@ -3828,7 +3828,13 @@ $('dismissTipBtn').addEventListener('click',()=>{
  renderDailyTip();$('continueBtn').focus();
 });
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderDailyTip();});
+function trainingProgressSummary(completed=completedShifts,total=LEVELS.length){
+ const done=new Set(completed.filter(i=>Number.isInteger(i)&&i>=0&&i<total));
+ const next=Array.from({length:total},(_,i)=>i).find(i=>!done.has(i));
+ return done.size+' / '+total+' completed'+(next===undefined?' · All training complete':' · Next: Shift '+String(next+1).padStart(3,'0'));
+}
 function updateMenu(){
+ if($('trainingProgress'))$('trainingProgress').textContent=trainingProgressSummary();
  renderDailyTip();
  if($('questionProgress'))$('questionProgress').textContent=questionProgressSummary();
  $('menuStats').textContent=$('statsLine').textContent;
