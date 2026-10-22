@@ -24,4 +24,6 @@ $('closeLeaderboardBtn').addEventListener('click',()=>$('leaderboardDialog').clo
 $('leaderboardDialog').addEventListener('close',()=>{request++;activeController?.abort();activeController=null;window.NurseDokuProgress.resume();});
 $('leaderboardDate').addEventListener('change',()=>{if($('leaderboardDate').reportValidity())load();});
 $('refreshLeaderboardBtn').addEventListener('click',load);
+window.addEventListener('online',()=>{if($('leaderboardDialog').open)load();});
+window.addEventListener('offline',()=>{if(!$('leaderboardDialog').open)return;request++;activeController?.abort();activeController=null;$('leaderboardRows').replaceChildren();$('leaderboardTable').hidden=true;status('You’re offline. Connect to see the leaderboard; your progress is safe.');});
 })();
