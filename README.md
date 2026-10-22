@@ -186,3 +186,5 @@ NCLEX progress: the menu summarizes mastered questions and missed questions awai
 Timer protection: returning to a tab cannot resume the shift clock while any modal dialog remains open, including leaderboard and shared Help.
 
 Leaderboard requests time out after 15 seconds with refresh guidance; changing dates or closing the dialog cancels outdated requests.
+
+Leaderboard rendering validates the complete result set before adding rows, so malformed names, ranks, times or strike counts cannot leave partial or nonsensical rankings on screen.
