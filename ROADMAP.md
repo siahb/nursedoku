@@ -22,7 +22,7 @@ Difficulty is an automated heuristic: Easy resolves with row/column/zone singles
 - [x] Main menu; loading the app does not start the game timer
 - [x] Main-menu sharing: device share sheet, X, WhatsApp, Facebook, copy link
 - [x] Swipe from an X to erase multiple Xs; protect RNs; undo the whole stroke
-- [x] Two-second completed-board celebration before results, with reduced-motion support
+- [x] 650 ms completed-board celebration before results, with reduced-motion support
 - [x] First-open changelog shown once per update, accessible again from the menu
 - [x] Required nursing question; select/change the answer, then confirm before submission
 - [x] Next shift unlocks after submitting the answer; feedback and submitted state persist
@@ -62,7 +62,7 @@ Guest progress stays on the browser/device. The private cloud-save backend is im
 - [x] Unseen questions first; correctly answered questions never repeat; missed questions may return until answered correctly
 - [x] Show a caught-up state instead of recycling correct answers when the bank is exhausted
 - [x] Daily task scheduled for 50 runs starting September 30, 2026, to add up to 100 source-checked original questions per run, capped at 5,000
-- [ ] Reach 5,000 original reviewed questions (currently 12; daily publishing is subject to successful verification and task execution)
+- [ ] Reach 5,000 original reviewed questions (currently 208; daily publishing is subject to successful verification and task execution)
 
 Guest question history belongs to the browser/device. Account history travels with cloud progress. Clearing guest storage resets its history. Saved questions can be reopened to review the same completed shift. No historical correctness is inferred for questions answered before tracking existed.
 
@@ -115,3 +115,5 @@ Guest question history belongs to the browser/device. Account history travels wi
 - [x] Browser installability and fresh offline launch checked on the live site; physical phone installation remains unverified
 
 - [x] Menu NCLEX mastery/review counts from current-bank question history; regression checks exclude retired IDs and preserve separate owner histories
+
+- [x] Training card shows completed shifts and the next unfinished shift from existing saved progress
