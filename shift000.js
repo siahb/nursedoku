@@ -25,7 +25,7 @@
   $('shift000Content').scrollTop=0;
   $('shift000Progress').textContent=complete?'Tutorial complete':'Move '+(step+1)+' of '+moves.length;
   $('shift000Title').textContent=complete?'You solved Shift 000':m[2];
-  $('shift000Copy').textContent=complete?'Every row, column, and care zone has one RN, and no RNs touch. In normal shifts, Xs are optional notes; the RNs solve the board. After solving a normal shift, answer the NCLEX question and confirm your answer to read the rationale.':m[3];
+  $('shift000Copy').textContent=complete?'Every row, column, and care zone has one RN, and no RNs touch. In normal shifts, Xs are optional notes; the RNs solve the board. After solving a normal shift, review your time, share your result, or start the next shift.':m[3];
   $('shift000Control').textContent=complete?'Next: try a shift with the same rules.':m[1]==='rn'?'Double-tap the outlined square to place RN. Keyboard: R.':'Tap the outlined square once to mark X. Keyboard: Enter or Space.';
   $('shift000Finish').hidden=!complete;
   $('shift000Meter').value=step;

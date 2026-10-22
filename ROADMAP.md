@@ -121,3 +121,5 @@ Guest question history belongs to the browser/device. Account history travels wi
 ## October 22, 2026 — Puzzle-only play
 
 NCLEX questions are disabled. Solving a shift opens results with the next-shift control ready. Question-count and mastery controls are hidden. Existing question history is preserved; daily leaderboard eligibility no longer requires a question response. Earlier question-related entries describe historical behavior.
+
+- [x] Beginner tutorial and Shift 000 completion guidance describe puzzle-only results without an NCLEX question step
