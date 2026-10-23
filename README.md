@@ -196,3 +196,7 @@ Training card progress: completed shifts and the next unfinished shift are compu
 ## October 22, 2026 — Puzzle-only play
 
 NCLEX questions are disabled. Solving a shift opens results with the next-shift control ready. Question-count and mastery controls are hidden. Existing question history is preserved; daily leaderboard eligibility no longer requires a question response. Earlier question-related entries describe historical behavior.
+
+## Version 1.2.1 — October 22, 2026
+
+Release metadata and the one-time changelog now describe puzzle-only shifts, training progress, updated tutorials, and leaderboard request recovery.

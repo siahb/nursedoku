@@ -1,0 +1,4 @@
+const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert/strict');
+const root=path.resolve(__dirname,'..'),app=fs.readFileSync(path.join(root,'app.js'),'utf8'),html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+assert(html.includes('Version 1.2.1'));assert(html.includes('datetime="2026-10-22"'));assert(html.includes('Puzzle-only shifts.'));
+const storage={},ctx={localStorage:{setItem:(k,v)=>storage[k]=v}};vm.createContext(ctx);vm.runInContext(app.match(/const UPDATE_VERSION='[^']+';/)[0]+'let changelogShown=false;'+app.match(/function markChangelogSeen\(\)\{[^\n]+/)[0],ctx);vm.runInContext('markChangelogSeen()',ctx);assert.equal(storage['nursedoku-changelog'],'2026-10-22-v1.2.1');assert(vm.runInContext('changelogShown',ctx));console.log('PASS: release date/version, puzzle-only changelog and persisted acknowledgement');
