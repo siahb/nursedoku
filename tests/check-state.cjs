@@ -3,7 +3,7 @@ class El {constructor(){this.children=[];this.dataset={};this.style={setProperty
 const els={};const get=id=>els[id]??=new El();get('difficulty').value='6';
 const storage={};let hit=null,timerId=0;const timers=new Map();
 const doc={getElementById:get,createElement:()=>new El(),querySelector:selector=>selector==='dialog[open]'?null:new El(),querySelectorAll:()=>[],addEventListener(){},hidden:false,documentElement:new El(),elementFromPoint:()=>hit};
-const context={document:doc,window:{addEventListener(){}},localStorage:{getItem:k=>storage[k]||null,setItem:(k,v)=>storage[k]=v,removeItem:k=>delete storage[k]},setInterval(){},setTimeout(f,ms){timers.set(++timerId,{f,ms});return timerId;},clearTimeout(id){timers.delete(id)},confirm:()=>true,Date,console,navigator:{},location:{protocol:'file:'}};
+const context={document:doc,window:{addEventListener(){}},localStorage:{getItem:k=>storage[k]||null,setItem:(k,v)=>storage[k]=v,removeItem:k=>delete storage[k]},setInterval(){},setTimeout(f,ms){timers.set(++timerId,{f,ms});return timerId;},clearTimeout(id){timers.delete(id)},confirm:()=>true,Date:class extends Date {constructor(...a){super(...(a.length?a:["2026-09-30T12:00:00"]))}},console,navigator:{},location:{protocol:'file:'}};
 vm.createContext(context);vm.runInContext(fs.readFileSync(require('path').join(__dirname,'../large-puzzles.js'),'utf8')+'\n'+fs.readFileSync(require('path').join(__dirname,'../puzzles.js'),'utf8')+'\n'+fs.readFileSync(require('path').join(__dirname,'../app.js'),'utf8'),context);
 function run(code){return vm.runInContext(code,context);}
 assert.equal(run('inGame'),false);assert.equal(run('runningSince'),null);assert.equal(get('gameView').hidden,undefined);
@@ -20,7 +20,7 @@ run('history=[]');emit('pointerdown');hit=get('board').children[2];hit.closest=(
 get('undoBtn').events.click[0]();assert.equal(run('state[0][2]'),'');assert.equal(run('state[0][1]'),'rn');
 run('state=blank();puzzle().solution.forEach((c,r)=>state[r][c]="rn");afterMove()');assert.equal(run('finished'),true);assert.equal(get('winDialog').open,false);assert.equal(run('stats.wins'),1);
 const winDelay=[...timers.values()].find(t=>t.ms===650);assert(winDelay);winDelay.f();assert.equal(get('winDialog').open,true);
-get('bonusAnswers').children[0].onclick();assert.equal(get('playAgainBtn').disabled,true);get('confirmBonusBtn').onclick();assert.equal(get('playAgainBtn').disabled,false);
+assert.equal(get('playAgainBtn').disabled,false);assert.equal(run('questionsComplete()'),true);
 assert.equal(JSON.parse(storage['nursedoku-v2']).finished,true);
 let notes=0;
 context.window.AudioContext=class {
@@ -54,9 +54,9 @@ run('toggle(0,0,"x");toggle(0,1,"rn");toggle(0,1,"rn")');assert.equal(run('strik
 run('toggle(0,0,"rn");toggle(0,0,"rn")');assert.equal(run('strikes'),3);assert.equal(run('lost'),true);
 get('retryBtn').events.click[0]();
 console.log('PASS: wrong nonconflicting RN costs one strike; rejected RN preserves X and history; Xs and correct RN removal are penalty-free.');
-run('showBonus()');const choices=get('bonusAnswers').children;choices[0].onclick();assert(!choices[0].disabled);assert.equal(get('playAgainBtn').disabled,true);choices[1].onclick();assert.equal(get('bonusFeedback').textContent,'Ready? Confirm your answer to see the explanation.');get('confirmBonusBtn').onclick();assert(choices.every(b=>b.disabled));assert(get('bonusFeedback').textContent.length>20);
+run('showBonus()');assert.equal(get('playAgainBtn').disabled,false);
 get('boardSize').value='10';for(const d of ['easy','medium','hard']){const p=run(`practicePuzzle('${d}',12)`);assert.equal(p.regions.length,10);assert.equal(p.rating.difficulty,d);}
-console.log('PASS: invalid RN placement rejected; strikes survive undo and saving; third strike ends shift; retry resets; bonus answers lock; 10×10 difficulty selection.');
+console.log('PASS: invalid RN placement rejected; strikes survive undo and saving; third strike ends shift; retry resets; results enable next shift; 10×10 difficulty selection.');
 const bridge=context.window.NurseDokuProgress;
 const guest=bridge.snapshot();
 bridge.apply({version:2,completed:[0,1],stats:{wins:2,dailyDates:['2026-09-29']},game:guest.game},'test-user-a');
@@ -79,13 +79,11 @@ assert.equal(run('state[0][0]'),'');assert.equal(run('state[0][1]'),'');assert.e
 get('undoBtn').events.click[0]();assert.equal(run('state[0][0]'),'x');assert.equal(run('state[0][1]'),'x');assert.equal(run('state[0][2]'),'rn');
 get('menuBtn').events.click[0]();assert.equal(run('inGame'),false);assert.equal(run('runningSince'),null);assert.equal(get('gameView').hidden,true);
 run('finished=false;enterGame();reset();state=blank();puzzle().solution.forEach((c,r)=>state[r][c]="rn");afterMove()');
-assert.equal(run('bonusSubmitted'),false);assert.equal(run("switchGame('practice')"),false);assert.equal(run('gameKind'),'journey');
+assert.equal(run('bonusSubmitted'),false);assert.equal(run('questionsComplete()'),true);
 const pending=JSON.parse(storage['nursedoku-v2']);assert.equal(pending.bonusSubmitted,false);
-get('confirmBonusBtn').onclick();assert.equal(run('bonusSubmitted'),false,'Empty answer cannot submit');
-const button=get('bonusAnswers').children[0];button.onclick();assert.equal(run('bonusSubmitted'),false);
-get('confirmBonusBtn').onclick();assert.equal(run('bonusSubmitted'),true);assert.equal(JSON.parse(storage['nursedoku-v2']).bonusSubmitted,true);
+assert.equal(get('playAgainBtn').disabled,false);
 const restored=context.window.NurseDokuProgress.snapshot();context.window.NurseDokuProgress.apply(restored,null);assert.equal(get('playAgainBtn').disabled,false);
-console.log('PASS: startup/menu timer pause; changelog acknowledgment; 650 ms win delay; swipe erase + whole stroke undo; required answer selection/confirmation/persistence.');
+console.log('PASS: startup/menu timer pause; changelog acknowledgment; 650 ms win delay; swipe erase + whole stroke undo; puzzle-only completion persistence.');
 
 
 const reloadedEls={},reloadedGet=id=>reloadedEls[id]??=new El();
@@ -95,10 +93,10 @@ vm.createContext(reloaded);
 vm.runInContext(fs.readFileSync(require('path').join(__dirname,'../large-puzzles.js'),'utf8')+'\n'+fs.readFileSync(require('path').join(__dirname,'../puzzles.js'),'utf8')+'\n'+fs.readFileSync(require('path').join(__dirname,'../app.js'),'utf8'),reloaded);
 assert.equal(vm.runInContext('inGame',reloaded),false);assert.equal(vm.runInContext('runningSince',reloaded),null);
 assert.equal(reloadedGet('winDialog').open,false);assert.equal(reloadedGet('changelogDialog').open,false);
-assert.equal(vm.runInContext('bonusSubmitted',reloaded),true);assert.equal(reloadedGet('playAgainBtn').disabled,false);
+assert.equal(vm.runInContext('bonusSubmitted',reloaded),false);assert.equal(reloadedGet('playAgainBtn').disabled,false);
 assert(reloadedGet('resultShareX').href.includes('intent/tweet?text='));
 assert(reloadedGet('resultShareWhatsapp').href.includes('wa.me/?text='));
-console.log('PASS: completed-save reload stays on menu; submitted quiz persists; changelog is not repeated; social links include results.');
+console.log('PASS: completed-save reload stays on menu; unanswered legacy quiz does not block results; changelog is not repeated; social links include results.');
 // Check hints against the unique solutions, including arbitrary player X marks.
 for(const bank of ['PUZZLE_BANK','LARGE_PUZZLE_BANK'])for(const difficulty of ['easy','medium','hard']){
  const count=run(`${bank}.${difficulty}.length`);
@@ -117,31 +115,11 @@ run("stats.dailyDates=['2026-09-29'];openArchive();archiveMonth='2026-09';render
 get('archiveCalendar').children.find(b=>b.attributes?.['aria-label']==='2026-09-29, completed').onclick();assert.equal(get('archiveDate').value,'2026-09-29');assert(get('archiveStatus').textContent.includes('completed — replay'));
 console.log('PASS: deduction hints agree with unique 6×6/10×10 solutions despite arbitrary Xs; daily calendar marks completion, selection, launch bounds, future dates, and leap years.');
 const questionCount=run('BONUS.length');assert(questionCount>=12&&questionCount<=5000);
-for(let i=0;i<questionCount;i++){
- run(`bonusIndex=${i};bonusChoice=null;bonusSubmitted=false;showBonus()`);
- assert(get('bonusQuestion').textContent.length>40);assert(get('bonusTopic').textContent);
- const correct=run(`BONUS[${i}].correct`);
- get('bonusAnswers').children.find(b=>+b.dataset.choice===correct).onclick();
- assert(get('playAgainBtn').disabled);get('confirmBonusBtn').onclick();
- assert(get('bonusFeedback').textContent.startsWith('Correct. '));assert(!get('playAgainBtn').disabled);
- assert.equal(get('bonusSource').hidden,!run(`BONUS[${i}].source`));
-}
 const legacyQuiz=context.window.NurseDokuProgress.snapshot();delete legacyQuiz.game.bonusVersion;legacyQuiz.game.bonusChoice=0;legacyQuiz.game.bonusSubmitted=true;context.window.NurseDokuProgress.apply(legacyQuiz,null);assert.equal(run('bonusSubmitted'),false);assert.equal(run('bonusChoice'),null);
-console.log('PASS: all NCLEX questions support choice/confirmation, topic/rationale/source display, calculation sources stay hidden, and old-bank answers cannot apply to new questions.');
+console.log('PASS: legacy quiz version migration preserves puzzle-only progression.');
 // Never recycle correct questions; reserve seen items and revisit only misses.
-run('stats.questionHistory={};bonusIndex=null;bonusChoice=null;bonusSubmitted=false;showBonus()');
-assert.equal(run('bonusIndex'),0);assert.equal(run('stats.questionHistory[BONUS[0].id]'),'seen');
-assert.equal(run('chooseQuestion()'),1);
-get('bonusAnswers').children.find(b=>+b.dataset.choice===run('BONUS[0].correct')).onclick();get('confirmBonusBtn').onclick();
-assert.equal(run('stats.questionHistory[BONUS[0].id]'),'correct');
-assert.equal(JSON.parse(storage['nursedoku-stats']).questionHistory['nclex-00001'],'correct');
-run("stats.questionHistory=Object.fromEntries(BONUS.map(q=>[q.id,'correct']));stats.questionHistory[BONUS[3].id]='missed'");
-assert.equal(run('chooseQuestion()'),3);
-run('bonusIndex=chooseQuestion();bonusChoice=null;bonusSubmitted=false;showBonus()');
-get('bonusAnswers').children.find(b=>+b.dataset.choice===run('BONUS[3].correct')).onclick();get('confirmBonusBtn').onclick();
-assert.equal(run('chooseQuestion()'),-1);
-run('bonusIndex=null;bonusSubmitted=false;showBonus()');assert.equal(get('bonusAnswers').children.length,0);assert.equal(get('playAgainBtn').disabled,false);assert(get('confirmBonusBtn').hidden);
-const mastered=context.window.NurseDokuProgress.snapshot();context.window.NurseDokuProgress.apply(mastered,'quiz-owner');assert.equal(run('chooseQuestion()'),-1);
+run("stats.questionHistory={'nclex-00001':'correct','nclex-00004':'missed'};bonusSubmitted=false;showBonus()");const preservedHistory=run('JSON.stringify(stats.questionHistory)');assert.equal(run('questionsComplete()'),true);run('startQuestions();showBonus()');assert.equal(run('JSON.stringify(stats.questionHistory)'),preservedHistory);
+const mastered=context.window.NurseDokuProgress.snapshot();context.window.NurseDokuProgress.apply(mastered,'quiz-owner');assert.equal(run('JSON.stringify(stats.questionHistory)'),preservedHistory);
 context.window.NurseDokuProgress.apply({stats:{wins:0,dailyDates:[]},completed:[]},null);assert.equal(run('chooseQuestion()'),0);
 assert.equal(Object.keys(run("normalizeQuestionHistory({'nclex-00001':'correct','bad':'correct','nclex-00002':'junk'})")).length,1);
 assert.equal(new Set(run('BONUS.map(q=>q.id)')).size,questionCount);
@@ -205,14 +183,12 @@ get('shift000Finish').events.click[0]();get('shift000Dialog').events.close[0]();
 run('window.NurseDokuProgress.apply({stats:{shift000Complete:true}},"lesson-owner")');assert.equal(run('stats.shift000Complete'),true);assert.equal(run('needsShift000()'),false);run('window.NurseDokuProgress.apply({stats:{}},null)');assert.equal(run('stats.shift000Complete'),false);
 console.log('PASS: Shift 000 auto-entry, full RN/X lesson, harmless mistakes, timer pause, completion/owner restore, unchanged wins and shift IDs, and Shift 001 handoff.');
 
-// A multi-question set remains required across menu exits and restores.
-run('returnToMenu();window.NurseDokuProgress.apply({stats:{},game:{level:0,gameKind:"journey"}},null);stats.shift000Complete=true;finished=false;bonusSubmitted=false;bonusQueue=[]');get('questionCount').value='10';run('enterGame();state=blank();puzzle().solution.forEach((c,r)=>state[r][c]="rn");afterMove()');assert.equal(run('bonusQueue.length'),10);assert.equal(run('new Set(bonusQueue).size'),10);assert.equal(get('questionProgress').textContent,'Question 1 of 10');
-let opts=get('bonusAnswers').children;opts[0].children[0].onchange();const choice0=run('bonusChoice');opts[1].children[0].onchange();assert.notEqual(run('bonusChoice'),choice0);assert(opts.every(b=>!b.children[0].disabled));
-get('closeQuestionBtn').events.click[0]();assert.equal(run('inGame'),false);assert.equal(get('winDialog').open,false);assert.equal(get('continueBtn').textContent,'Finish NCLEX questions');assert.equal(run('questionsComplete()'),false);const quizSave=run('window.NurseDokuProgress.snapshot()');run('window.NurseDokuProgress.apply('+JSON.stringify(quizSave)+',null)');assert.equal(run('bonusQueue.length'),10);assert.equal(run('bonusChoice'),quizSave.game.bonusChoice);assert.equal(run("switchGame('practice')"),false);
-for(let q=0;q<10;q++){opts=get('bonusAnswers').children;opts.find(b=>+b.dataset.choice===run('BONUS[bonusIndex].correct')).children[0].onchange();get('confirmBonusBtn').onclick();assert(opts.every(b=>b.children[0].disabled));if(q<9){assert(get('playAgainBtn').disabled);assert(!get('nextQuestionBtn').hidden);get('nextQuestionBtn').onclick();assert.equal(get('questionProgress').textContent,'Question '+(q+2)+' of 10');assert.equal(run('bonusChoice'),null);}else{assert(!get('playAgainBtn').disabled);assert(get('nextQuestionBtn').hidden);}}
-assert.equal(run('questionsComplete()'),true);assert.equal(run('bonusCursor'),9);assert.equal(run('Object.values(stats.questionHistory).filter(x=>x==="correct").length'),10);assert.equal(get('strikeHearts').attributes['aria-label'],'3 of 3 hearts remaining');run('strikes=2;paint()');assert.equal(get('strikeHearts').attributes['aria-label'],'1 of 3 hearts remaining');
-run('stats.questionHistory=Object.fromEntries(BONUS.map((q,i)=>[q.id,i===0?"missed":"correct"]));startQuestions();showBonus()');assert.equal(run('bonusQueue.length'),1);assert.equal(get('questionProgress').textContent,'Question 1 of 1');
-console.log('PASS: ten unique questions, native choice changes before confirmation, menu exit/restore without bypass, locked submitted answers, per-question rationales, final unlock, limited-bank fallback and remaining EKG hearts.');
+// Puzzle-only completion remains available across menu exits and restores.
+run('returnToMenu();window.NurseDokuProgress.apply({stats:{shift000Complete:true},game:{level:0,gameKind:"journey"}},null);enterGame();state=blank();puzzle().solution.forEach((c,r)=>state[r][c]="rn");afterMove()');assert.equal(get('playAgainBtn').disabled,false);
+get('closeQuestionBtn').events.click[0]();assert.equal(run('inGame'),false);assert.equal(get('continueBtn').textContent,'Review completed shift');const quizSave=run('window.NurseDokuProgress.snapshot()');context.window.NurseDokuProgress.apply(quizSave,null);assert.equal(run('questionsComplete()'),true);assert.equal(get('playAgainBtn').disabled,false);
+assert.equal(get('strikeHearts').attributes['aria-label'],'3 of 3 hearts remaining');run('strikes=2;paint()');assert.equal(get('strikeHearts').attributes['aria-label'],'1 of 3 hearts remaining');
+console.log('PASS: puzzle-only completion, menu return, save restore, next-shift availability and EKG hearts.');
+
 
 // Ranking eligibility must survive resumption but never hints or a retry.
 run('finished=false;bonusSubmitted=true;bonusQueue=[];returnToMenu();stats.rankAttempts=[];stats.dailyDates=[];switchGame("daily")');
