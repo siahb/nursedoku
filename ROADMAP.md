@@ -127,3 +127,5 @@ NCLEX questions are disabled. Solving a shift opens results with the next-shift 
 ## Version 1.2.1 — October 22, 2026
 
 Release metadata and the one-time changelog now describe puzzle-only shifts, training progress, updated tutorials, and leaderboard request recovery.
+
+- [x] Total completed daily shifts alongside the streak, derived from distinct valid saved completion dates

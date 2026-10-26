@@ -411,11 +411,12 @@ function questionProgressSummary(history=stats.questionHistory) {
  const mastered=active.filter(value=>value==='correct').length,missed=active.filter(value=>value==='missed').length;
  return 'NCLEX questions: '+mastered+' / '+BONUS.length+' mastered'+(missed?' · '+missed+' to review':'');
 }
+function completedDailyCount(dates=stats.dailyDates){return new Set(dates.filter(day=>{if(typeof day!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(day))return false;const parsed=new Date(day+'T12:00:00');return Number.isFinite(parsed.getTime())&&localDate(parsed)===day;})).size;}
 function updateStats() {
   let streak=0,d=new Date();
   if(!stats.dailyDates.includes(localDate(d)))d.setDate(d.getDate()-1);
   while(stats.dailyDates.includes(localDate(d))) {streak++;d.setDate(d.getDate()-1);}
-  $('statsLine').textContent=`${stats.wins} shifts solved · ${streak} day daily streak${stats.best!==null?' · Best '+format(stats.best):''}`;
+  $('statsLine').textContent=`${stats.wins} shifts solved · ${streak} day daily streak · ${completedDailyCount()} daily shifts completed${stats.best!==null?' · Best '+format(stats.best):''}`;
 }
 function recordWin() {
   if(gameKind==='journey'&&!completedShifts.includes(level)){completedShifts.push(level);try{progressStorage.setItem('nursedoku-journey-v2',JSON.stringify(completedShifts));}catch{}}

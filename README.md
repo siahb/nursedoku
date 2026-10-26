@@ -12,7 +12,7 @@ Place one RN in every row, column, and colored care zone. RNs cannot touch, even
 - Keyboard: Enter/Space toggles X; R toggles RN; arrow keys move focus.
 - Hints highlight a suggested placement or a mistaken RN.
 
-Start from the main menu; loading the app leaves the timer paused. The changelog appears once per update. A solved board celebrates briefly (650 ms) before opening the required nursing question. You can change your answer before confirming it, then share the result or continue.
+Start from the main menu; loading the app leaves the timer paused. The changelog appears once per update. A solved board celebrates briefly (650 ms) before opening results. Share your result or continue directly to the next shift.
 
 ## Completed roadmap
 
@@ -200,3 +200,5 @@ NCLEX questions are disabled. Solving a shift opens results with the next-shift 
 ## Version 1.2.1 — October 22, 2026
 
 Release metadata and the one-time changelog now describe puzzle-only shifts, training progress, updated tutorials, and leaderboard request recovery.
+
+Daily completion totals count distinct valid saved dates and preserve existing completion history.
