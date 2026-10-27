@@ -127,6 +127,7 @@ let rankEligible=false;
 let level = 0, state, history = [], elapsed = 0, runningSince = null, finished = false, strikes=0, lost=false;
 let inGame=false,winTimeout=null,winSequence=0,bonusIndex=null,bonusChoice=null,bonusSubmitted=false;
 let bonusQueue=[],bonusCursor=0;
+let hintsUsed=0;
 let gesture = null, lastTap = null, pendingTap = null, hintCell = null, hintAction = null;
 let clearedZones=new Set(),zoneClearTimeout=null;
 const puzzle = () => customPuzzle || LEVELS[level];
@@ -136,7 +137,7 @@ const copy = value => JSON.parse(JSON.stringify(value));
 const time = () => elapsed + (runningSince === null ? 0 : Date.now() - runningSince);
 const format = ms => `${String(Math.floor(ms / 60000)).padStart(2,'0')}:${String(Math.floor(ms / 1000) % 60).padStart(2,'0')}`;
 function persist() {
-  try { progressStorage.setItem(SAVE_KEY, JSON.stringify({level,state,elapsed:time(),rankEligible,finished,gameKind,customPuzzle,dailyDate,strikes,lost,journeyVersion:2,bonusIndex,bonusChoice,bonusSubmitted,bonusQueue,bonusCursor,bonusVersion:QUIZ_VERSION})); } catch {}
+  try { progressStorage.setItem(SAVE_KEY, JSON.stringify({level,state,elapsed:time(),hintsUsed,rankEligible,finished,gameKind,customPuzzle,dailyDate,strikes,lost,journeyVersion:2,bonusIndex,bonusChoice,bonusSubmitted,bonusQueue,bonusCursor,bonusVersion:QUIZ_VERSION})); } catch {}
   window.NurseDokuCloud?.changed();
 }
 function pause() { elapsed = time(); runningSince = null; persist(); }
@@ -353,7 +354,7 @@ function explainHint(p,marks) {
  const c=p.solution[r];return {r,c,kind:'reveal',text:`Solution reveal: row ${r+1}, column ${c+1} contains an RN. This position needs deeper reasoning than the current deduction hints can explain. ${marks[r][c]==='x'?'Erase that X, then double-tap':'Double-tap'} the outlined square.`};
 }
 $('hintBtn').addEventListener('click',()=>{
- flushTap();if(finished)return;rankEligible=false;persist();const hint=explainHint(puzzle(),state);if(!hint)return;
+ flushTap();if(finished)return;rankEligible=false;const hint=explainHint(puzzle(),state);if(!hint)return;hintsUsed=hintsUsed===null?null:hintsUsed+1;persist();
  sound('hint');hintCell=`${hint.r},${hint.c}`;hintAction=hint.kind;paint();tell(hint.text,hint.kind==='review'?'error':'');
  const target=board.children[hint.r*size()+hint.c];
  target.focus({preventScroll:true});target.scrollIntoView?.({block:'nearest',inline:'nearest',behavior:'instant'});
@@ -366,7 +367,7 @@ function reset(next=false) {
     else if(gameKind==='practice')customPuzzle=practicePuzzle($('difficulty').value,Date.now());
     else level=(level+1)%LEVELS.length;
   }
-  rankEligible=false;state=blank();history=[];finished=false;strikes=0;lost=false;hintCell=null;elapsed=0;runningSince=null;bonusIndex=null;bonusChoice=null;bonusSubmitted=false;bonusQueue=[];bonusCursor=0;
+  hintsUsed=0;rankEligible=false;state=blank();history=[];finished=false;strikes=0;lost=false;hintCell=null;elapsed=0;runningSince=null;bonusIndex=null;bonusChoice=null;bonusSubmitted=false;bonusQueue=[];bonusCursor=0;
   resume();render();sound('new');tell(gameKind==='journey'&&level===0?'Start with the single gold square. Double-tap it to place your first RN.':'New shift. One RN per row, column, and color.');persist();
 }
 $('resetBtn').addEventListener('click',()=>{
@@ -390,6 +391,7 @@ try {
     }
     if(Array.isArray(saved.state)&&saved.state.length===size()&&saved.state.every(row=>Array.isArray(row)&&row.length===size()&&row.every(v=>['','rn','x'].includes(v)))) {
       rankEligible=saved.rankEligible===true;state=saved.state;elapsed=Number.isFinite(saved.elapsed)?Math.max(0,saved.elapsed):0;
+      hintsUsed=Number.isSafeInteger(saved.hintsUsed)&&saved.hintsUsed>=0?saved.hintsUsed:null;
       strikes=Number.isInteger(saved.strikes)?Math.max(0,Math.min(3,saved.strikes)):0;
       lost=saved.lost===true&&strikes===3;
       bonusIndex=Number.isInteger(saved.bonusIndex)?saved.bonusIndex:null;bonusChoice=Number.isInteger(saved.bonusChoice)?saved.bonusChoice:null;bonusSubmitted=saved.bonusSubmitted===true;
@@ -418,7 +420,13 @@ function updateStats() {
   while(stats.dailyDates.includes(localDate(d))) {streak++;d.setDate(d.getDate()-1);}
   $('statsLine').textContent=`${stats.wins} shifts solved · ${streak} day daily streak · ${completedDailyCount()} daily shifts completed${stats.best!==null?' · Best '+format(stats.best):''}`;
 }
+function mergePersonalBests(...sources){
+ const result={};for(const source of sources)if(source&&typeof source==='object')for(const [key,value] of Object.entries(source))if(/^(4|6|10)x\1-(easy|medium|hard)$/.test(key)&&Number.isFinite(value)&&value>=0)result[key]=Math.min(result[key]??Infinity,value);return result;
+}
+function resultDetails(){return (3-strikes)+' / 3 hearts remaining · '+(hintsUsed===null?'Hints not tracked':hintsUsed+' hints used');}
+function renderPersonalBests(){const target=$('personalRecords');if(!target)return;const records=mergePersonalBests(stats.personalBests);target.textContent=Object.keys(records).length?Object.entries(records).sort((a,b)=>parseInt(a[0])-parseInt(b[0])||a[0].localeCompare(b[0])).map(([key,value])=>key.replace('-', ' · ')+' — '+format(value)).join(' · '):'Complete a shift without hints to set your first record. Older shifts are not reconstructed.';}
 function recordWin() {
+ if(hintsUsed===0){const key=size()+'x'+size()+'-'+analyzePuzzle(puzzle()).difficulty;stats.personalBests=mergePersonalBests(stats.personalBests,{[key]:elapsed});}
   if(gameKind==='journey'&&!completedShifts.includes(level)){completedShifts.push(level);try{progressStorage.setItem('nursedoku-journey-v2',JSON.stringify(completedShifts));}catch{}}
   stats.wins++;stats.best=stats.best===null?elapsed:Math.min(stats.best,elapsed);
   if(gameKind==='daily'&&dailyDate&&!stats.dailyDates.includes(dailyDate))stats.dailyDates.push(dailyDate);
@@ -3562,6 +3570,7 @@ function startQuestions(){return;
 }
 
 function showBonus() {
+ if($('resultDetails'))$('resultDetails').textContent=resultDetails();
  $('playAgainBtn').disabled=false;updateResultLinks();return;
  const index=Number.isInteger(bonusIndex)&&bonusIndex>=0&&bonusIndex<BONUS.length?bonusIndex:chooseQuestion();bonusIndex=index;
  if(bonusQueue[bonusCursor]!==index||bonusQueue.some(i=>i>=BONUS.length)){bonusQueue=index>=0?[index]:[];bonusCursor=0;}
@@ -3731,8 +3740,9 @@ $('newAfterLossBtn').addEventListener('click',()=>{$('lossDialog').close();reset
 
 // Narrow bridge used by the account controller. Cloud data never contains credentials.
 window.NurseDokuProgress={
+ mergePersonalBests,
  owner(){return progressOwner;},
- snapshot(){return copy({version:2,game:{level,state,elapsed:time(),rankEligible,finished,gameKind,customPuzzle,dailyDate,strikes,lost,journeyVersion:2,bonusIndex,bonusChoice,bonusSubmitted,bonusQueue,bonusCursor,bonusVersion:QUIZ_VERSION},stats,completed:completedShifts});},
+ snapshot(){return copy({version:2,game:{level,state,elapsed:time(),hintsUsed,rankEligible,finished,gameKind,customPuzzle,dailyDate,strikes,lost,journeyVersion:2,bonusIndex,bonusChoice,bonusSubmitted,bonusQueue,bonusCursor,bonusVersion:QUIZ_VERSION},stats,completed:completedShifts});},
  readOwner(owner){
   const read=key=>{try{return JSON.parse(localStorage.getItem(owner?'nursedoku-user-'+owner+':'+key:key));}catch{return null;}};
   return {version:2,game:read(SAVE_KEY),stats:read('nursedoku-stats'),completed:read('nursedoku-journey-v2')||[]};
@@ -3749,6 +3759,7 @@ window.NurseDokuProgress={
   try {if(progressOwner)localStorage.setItem('nursedoku-owner',progressOwner);else localStorage.removeItem('nursedoku-owner');}catch{}
   level=nextLevel;customPuzzle=nextCustom;gameKind=nextCustom?nextKind:'journey';dailyDate=gameKind==='daily'&&/^\d{4}-\d{2}-\d{2}$/.test(g.dailyDate)?g.dailyDate:null;
   rankEligible=g.rankEligible===true;state=nextState;elapsed=Number.isFinite(g.elapsed)?Math.max(0,g.elapsed):0;runningSince=null;
+  hintsUsed=Number.isSafeInteger(g.hintsUsed)&&g.hintsUsed>=0?g.hintsUsed:null;
   strikes=Number.isInteger(g.strikes)?Math.max(0,Math.min(3,g.strikes)):0;
   bonusIndex=Number.isInteger(g.bonusIndex)?g.bonusIndex:null;bonusChoice=Number.isInteger(g.bonusChoice)?g.bonusChoice:null;bonusSubmitted=g.bonusSubmitted===true;
   if(g.bonusVersion!==QUIZ_VERSION){bonusIndex=null;bonusChoice=null;bonusSubmitted=false;bonusQueue=[];bonusCursor=0;}else restoreQuestionQueue(g);
@@ -3757,7 +3768,7 @@ window.NurseDokuProgress={
   history=[];hintCell=null;
   completedShifts=Array.isArray(v.completed)?[...new Set(v.completed.filter(i=>Number.isInteger(i)&&i>=0&&i<LEVELS.length))]:[];
   const st=v.stats||{};
-  stats={rankAttempts:Array.isArray(st.rankAttempts)?st.rankAttempts.filter(d=>/^\d{4}-\d{2}-\d{2}$/.test(d)):[],shift000Complete:st.shift000Complete===true,questionHistory:normalizeQuestionHistory(st.questionHistory),wins:Number.isInteger(st.wins)&&st.wins>=0?st.wins:0,best:Number.isFinite(st.best)&&st.best>=0?st.best:null,dailyDates:Array.isArray(st.dailyDates)?[...new Set(st.dailyDates.filter(d=>/^\d{4}-\d{2}-\d{2}$/.test(d)))]:[]};
+  stats={rankAttempts:Array.isArray(st.rankAttempts)?st.rankAttempts.filter(d=>/^\d{4}-\d{2}-\d{2}$/.test(d)):[],shift000Complete:st.shift000Complete===true,personalBests:mergePersonalBests(st.personalBests),questionHistory:normalizeQuestionHistory(st.questionHistory),wins:Number.isInteger(st.wins)&&st.wins>=0?st.wins:0,best:Number.isFinite(st.best)&&st.best>=0?st.best:null,dailyDates:Array.isArray(st.dailyDates)?[...new Set(st.dailyDates.filter(d=>/^\d{4}-\d{2}-\d{2}$/.test(d)))]:[]};
   for(const id of ['winDialog','lossDialog','shift000Dialog'])if($(id)?.open)$(id).close();
   progressStorage.setItem('nursedoku-stats',JSON.stringify(stats));
   progressStorage.setItem('nursedoku-journey-v2',JSON.stringify(completedShifts));
@@ -3837,6 +3848,7 @@ function trainingProgressSummary(completed=completedShifts,total=LEVELS.length){
  return done.size+' / '+total+' completed'+(next===undefined?' · All training complete':' · Next: Shift '+String(next+1).padStart(3,'0'));
 }
 function updateMenu(){
+ renderPersonalBests();
  if($('trainingProgress'))$('trainingProgress').textContent=trainingProgressSummary();
  renderDailyTip();
  

@@ -202,3 +202,7 @@ NCLEX questions are disabled. Solving a shift opens results with the next-shift 
 Release metadata and the one-time changelog now describe puzzle-only shifts, training progress, updated tutorials, and leaderboard request recovery.
 
 Daily completion totals count distinct valid saved dates and preserve existing completion history.
+
+## Results and personal records — October 26, 2026
+
+Results show hearts remaining and hints used. New shifts track hints across saves; legacy shifts show unknown hint usage. Best times by board size and analyzed difficulty count only tracked shifts without hints. Existing records merge by the faster valid time during account conflict resolution; older results are not reconstructed.

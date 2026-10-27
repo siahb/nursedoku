@@ -168,7 +168,7 @@ function mergeProgress(local,remote){
   if(/^nclex-\d{5}$/.test(id)&&rank[status]&&(!questionHistory[id]||rank[status]>rank[questionHistory[id]]))questionHistory[id]=status;
  }
  const best=[a.best,b.best].filter(n=>Number.isFinite(n)&&n>=0);
- return {...local,completed:[...new Set([...(local.completed||[]),...(remote?.completed||[])])],stats:{rankAttempts:[...new Set([...(a.rankAttempts||[]),...(b.rankAttempts||[])])],shift000Complete:a.shift000Complete===true||b.shift000Complete===true,questionHistory,wins:Math.max(a.wins||0,b.wins||0),best:best.length?Math.min(...best):null,dailyDates:[...new Set([...(a.dailyDates||[]),...(b.dailyDates||[])])]}};
+ return {...local,completed:[...new Set([...(local.completed||[]),...(remote?.completed||[])])],stats:{personalBests:game.mergePersonalBests(a.personalBests,b.personalBests),rankAttempts:[...new Set([...(a.rankAttempts||[]),...(b.rankAttempts||[])])],shift000Complete:a.shift000Complete===true||b.shift000Complete===true,questionHistory,wins:Math.max(a.wins||0,b.wins||0),best:best.length?Math.min(...best):null,dailyDates:[...new Set([...(a.dailyDates||[]),...(b.dailyDates||[])])]}};
 }
 async function resolveConflict(keepLocal){
  if(!user||!ready||busy||resolving)return;
