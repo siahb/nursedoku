@@ -133,3 +133,5 @@ Release metadata and the one-time changelog now describe puzzle-only shifts, tra
 ## Results and personal records — October 26, 2026
 
 Results show hearts remaining and hints used. New shifts track hints across saves; legacy shifts show unknown hint usage. Best times by board size and analyzed difficulty count only tracked shifts without hints. Existing records merge by the faster valid time during account conflict resolution; older results are not reconstructed.
+
+Training map: expand the menu map to choose any of the 56 shifts, see completed shifts and the next unfinished shift. Replacing an active puzzle requires confirmation; completion history stays intact.

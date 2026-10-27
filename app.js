@@ -3847,7 +3847,13 @@ function trainingProgressSummary(completed=completedShifts,total=LEVELS.length){
  const next=Array.from({length:total},(_,i)=>i).find(i=>!done.has(i));
  return done.size+' / '+total+' completed'+(next===undefined?' · All training complete':' · Next: Shift '+String(next+1).padStart(3,'0'));
 }
+function renderTrainingMap(){
+ const target=$('trainingMap');if(!target)return;target.innerHTML='';
+ const next=LEVELS.findIndex((_,i)=>!completedShifts.includes(i));
+ LEVELS.forEach((p,i)=>{const button=document.createElement('button'),done=completedShifts.includes(i);button.type='button';button.className='secondary-btn training-node';button.textContent=String(i+1).padStart(3,'0')+(done?' ✓':i===next?' · Next':'');button.setAttribute('aria-label','Shift '+String(i+1).padStart(3,'0')+', '+p.regions.length+' by '+p.regions.length+', '+analyzePuzzle(p).difficulty+(done?', completed':i===next?', next unfinished':''));button.onclick=()=>{flushTap();if(!finished&&(state.flat().some(Boolean)||elapsed>0)&&!confirm('Start this training shift? Your current puzzle will be replaced.'))return;gameKind='journey';customPuzzle=null;dailyDate=null;level=i;reset();enterGame();};target.append(button);});
+}
 function updateMenu(){
+ renderTrainingMap();
  renderPersonalBests();
  if($('trainingProgress'))$('trainingProgress').textContent=trainingProgressSummary();
  renderDailyTip();
