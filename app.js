@@ -141,7 +141,7 @@ function persist() {
   try { progressStorage.setItem(SAVE_KEY, JSON.stringify({level,state,undoHistory:history,undoPuzzle:undoIdentity(),elapsed:time(),hintsUsed,rankEligible,finished,gameKind,customPuzzle,dailyDate,strikes,lost,journeyVersion:2,bonusIndex,bonusChoice,bonusSubmitted,bonusQueue,bonusCursor,bonusVersion:QUIZ_VERSION})); } catch {}
   window.NurseDokuCloud?.changed();
 }
-function pause() { elapsed = time(); runningSince = null; persist(); }
+function pause() { cancelActiveGesture();elapsed = time(); runningSince = null; persist(); }
 function resume() { if (!finished && !document.hidden && runningSince===null && inGame && !document.querySelector('dialog[open]') && !['howToDialog','shift000Dialog','accountDialog','archiveDialog','changelogDialog'].some(id=>$(id)?.open)) runningSince = timerNow(); }
 function positions() { return state.flatMap((row,r) => row.flatMap((v,c) => v === 'rn' ? [[r,c]] : [])); }
 function conflicts() {
@@ -330,6 +330,9 @@ function endPointer(e,canceled=false) {
     lastTap={r,c,at:Date.now(),before,historyLength};
   }
 }
+function cancelActiveGesture(){if(gesture)endPointer({pointerId:gesture.id},true);}
+document.addEventListener('pointerdown',event=>{if(gesture&&!board.contains(event.target))cancelActiveGesture();},true);
+window.addEventListener('resize',cancelActiveGesture);
 board.addEventListener('pointerup',e=>endPointer(e));
 board.addEventListener('pointercancel',e=>endPointer(e,true));
 board.addEventListener('lostpointercapture',e=>endPointer(e,true));
