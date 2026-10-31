@@ -1,0 +1,13 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+class El {constructor(){this.children=[];this.dataset={};this.style={setProperty(){}};this.classList={toggle(){},add(){}};this.events={};this.open=false;}set innerHTML(v){this.children=[];} get innerHTML(){return '';}append(x){this.children.push(x);}before(){}contains(x){return this.children.includes(x);}setAttribute(k,v){(this.attributes??={})[k]=v;}addEventListener(n,f){(this.events[n]??=[]).push(f);}showModal(){this.open=true;}close(){this.open=false;}focus(){}setPointerCapture(){}hasPointerCapture(){return false;}releasePointerCapture(){}}
+const els={};const get=id=>els[id]??=new El();get('difficulty').value='6';
+const storage={};let hit=null,timerId=0;const timers=new Map();
+const doc={getElementById:get,createElement:()=>new El(),querySelector:selector=>selector==='dialog[open]'?null:new El(),querySelectorAll:()=>[],addEventListener(){},hidden:false,documentElement:new El(),elementFromPoint:()=>hit};
+const context={document:doc,window:{addEventListener(){}},localStorage:{getItem:k=>storage[k]||null,setItem:(k,v)=>storage[k]=v,removeItem:k=>delete storage[k]},setInterval(){},setTimeout(f,ms){timers.set(++timerId,{f,ms});return timerId;},clearTimeout(id){timers.delete(id)},confirm:()=>true,Date:class extends Date {constructor(...a){super(...(a.length?a:["2026-09-30T12:00:00"]))}},console,navigator:{},location:{protocol:'file:'}};
+vm.createContext(context);vm.runInContext(fs.readFileSync(require('path').join(__dirname,'../large-puzzles.js'),'utf8')+'\n'+fs.readFileSync(require('path').join(__dirname,'../puzzles.js'),'utf8')+'\n'+fs.readFileSync(require('path').join(__dirname,'../app.js'),'utf8'),context);
+function run(code){return vm.runInContext(code,context);}
+
+run('stats.shift000Complete=true;enterGame();reset();state=blank();history=[];paint()');
+const evt={pointerId:5,isPrimary:true,button:0,clientX:5,clientY:5,preventDefault(){}};const emit=(name,e=evt)=>get('board').events[name].forEach(f=>f(e));
+for(const cancel of ['pointercancel','lostpointercapture']){run('state=blank();history=[];paint()');hit=get('board').children[0];hit.closest=()=>hit;emit('pointerdown');hit=get('board').children[1];hit.closest=()=>hit;emit('pointermove',{...evt,clientX:65});assert(run('state.flat().includes("x")'));emit(cancel);assert.equal(run('state.flat().includes("x")'),false,'Interrupted swipes must roll back');assert.equal(run('history.length'),0);assert.equal(JSON.parse(storage['nursedoku-v2']).state.flat().includes('x'),false);}
+console.log('PASS: interrupted swipes restore marks, undo history and saved puzzle');

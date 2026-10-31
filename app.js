@@ -279,7 +279,7 @@ function cellAt(x,y) {
 function clearTap() { clearTimeout(pendingTap);pendingTap=null;lastTap=null; }
 function flushTap() { clearTap(); }
 function startDrag() {
-  flushTap();remember();gesture.drag=true;gesture.seen=new Set();
+  flushTap();gesture.undoBefore=history.slice();remember();gesture.drag=true;gesture.seen=new Set();
   gesture.erase=state[gesture.start[0]][gesture.start[1]]==='x';
   markDrag(gesture.start);
 }
@@ -314,7 +314,7 @@ function endPointer(e,canceled=false) {
   if(!gesture||e.pointerId!==gesture.id)return;
   const g=gesture;gesture=null;
   if(board.hasPointerCapture(e.pointerId))board.releasePointerCapture(e.pointerId);
-  if(g.drag) { afterMove();return; }
+  if(g.drag) { if(canceled){state=g.before;history=g.undoBefore;clearTap();paint();persist();return;}afterMove();return; }
   if(canceled)return;
   const release=cellAt(e.clientX,e.clientY);
   if(!release||release[0]!==g.start[0]||release[1]!==g.start[1])return;
