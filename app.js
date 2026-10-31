@@ -137,7 +137,7 @@ const copy = value => JSON.parse(JSON.stringify(value));
 const time = () => elapsed + (runningSince === null ? 0 : Date.now() - runningSince);
 const format = ms => `${String(Math.floor(ms / 60000)).padStart(2,'0')}:${String(Math.floor(ms / 1000) % 60).padStart(2,'0')}`;
 function persist() {
-  try { progressStorage.setItem(SAVE_KEY, JSON.stringify({level,state,undoHistory:history,elapsed:time(),hintsUsed,rankEligible,finished,gameKind,customPuzzle,dailyDate,strikes,lost,journeyVersion:2,bonusIndex,bonusChoice,bonusSubmitted,bonusQueue,bonusCursor,bonusVersion:QUIZ_VERSION})); } catch {}
+  try { progressStorage.setItem(SAVE_KEY, JSON.stringify({level,state,undoHistory:history,undoPuzzle:undoIdentity(),elapsed:time(),hintsUsed,rankEligible,finished,gameKind,customPuzzle,dailyDate,strikes,lost,journeyVersion:2,bonusIndex,bonusChoice,bonusSubmitted,bonusQueue,bonusCursor,bonusVersion:QUIZ_VERSION})); } catch {}
   window.NurseDokuCloud?.changed();
 }
 function pause() { elapsed = time(); runningSince = null; persist(); }
@@ -153,7 +153,8 @@ function conflicts() {
   return bad;
 }
 function tell(text,kind='') { $('message').textContent=text; $('message').className=`message ${kind}`; }
-function restoreUndo(value,n){if(!Array.isArray(value))return [];const recent=value.slice(-100);return recent.every(board=>Array.isArray(board)&&board.length===n&&board.every(row=>Array.isArray(row)&&row.length===n&&row.every(mark=>['','rn','x'].includes(mark))))?copy(recent):[];}
+function undoIdentity(){return JSON.stringify([puzzle().regions,puzzle().solution]);}
+function restoreUndo(value,n){if(!Array.isArray(value))return [];const recent=value.slice(-100);return recent.every(board=>Array.isArray(board)&&board.length===n&&board.every((row,r)=>Array.isArray(row)&&row.length===n&&row.every((mark,c)=>['','rn','x'].includes(mark)&&(mark!=='rn'||puzzle().solution[r]===c))))?copy(recent):[];}
 function remember() { history.push(copy(state)); if(history.length>100) history.shift(); }
 function render() {
   board.innerHTML=''; board.style.gridTemplateColumns=`repeat(${size()},1fr)`;board.dataset.size=size();
@@ -391,7 +392,7 @@ try {
       gameKind=saved.gameKind;customPuzzle=saved.customPuzzle;dailyDate=saved.dailyDate;
     }
     if(Array.isArray(saved.state)&&saved.state.length===size()&&saved.state.every(row=>Array.isArray(row)&&row.length===size()&&row.every(v=>['','rn','x'].includes(v)))) {
-      rankEligible=saved.rankEligible===true;state=saved.state;history=restoreUndo(saved.undoHistory,size());elapsed=Number.isFinite(saved.elapsed)?Math.max(0,saved.elapsed):0;
+      rankEligible=saved.rankEligible===true;state=saved.state;history=saved.undoPuzzle===undoIdentity()?restoreUndo(saved.undoHistory,size()):[];elapsed=Number.isFinite(saved.elapsed)?Math.max(0,saved.elapsed):0;
       hintsUsed=Number.isSafeInteger(saved.hintsUsed)&&saved.hintsUsed>=0?saved.hintsUsed:null;
       strikes=Number.isInteger(saved.strikes)?Math.max(0,Math.min(3,saved.strikes)):0;
       lost=saved.lost===true&&strikes===3;
@@ -3743,7 +3744,7 @@ $('newAfterLossBtn').addEventListener('click',()=>{$('lossDialog').close();reset
 window.NurseDokuProgress={
  mergePersonalBests,
  owner(){return progressOwner;},
- snapshot(){return copy({version:2,game:{level,state,undoHistory:history,elapsed:time(),hintsUsed,rankEligible,finished,gameKind,customPuzzle,dailyDate,strikes,lost,journeyVersion:2,bonusIndex,bonusChoice,bonusSubmitted,bonusQueue,bonusCursor,bonusVersion:QUIZ_VERSION},stats,completed:completedShifts});},
+ snapshot(){return copy({version:2,game:{level,state,undoHistory:history,undoPuzzle:undoIdentity(),elapsed:time(),hintsUsed,rankEligible,finished,gameKind,customPuzzle,dailyDate,strikes,lost,journeyVersion:2,bonusIndex,bonusChoice,bonusSubmitted,bonusQueue,bonusCursor,bonusVersion:QUIZ_VERSION},stats,completed:completedShifts});},
  readOwner(owner){
   const read=key=>{try{return JSON.parse(localStorage.getItem(owner?'nursedoku-user-'+owner+':'+key:key));}catch{return null;}};
   return {version:2,game:read(SAVE_KEY),stats:read('nursedoku-stats'),completed:read('nursedoku-journey-v2')||[]};
@@ -3767,7 +3768,7 @@ window.NurseDokuProgress={
   if(g.bonusVersion!==QUIZ_VERSION){bonusIndex=null;bonusChoice=null;bonusSubmitted=false;bonusQueue=[];bonusCursor=0;}else restoreQuestionQueue(g);
   clearTimeout(winTimeout);winSequence++;
   lost=g.lost===true&&strikes===3;finished=lost||(g.finished===true&&positions().length===n&&!conflicts().size);
-  history=validSavedState?restoreUndo(g.undoHistory,n):[];hintCell=null;
+  history=validSavedState&&g.undoPuzzle===undoIdentity()?restoreUndo(g.undoHistory,n):[];hintCell=null;
   completedShifts=Array.isArray(v.completed)?[...new Set(v.completed.filter(i=>Number.isInteger(i)&&i>=0&&i<LEVELS.length))]:[];
   const st=v.stats||{};
   stats={rankAttempts:Array.isArray(st.rankAttempts)?st.rankAttempts.filter(d=>/^\d{4}-\d{2}-\d{2}$/.test(d)):[],shift000Complete:st.shift000Complete===true,personalBests:mergePersonalBests(st.personalBests),questionHistory:normalizeQuestionHistory(st.questionHistory),wins:Number.isInteger(st.wins)&&st.wins>=0?st.wins:0,best:Number.isFinite(st.best)&&st.best>=0?st.best:null,dailyDates:Array.isArray(st.dailyDates)?[...new Set(st.dailyDates.filter(d=>/^\d{4}-\d{2}-\d{2}$/.test(d)))]:[]};
