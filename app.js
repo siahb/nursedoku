@@ -134,14 +134,15 @@ const puzzle = () => customPuzzle || LEVELS[level];
 const size = () => puzzle().regions.length;
 const blank = () => Array.from({length:size()}, () => Array(size()).fill(''));
 const copy = value => JSON.parse(JSON.stringify(value));
-const time = () => elapsed + (runningSince === null ? 0 : Date.now() - runningSince);
+const timerNow=()=>typeof performance!=='undefined'&&typeof performance.now==='function'?performance.now():Date.now();
+const time = () => Math.max(0,elapsed) + (runningSince === null ? 0 : Math.max(0,timerNow() - runningSince));
 const format = ms => `${String(Math.floor(ms / 60000)).padStart(2,'0')}:${String(Math.floor(ms / 1000) % 60).padStart(2,'0')}`;
 function persist() {
   try { progressStorage.setItem(SAVE_KEY, JSON.stringify({level,state,undoHistory:history,undoPuzzle:undoIdentity(),elapsed:time(),hintsUsed,rankEligible,finished,gameKind,customPuzzle,dailyDate,strikes,lost,journeyVersion:2,bonusIndex,bonusChoice,bonusSubmitted,bonusQueue,bonusCursor,bonusVersion:QUIZ_VERSION})); } catch {}
   window.NurseDokuCloud?.changed();
 }
 function pause() { elapsed = time(); runningSince = null; persist(); }
-function resume() { if (!finished && !document.hidden && runningSince===null && inGame && !document.querySelector('dialog[open]') && !['howToDialog','shift000Dialog','accountDialog','archiveDialog','changelogDialog'].some(id=>$(id)?.open)) runningSince = Date.now(); }
+function resume() { if (!finished && !document.hidden && runningSince===null && inGame && !document.querySelector('dialog[open]') && !['howToDialog','shift000Dialog','accountDialog','archiveDialog','changelogDialog'].some(id=>$(id)?.open)) runningSince = timerNow(); }
 function positions() { return state.flatMap((row,r) => row.flatMap((v,c) => v === 'rn' ? [[r,c]] : [])); }
 function conflicts() {
   const ps = positions(), bad = new Set(), zones = puzzle().regions;
