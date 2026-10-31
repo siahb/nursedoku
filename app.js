@@ -112,9 +112,15 @@ updateSoundButton();
 // Guest progress retains its original keys; each account has a separate local save.
 let progressOwner=null;
 try {progressOwner=localStorage.getItem('nursedoku-owner')||null;}catch{}
+const observedProgress=new Map();let staleProgress=false;
+function progressKey(key){return progressOwner?'nursedoku-user-'+progressOwner+':'+key:key;}
+function blockStaleProgress(){
+ if(staleProgress)return;staleProgress=true;
+ const dialog=document.createElement('dialog');dialog.id='staleProgressDialog';const text=document.createElement('p');text.textContent='Newer progress is saved in another tab. Reload to continue.';const button=document.createElement('button');button.type='button';button.className='primary-btn';button.textContent='Reload saved puzzle';button.onclick=()=>location.reload();dialog.append(text,button);dialog.addEventListener('cancel',e=>e.preventDefault());document.body.append(dialog);dialog.showModal();
+}
 const progressStorage={
- getItem(key){return localStorage.getItem(progressOwner?'nursedoku-user-'+progressOwner+':'+key:key);},
- setItem(key,value){localStorage.setItem(progressOwner?'nursedoku-user-'+progressOwner+':'+key:key,value);}
+ getItem(key){const full=progressKey(key),value=localStorage.getItem(full);if(!observedProgress.has(full))observedProgress.set(full,value);return value;},
+ setItem(key,value){if(staleProgress)return;const full=progressKey(key);for(const [saved,previous] of observedProgress){if([SAVE_KEY,'nursedoku-stats','nursedoku-journey-v2','nursedoku-journey'].some(key=>saved===progressKey(key))&&localStorage.getItem(saved)!==previous){blockStaleProgress();return;}}localStorage.setItem(full,value);observedProgress.set(full,value);}
 };
 
 let gameKind='journey', customPuzzle=null, dailyDate=null;
@@ -139,10 +145,10 @@ const time = () => Math.max(0,elapsed) + (runningSince === null ? 0 : Math.max(0
 const format = ms => `${String(Math.floor(ms / 60000)).padStart(2,'0')}:${String(Math.floor(ms / 1000) % 60).padStart(2,'0')}`;
 function persist() {
   try { progressStorage.setItem(SAVE_KEY, JSON.stringify({level,state,undoHistory:history,undoPuzzle:undoIdentity(),elapsed:time(),hintsUsed,rankEligible,finished,gameKind,customPuzzle,dailyDate,strikes,lost,journeyVersion:2,bonusIndex,bonusChoice,bonusSubmitted,bonusQueue,bonusCursor,bonusVersion:QUIZ_VERSION})); } catch {}
-  window.NurseDokuCloud?.changed();
+  if(!staleProgress)window.NurseDokuCloud?.changed();
 }
 function pause() { cancelActiveGesture();elapsed = time(); runningSince = null; persist(); }
-function resume() { if (!finished && !document.hidden && runningSince===null && inGame && !document.querySelector('dialog[open]') && !['howToDialog','shift000Dialog','accountDialog','archiveDialog','changelogDialog'].some(id=>$(id)?.open)) runningSince = timerNow(); }
+function resume() { if (!staleProgress && !finished && !document.hidden && runningSince===null && inGame && !document.querySelector('dialog[open]') && !['howToDialog','shift000Dialog','accountDialog','archiveDialog','changelogDialog'].some(id=>$(id)?.open)) runningSince = timerNow(); }
 function positions() { return state.flatMap((row,r) => row.flatMap((v,c) => v === 'rn' ? [[r,c]] : [])); }
 function conflicts() {
   const ps = positions(), bad = new Set(), zones = puzzle().regions;
