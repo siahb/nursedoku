@@ -441,7 +441,7 @@ function switchGame(kind) {
   let seed=Date.now();if(dailyDate)seed=Number(dailyDate.replaceAll('-',''));
   customPuzzle=kind==='journey'?null:kind==='daily'?generatePuzzle(6,seed):practicePuzzle($('difficulty').value,seed);
   const ranked=kind==='daily'&&!stats.dailyDates.includes(dailyDate)&&!(stats.rankAttempts||[]).includes(dailyDate);
-  if(kind==='daily'){stats.rankAttempts=[...new Set([...(stats.rankAttempts||[]),dailyDate])];progressStorage.setItem('nursedoku-stats',JSON.stringify(stats));}
+  if(kind==='daily'){stats.rankAttempts=[...new Set([...(stats.rankAttempts||[]),dailyDate])];try{progressStorage.setItem('nursedoku-stats',JSON.stringify(stats));}catch{}}
   if(kind==='journey'){level=Array.from({length:LEVELS.length},(_,i)=>i).find(i=>!completedShifts.includes(i))??0;}
   reset();rankEligible=ranked;persist();return true;
 }
