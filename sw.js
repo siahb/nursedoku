@@ -1,5 +1,5 @@
-const CACHE='nursedoku-5e600c66bf';
-const ASSETS=["./","index.html","manifest.webmanifest","icon.svg","icon.svg?v=20261020-puzzle-logo","pwa.js?v=20261020-connection","./icons/icon-192.png?v=20261020-puzzle-logo","./icons/icon-512.png?v=20261020-puzzle-logo","./icons/maskable-512.png?v=20261020-puzzle-logo","icons/icon-180.png?v=20261020-puzzle-logo","assets/app.a1cdb3b2bf.js","assets/styles.cf0589f8d3.css","assets/puzzles.f65a8e5e36.js","assets/large-puzzles.e8d0d5e480.js","assets/account-config.31855201b0.js","assets/accounts.df1906e86f.js","assets/appearance.c9f770b30c.js","assets/tutorial.f958fb1760.js","assets/shift000.49837fcb00.js","assets/leaderboard.965781f0e2.js"];
+const CACHE='nursedoku-84e4deffe5';
+const ASSETS=["./","index.html","manifest.webmanifest","icon.svg","icon.svg?v=20261020-puzzle-logo","pwa.js?v=20261020-connection","./icons/icon-192.png?v=20261020-puzzle-logo","./icons/icon-512.png?v=20261020-puzzle-logo","./icons/maskable-512.png?v=20261020-puzzle-logo","icons/icon-180.png?v=20261020-puzzle-logo","assets/app.a1cdb3b2bf.js","assets/styles.cf0589f8d3.css","assets/puzzles.f65a8e5e36.js","assets/large-puzzles.e8d0d5e480.js","assets/account-config.31855201b0.js","assets/accounts.eb61eeb1b4.js","assets/appearance.c9f770b30c.js","assets/tutorial.f958fb1760.js","assets/shift000.49837fcb00.js","assets/leaderboard.965781f0e2.js"];
 
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS))));
 // Activate on the next visit, keeping an in-progress board on a consistent version.

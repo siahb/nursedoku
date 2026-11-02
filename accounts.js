@@ -60,11 +60,12 @@ async function autoRank(){
  if(ranking||!user||!ready||busy||resolving||conflict||!navigator.onLine||readMeta(user.id).dirty)return;
  const g=game.snapshot().game,id=user.id,ticket=epoch,key=id+':'+g?.dailyDate;
  if(!rankable(g)||rankedResults.has(key))return;
+ const sameResult=()=>{const current=game.snapshot().game;return ticket===epoch&&user?.id===id&&rankable(current)&&current.dailyDate===g.dailyDate&&current.elapsed===g.elapsed;};
  ranking=true;let uploadTimeout;
  try{
   const {error}=await Promise.race([client.rpc('nursedoku_publish_daily',{p_nickname:playerName(id)}),new Promise((_,reject)=>{uploadTimeout=setTimeout(()=>reject(new Error('Leaderboard upload timed out')),15000);})]);if(error)throw error;
-  if(ticket===epoch){rankedResults.add(key);$('leaderboardStatus').textContent='Your daily result is on the leaderboard as '+playerName(id)+'.';}
- }catch(error){if(ticket===epoch)$('leaderboardStatus').textContent='Leaderboard upload pending. Reconnect or use Sync now to retry. Your progress is saved.';}
+  if(sameResult()){rankedResults.add(key);$('leaderboardStatus').textContent='Your daily result is on the leaderboard as '+playerName(id)+'.';}
+ }catch(error){if(sameResult())$('leaderboardStatus').textContent='Leaderboard upload pending. Reconnect or use Sync now to retry. Your progress is saved.';}
  finally{clearTimeout(uploadTimeout);ranking=false;}
 }
 window.NurseDokuLeaderboardAccount={async syncResult(){if(!user)return;await sync({manual:true});await autoRank();}};
