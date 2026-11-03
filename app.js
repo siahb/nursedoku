@@ -144,7 +144,7 @@ const timerNow=()=>typeof performance!=='undefined'&&typeof performance.now==='f
 const time = () => Math.max(0,elapsed) + (runningSince === null ? 0 : Math.max(0,timerNow() - runningSince));
 const format = ms => `${String(Math.floor(ms / 60000)).padStart(2,'0')}:${String(Math.floor(ms / 1000) % 60).padStart(2,'0')}`;
 function persist() {
-  try { progressStorage.setItem(SAVE_KEY, JSON.stringify({level,state,undoHistory:history,undoPuzzle:undoIdentity(),elapsed:time(),hintsUsed,rankEligible,finished,gameKind,customPuzzle,dailyDate,strikes,lost,journeyVersion:2,bonusIndex,bonusChoice,bonusSubmitted,bonusQueue,bonusCursor,bonusVersion:QUIZ_VERSION})); } catch {}
+  try { progressStorage.setItem(SAVE_KEY, JSON.stringify({level,state,undoHistory:history,undoPuzzle:undoIdentity(),elapsed:time(),hintsUsed,rankEligible,finished,gameKind,customPuzzle,dailyDate,strikes,lost,journeyVersion:2,bonusIndex,bonusChoice,bonusSubmitted,bonusQueue,bonusCursor,bonusVersion:QUIZ_VERSION}));if(!staleProgress&&$('localSaveWarning'))$('localSaveWarning').hidden=true; } catch {if($('localSaveWarning'))$('localSaveWarning').hidden=false;}
   if(!staleProgress)window.NurseDokuCloud?.changed();
 }
 function pause() { cancelActiveGesture();elapsed = time(); runningSince = null; persist(); }
