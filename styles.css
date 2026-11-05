@@ -779,3 +779,6 @@ body { background:linear-gradient(160deg,#f1f8f7,#e9f2f0); }
 .cell.conflict .rn-marker{background:#8b1832;color:#fff}
 .cell.conflict::before{content:'!';position:absolute;left:2px;top:2px;width:14px;height:14px;display:grid;place-items:center;border-radius:50%;background:#fff;color:#111;font:900 11px/1 system-ui;z-index:4}
 .cell:focus-visible{outline:3px solid #fff;outline-offset:-4px;box-shadow:inset 0 0 0 6px #111;z-index:3}
+
+#shift000Btn{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+
