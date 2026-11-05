@@ -782,3 +782,6 @@ body { background:linear-gradient(160deg,#f1f8f7,#e9f2f0); }
 
 #shift000Btn{max-width:100%;white-space:normal;overflow-wrap:anywhere}
 
+
+@media(max-height:450px){#howToDialog{overflow-y:auto}#howToDialog .tutorial-body{display:block;max-height:none}#howToDialog .tutorial-content{overflow:visible}#howToDialog .tutorial-nav{position:static}}
+
